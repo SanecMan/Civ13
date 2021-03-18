@@ -68,7 +68,7 @@ var/list/gamemode_cache = list()
 
 	var/ssd_invisibility_timer = 10
 
-	var/masterdir = "/home/1713"
+	var/masterdir = "/home/civ13"
 
 	var/serverurl
 	var/server
@@ -125,7 +125,7 @@ var/list/gamemode_cache = list()
 	var/hubtesting_port = -2
 	var/open_hub_discord_in_new_window = TRUE
 	var/hub_body = ""
-	var/hub_banner_url = "https://i.imgur.com/napac0L.png"
+	var/hub_banner_url = "https://i.imgur.com/fukQQKr.png"
 
 	// dumb memes
 	var/allow_dabbing = FALSE
@@ -434,7 +434,7 @@ var/list/gamemode_cache = list()
 					config.round_end_countdown = text2num(value)
 
 				if ("disable_fov")
-					config.disable_fov = TRUE
+					config.disable_fov = FALSE
 
 				if ("redirect_all_players")
 					redirect_all_players = value

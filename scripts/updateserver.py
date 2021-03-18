@@ -14,7 +14,7 @@ mdir = mdir.replace("mdir:", "")
 cdir = all_lines[2]
 cdir = cdir.replace("\n", "")
 cdir = cdir.replace("cdir:", "")
-os.chdir(os.path.join(mdir,"civ13-git"))
+os.chdir(os.path.join(mdir,"Civ13"))
 os.system("sudo git pull")
 os.system("sudo git reset --hard origin/master")
 
@@ -30,8 +30,8 @@ os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
 print("Copying binaries...")
 
-dmb = os.path.join(mdir,'civ13-git/civ13.dmb')
-rsc = os.path.join(mdir,'civ13-git/civ13.rsc')
+dmb = os.path.join(mdir,'Civ13/civ13.dmb')
+rsc = os.path.join(mdir,'Civ13/civ13.rsc')
 
 shutil.copyfile(dmb, os.path.join(mdir,cdir,'civ13.dmb'))
 

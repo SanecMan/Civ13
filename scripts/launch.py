@@ -20,7 +20,7 @@ t1 = time.time()
 
 print("Updating git...")
 
-os.chdir("{}civ13-git".format(mdir))
+os.chdir("{}Civ13".format(mdir))
 os.system("sudo git pull")
 os.system("sudo git reset --hard origin/master")
 
@@ -36,8 +36,8 @@ os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
 print("Copying binaries...")
 
-dmb = os.path.join(mdir,'civ13-git/civ13.dmb')
-rsc = os.path.join(mdir,'civ13-git/civ13.rsc')
+dmb = os.path.join(mdir,'Civ13/civ13.dmb')
+rsc = os.path.join(mdir,'Civ13/civ13.rsc')
 
 shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
 
