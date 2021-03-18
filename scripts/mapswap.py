@@ -40,14 +40,14 @@ port = port.replace("\n", "")
 port = port.replace("port:", "")
 print("Updating git...")
 
-os.chdir("{}civ13-git".format(mdir))
+os.chdir("{}Civ13".format(mdir))
 os.system("git pull")
 os.system("git reset --hard origin/master")
 
 map = sys.argv[1]
 dmms = []
 mapname = "{}.dmm".format(map.lower())
-maploc = "{}civ13-git/maps/".format(mdir)
+maploc = "{}Сiv13/maps/".format(mdir)
 maplist = getListOfFiles(maploc)
 done = 0
 for i in maplist:
@@ -61,7 +61,7 @@ if done == 0:
 else:
 	dmms.append("#include \"{}\"".format(maploc))
 
-DME = "{}civ13-git/civ13.dme".format(mdir)
+DME = "{}Civ13/civ13.dme".format(mdir)
 
 lines = []
 with open(DME, "r") as search:
@@ -88,7 +88,7 @@ t1 = time.time()
 
 print("Rebuilding binaries...")
 
-os.system("DreamMaker {}civ13-git/civ13.dme".format(mdir))
+os.system("DreamMaker {}Civ13/civ13.dme".format(mdir))
 
 print("Copying configuration settings...")
 
@@ -129,8 +129,8 @@ for pid in pids:
 							print("Killing the server...")
 							os.kill(int(pid), signal.SIGKILL)
 							print("Copying binaries...")
-							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
-							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
+							dmb = os.path.join('{}Civ13/civ13.dmb'.format(mdir))
+							rsc = os.path.join('{}Civ13/civ13.rsc'.format(mdir))
 							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
 							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
 							time.sleep(8)
