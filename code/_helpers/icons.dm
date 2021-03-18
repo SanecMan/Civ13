@@ -325,7 +325,7 @@ proc/ReadRGB(rgb)
 	if (text2ascii(rgb) == 35) ++start // skip opening #
 	var/ch,which=0,r=0,g=0,b=0,alpha=0,usealpha
 	var/digits=0
-	for (i=start, i<=length(rgb), ++i)
+	for (i=start, i<=length_char(rgb), ++i)
 		ch = text2ascii(rgb, i)
 		if (ch < 48 || (ch > 57 && ch < 65) || (ch > 70 && ch < 97) || ch > 102) break
 		++digits
@@ -375,7 +375,7 @@ proc/ReadHSV(hsv)
 	if (text2ascii(hsv) == 35) ++start // skip opening #
 	var/ch,which=0,hue=0,sat=0,val=0,alpha=0,usealpha
 	var/digits=0
-	for (i=start, i<=length(hsv), ++i)
+	for (i=start, i<=length_char(hsv), ++i)
 		ch = text2ascii(hsv, i)
 		if (ch < 48 || (ch > 57 && ch < 65) || (ch > 70 && ch < 97) || ch > 102) break
 		++digits

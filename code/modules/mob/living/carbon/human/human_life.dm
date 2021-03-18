@@ -643,7 +643,7 @@
 			else if (h_growth >= 2 && currh < 2)
 				h_style = pick("Parted","Bedhead","Bedhead 2","Bedhead 3","Mulder")
 			else if (h_growth >= 3 && currh < 3)
-				h_style = pick("Shoulder-length Hair","Dreadlocks","Long Emo","Gentle")
+				h_style = pick("Shoulder-length_char Hair","Dreadlocks","Long Emo","Gentle")
 			else if (h_growth >= 4 && currh < 4)
 				h_style = "Hime Cut"
 
@@ -666,7 +666,7 @@
 		else if (h_growth >= 2 && currh < 2)
 			h_style = pick("Bobcurl","Mia","Curls")
 		else if (h_growth >= 3 && currh < 3)
-			h_style = pick("Shoulder-length Hair","Flaired Hair","Ombre","Gentle")
+			h_style = pick("Shoulder-length_char Hair","Flaired Hair","Ombre","Gentle")
 		else if (h_growth >= 4 && currh < 4)
 			h_style = pick("Long Hair","Long Hair Alt")
 		update_hair()

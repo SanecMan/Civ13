@@ -259,7 +259,7 @@
 
 
 //basically, a matrix works like this:
-//matrix_l gives the horizontal length, matrix_h gives the vertical height, assuming its facing NORTH.
+//matrix_l gives the horizontal length_char, matrix_h gives the vertical height, assuming its facing NORTH.
 //so if we have a 3x4 vehicle, the matrix will look like this:
 //
 //|	1,1	|	1,2	|	1,3	|	1,4	|
@@ -267,7 +267,7 @@
 //|	3,1	|	3,2	|	3,3	|	3,4	|
 //|	4,1	|	4,2	|	4,3	|	4,4	|
 //
-//the matrix always has to be a square with the sides being the value of largest between the length and height.
+//the matrix always has to be a square with the sides being the value of largest between the length_char and height.
 //in this case, 1,1 is the FL, 1,3 is the FR, 4,1 is the BL, 4,3 is the BR.
 //so if we turn LEFT: we will be facing EAST, and it will change to:
 

@@ -2,14 +2,14 @@
 // Helpers for DNA2
 /////////////////////////////
 
-// Pads FALSEs to t until length == u
+// Pads FALSEs to t until length_char == u
 /proc/add_zero2(t, u)
 	var/temp1
-	while (length(t) < u)
+	while (length_char(t) < u)
 		t = "0[t]"
 	temp1 = t
-	if (length(t) > u)
-		temp1 = copytext(t,2,u+1)
+	if (length_char(t) > u)
+		temp1 = copytext_char(t,2,u+1)
 	return temp1
 
 // DNA Gene activation boundaries, see dna2.dm.
@@ -25,14 +25,14 @@
 	if (!M)	return
 	M.dna.check_integrity()
 	if (UI)
-		for (var/i = TRUE, i <= DNA_UI_LENGTH-1, i++)
+		for (var/i = TRUE, i <= DNA_UI_length_char-1, i++)
 			if (prob(prob))
 				M.dna.SetUIValue(i,rand(1,4095),1)
 		M.dna.UpdateUI()
 		M.UpdateAppearance()
 
 	else
-		for (var/i = TRUE, i <= DNA_SE_LENGTH-1, i++)
+		for (var/i = TRUE, i <= DNA_SE_length_char-1, i++)
 			if (prob(prob))
 				M.dna.SetSEValue(i,rand(1,4095),1)
 		M.dna.UpdateSE()

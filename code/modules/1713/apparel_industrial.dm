@@ -269,7 +269,7 @@
 
 /obj/item/clothing/under/outlaw //alright arthur, show us what you got
 	name = "outlaw outfit"
-	desc = "A blue shirt with blue denim trousers and white suspenders. Often worn by people at arms length with the wrong side of the law, clothes sense is no judicator of character however."
+	desc = "A blue shirt with blue denim trousers and white suspenders. Often worn by people at arms length_char with the wrong side of the law, clothes sense is no judicator of character however."
 	icon_state = "arthur_morgan"
 	item_state = "arthur_morgan"
 	worn_state = "arthur_morgan"
@@ -361,21 +361,21 @@
 	worn_state = "victorianreddress"
 
 /obj/item/clothing/under/victorian_prim
-	name = "neck length black dress"
+	name = "neck length_char black dress"
 	desc = "A prim and proper black dress, covers from neck to ankle."
 	icon_state = "victorian_dress"
 	item_state = "victorian_dress"
 	worn_state = "victorian_dress"
 
 /obj/item/clothing/suit/storage/closechest_apron_f
-	name = "chest length apron"
+	name = "chest length_char apron"
 	desc = "A white apron that covers up to the chest, the ruffles are popular with the french."
 	icon_state = "closechest_apron_f"
 	item_state = "closechest_apron_f"
 	worn_state = "closechest_apron_f"
 
 /obj/item/clothing/suit/storage/openchest_apron_f
-	name = "waist length apron"
+	name = "waist length_char apron"
 	desc = "A white apron that covers up to the waist, the ruffles are popular with the french."
 	icon_state = "openchest_apron_f"
 	item_state = "openchest_apron_f"
@@ -502,7 +502,7 @@ obj/item/clothing/under/confederate_uniform/New()
 
 /obj/item/clothing/shoes/gator_ankleboots
 	name = "alligator scale ankle boots"
-	desc = "Classy alligator scale ankle-length boots, a certain statement for fashion."
+	desc = "Classy alligator scale ankle-length_char boots, a certain statement for fashion."
 	icon_state = "gator_ankleboots"
 	item_state = "gator_ankleboots"
 	worn_state = "gator_ankleboots"

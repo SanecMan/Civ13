@@ -19,23 +19,23 @@
 		CRASH("Given non-text argument!")
 		return
 	else
-		if (length(HTMLstring) != 7)
+		if (length_char(HTMLstring) != 7)
 			CRASH("Given non-HTML argument!")
 			return
-	var/textr = copytext(HTMLstring, 2, 4)
-	var/textg = copytext(HTMLstring, 4, 6)
-	var/textb = copytext(HTMLstring, 6, 8)
+	var/textr = copytext_char(HTMLstring, 2, 4)
+	var/textg = copytext_char(HTMLstring, 4, 6)
+	var/textb = copytext_char(HTMLstring, 6, 8)
 	var/r = hex2num(textr)
 	var/g = hex2num(textg)
 	var/b = hex2num(textb)
 	textr = num2hex(255 - r)
 	textg = num2hex(255 - g)
 	textb = num2hex(255 - b)
-	if (length(textr) < 2)
+	if (length_char(textr) < 2)
 		textr = text("0[]", textr)
-	if (length(textg) < 2)
+	if (length_char(textg) < 2)
 		textr = text("0[]", textg)
-	if (length(textb) < 2)
+	if (length_char(textb) < 2)
 		textr = text("0[]", textb)
 	return text("#[][][]", textr, textg, textb)
 	return
@@ -315,9 +315,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	if (findtext(key, "Guest-", TRUE, 7) != TRUE) //was findtextEx
 		return FALSE
 
-	var/i = 7, ch, len = length(key)
+	var/i = 7, ch, len = length_char(key)
 
-	if (copytext(key, 7, 8) == "W") //webclient
+	if (copytext_char(key, 7, 8) == "W") //webclient
 		i++
 
 	for (, i <= len, ++i)
@@ -497,7 +497,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	return toReturn
 
 //Step-towards method of determining whether one atom can see another. Similar to viewers()
-/proc/can_see(var/atom/source, var/atom/target, var/length=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
+/proc/can_see(var/atom/source, var/atom/target, var/length_char=5) // I couldn't be arsed to do actual raycasting :I This is horribly inaccurate.
 	var/turf/current = get_turf(source)
 	var/turf/target_turf = get_turf(target)
 	var/steps = FALSE
@@ -506,7 +506,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		return FALSE
 
 	while (current != target_turf)
-		if (steps > length) return FALSE
+		if (steps > length_char) return FALSE
 		if (current.opacity) return FALSE
 		for (var/atom/A in current)
 			if (A.opacity) return FALSE
@@ -961,7 +961,7 @@ proc/is_hot(obj/item/W as obj)
 	else
 		for (var/i=1;i<=3;i++)
 			var/temp_col = "[num2hex(rand(lower,upper))]"
-			if (length(temp_col )<2)
+			if (length_char(temp_col )<2)
 				temp_col  = "0[temp_col]"
 			colour += temp_col
 	return "#[colour]"

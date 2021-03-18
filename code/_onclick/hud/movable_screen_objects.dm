@@ -55,12 +55,12 @@
 /obj/screen/movable/proc/decode_screen_X(X)
 	//Find EAST/WEST implementations
 	if (findtext(X,"EAST-"))
-		var/num = text2num(copytext(X,6)) //Trim EAST-
+		var/num = text2num(copytext_char(X,6)) //Trim EAST-
 		if (!num)
 			num = FALSE
 		. = usr.client.view*2 + 1 - num
 	else if (findtext(X,"WEST+"))
-		var/num = text2num(copytext(X,6)) //Trim WEST+
+		var/num = text2num(copytext_char(X,6)) //Trim WEST+
 		if (!num)
 			num = FALSE
 		. = num+1
@@ -77,12 +77,12 @@
 
 /obj/screen/movable/proc/decode_screen_Y(Y)
 	if (findtext(Y,"NORTH-"))
-		var/num = text2num(copytext(Y,7)) //Trim NORTH-
+		var/num = text2num(copytext_char(Y,7)) //Trim NORTH-
 		if (!num)
 			num = FALSE
 		. = usr.client.view*2 + 1 - num
 	else if (findtext(Y,"SOUTH+"))
-		var/num = text2num(copytext(Y,7)) //Time SOUTH+
+		var/num = text2num(copytext_char(Y,7)) //Time SOUTH+
 		if (!num)
 			num = FALSE
 		. = num+1

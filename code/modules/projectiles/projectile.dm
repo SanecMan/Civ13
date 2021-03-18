@@ -152,7 +152,7 @@
 
 	//randomize clickpoint a bit based on dispersion
 	if (dispersion)
-		var/radius = round((dispersion*0.443)*world.icon_size*0.8) //0.443 = sqrt(pi)/4 = 2a, where a is the side length of a square that shares the same area as a circle with diameter = dispersion
+		var/radius = round((dispersion*0.443)*world.icon_size*0.8) //0.443 = sqrt(pi)/4 = 2a, where a is the side length_char of a square that shares the same area as a circle with diameter = dispersion
 		p_x = between(0, p_x + rand(-radius, radius), world.icon_size)
 		p_y = between(0, p_y + rand(-radius, radius), world.icon_size)
 

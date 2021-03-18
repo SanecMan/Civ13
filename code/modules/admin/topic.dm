@@ -649,7 +649,7 @@
 		if (!paths)
 			WWalert(usr, "The path list you sent is empty", "Error")
 			return
-		if (length(paths) > 5)
+		if (length_char(paths) > 5)
 			WWalert(usr, "Select fewer object types, (max 5)", "Error")
 			return
 

@@ -1,6 +1,6 @@
 /obj/item/clothing/accessory/storage/sheath
 	name = "sword sheath"
-	desc = "A sheath for a shorter length sword."
+	desc = "A sheath for a shorter length_char sword."
 	icon_state = "short_sheath"
 	item_state = "short_sheath"
 	slots = 1
@@ -104,7 +104,7 @@
 
 /obj/item/clothing/accessory/storage/sheath/longer
 	name = "longer sword sheath"
-	desc = "A sheath for a longer length sword."
+	desc = "A sheath for a longer length_char sword."
 	icon_state = "longer_sheath"
 	item_state = "longer_sheath"
 	slots = 1

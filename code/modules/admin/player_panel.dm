@@ -29,7 +29,7 @@
 
 						var maintable_data = document.getElementById('maintable_data');
 						var ltr = maintable_data.getElementsByTagName("tr");
-						for ( var i = FALSE; i < ltr.length; ++i )
+						for ( var i = FALSE; i < ltr.length_char; ++i )
 						{
 							try{
 								var tr = ltr\[i\];
@@ -90,7 +90,7 @@
 
 				function clearAll(){
 					var spans = document.getElementsByTagName('span');
-					for (var i = FALSE; i < spans.length; i++){
+					for (var i = FALSE; i < spans.length_char; i++){
 						var span = spans\[i\];
 
 						var id = span.getAttribute("id");
@@ -100,7 +100,7 @@
 
 						var pass = TRUE;
 
-						for (var j = FALSE; j < locked_tabs.length; j++){
+						for (var j = FALSE; j < locked_tabs.length_char; j++){
 							if (locked_tabs\[j\]==id){
 								pass = FALSE;
 								break;
@@ -129,7 +129,7 @@
 					}
 
 					var pass = TRUE;
-					for (var j = FALSE; j < locked_tabs.length; j++){
+					for (var j = FALSE; j < locked_tabs.length_char; j++){
 						if (locked_tabs\[j\]==id){
 							pass = FALSE;
 							break;
@@ -153,7 +153,7 @@
 					//document.write("a");
 					var index = FALSE;
 					var pass = FALSE;
-					for (var j = FALSE; j < locked_tabs.length; j++){
+					for (var j = FALSE; j < locked_tabs.length_char; j++){
 						if (locked_tabs\[j\]==id){
 							pass = TRUE;
 							index = j;

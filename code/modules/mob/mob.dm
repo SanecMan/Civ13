@@ -363,7 +363,7 @@
 	return FALSE
 
 /mob/proc/store_memory(msg as message, popup, sane = TRUE)
-	msg = copytext(msg, TRUE, MAX_MESSAGE_LEN)
+	msg = copytext_char(msg, TRUE, MAX_MESSAGE_LEN)
 
 	msg = replacetext(msg, "<i>", "")
 	msg = replacetext(msg, "</i>", "")
@@ -373,7 +373,7 @@
 	if (sane)
 		msg = sanitize(msg)
 
-	if (length(memory) == 0)
+	if (length_char(memory) == 0)
 		memory += msg
 	else
 		memory += "<br>[msg]"
@@ -409,10 +409,10 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = trim(replacetext(flavor_text, "\n", " "))
 		if (!msg) return ""
-		if (length(msg) <= 40)
+		if (length_char(msg) <= 40)
 			return "<span class = 'notice'>[msg]</span>"
 		else
-			return "<span class = 'notice'>[copytext_preserve_html(msg, TRUE, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
+			return "<span class = 'notice'>[copytext_char_preserve_html(msg, TRUE, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
 
 /*
 /mob/verb/help()

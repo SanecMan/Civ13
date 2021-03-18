@@ -10,7 +10,7 @@
 	heat_protection = 0
 
 /obj/item/clothing/mask/muzzle/tape
-	name = "length of tape"
+	name = "length_char of tape"
 	desc = "It's a robust DIY muzzle!"
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"

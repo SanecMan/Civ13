@@ -23,18 +23,18 @@ return_angle()
 	Returns the direction (angle in degrees) the object is travelling in.
 
 			 (N)
-			 90°
+			 90ï¿½
 			  ^
 			  |
-  (W) 180° <--+--> 0° (E)
+  (W) 180ï¿½ <--+--> 0ï¿½ (E)
 			  |
 			  v
-			 -90°
+			 -90ï¿½
 			 (S)
 
 return_hypotenuse()
 	Returns the distance of travel for each step of the vector, relative to each full step of movement. TRUE is a full turf
-	length. Currently used as a multiplier for scaling effects that should be contiguous, like laser beams.
+	length_char. Currently used as a multiplier for scaling effects that should be contiguous, like laser beams.
 
 return_location()
 	Returns a vector_loc datum containing the current location data of the object (see /datum/vector_loc). This includes

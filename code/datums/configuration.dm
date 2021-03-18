@@ -32,8 +32,8 @@ var/list/gamemode_cache = list()
 	var/allow_admin_spawning = TRUE		// allows admin item spawning
 	var/allow_admin_rev = TRUE				// allows admin revives
 	var/vote_delay = 6000				// minimum time between voting sessions (deciseconds, 10 minute default)
-	var/vote_period = 600				// length of voting period (deciseconds, default 1 minute)
-	var/vote_autogamemode_timeleft = 45 //Length of time before round start when autogamemode vote is called (in seconds, default 100).
+	var/vote_period = 600				// length_char of voting period (deciseconds, default 1 minute)
+	var/vote_autogamemode_timeleft = 45 //length_char of time before round start when autogamemode vote is called (in seconds, default 100).
 	var/vote_no_default = FALSE				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = FALSE				// dead people can't vote (tbi)
 //	var/enable_authentication = FALSE		// goon authentication
@@ -154,9 +154,9 @@ var/list/gamemode_cache = list()
 		if (!t)	continue
 
 		t = trim(t)
-		if (length(t) == 0)
+		if (length_char(t) == 0)
 			continue
-		else if (copytext(t, 1, 2) == "#")
+		else if (copytext_char(t, 1, 2) == "#")
 			continue
 
 		var/pos = findtext(t, " ")
@@ -164,8 +164,8 @@ var/list/gamemode_cache = list()
 		var/value = null
 
 		if (pos)
-			name = lowertext(copytext(t, 1, pos))
-			value = copytext(t, pos + 1)
+			name = lowertext(copytext_char(t, 1, pos))
+			value = copytext_char(t, pos + 1)
 		else
 			name = lowertext(t)
 
@@ -377,8 +377,8 @@ var/list/gamemode_cache = list()
 					var/prob_value = null
 
 					if (prob_pos)
-						prob_name = lowertext(copytext(value, 1, prob_pos))
-						prob_value = copytext(value, prob_pos + 1)
+						prob_name = lowertext(copytext_char(value, 1, prob_pos))
+						prob_value = copytext_char(value, prob_pos + 1)
 						if (prob_name in config.modes)
 							config.probabilities[prob_name] = text2num(prob_value)
 						else

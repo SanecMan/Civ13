@@ -1080,7 +1080,7 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 					if (NB.amount <= 0)
 						qdelHandReturn(H.l_hand, H)
 				else
-					user << "<span class = 'warning'>You need at least 3 lengths of rope in one of your hands in order to make this.</span>"
+					user << "<span class = 'warning'>You need at least 3 length_chars of rope in one of your hands in order to make this.</span>"
 					return
 			else if (istype(H.r_hand, /obj/item/stack/material/rope))
 				var/obj/item/stack/material/rope/NB = H.r_hand
@@ -1089,7 +1089,7 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 					if (NB.amount <= 0)
 						qdelHandReturn(H.r_hand, H)
 				else
-					user << "<span class = 'warning'>You need at least 3 lengths of rope in one of your hands in order to make this.</span>"
+					user << "<span class = 'warning'>You need at least 3 length_chars of rope in one of your hands in order to make this.</span>"
 					return
 
 	else if (findtext(recipe.title, "primitive bone hair-pipe armor"))
@@ -1104,7 +1104,7 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 					if (NB.amount <= 0)
 						qdelHandReturn(H.l_hand, H)
 				else
-					user << "<span class = 'warning'>You need at least 3 lengths of rope in one of your hands in order to make this.</span>"
+					user << "<span class = 'warning'>You need at least 3 length_chars of rope in one of your hands in order to make this.</span>"
 					return
 			else if (istype(H.r_hand, /obj/item/stack/material/rope))
 				var/obj/item/stack/material/rope/NB = H.r_hand
@@ -1113,7 +1113,7 @@ obj/item/stack/Crossed(var/obj/item/stack/S)
 					if (NB.amount <= 0)
 						qdelHandReturn(H.r_hand, H)
 				else
-					user << "<span class = 'warning'>You need at least 3 lengths of rope in one of your hands in order to make this.</span>"
+					user << "<span class = 'warning'>You need at least 3 length_chars of rope in one of your hands in order to make this.</span>"
 					return
 
 	else if (findtext(recipe.title, "doge hat"))

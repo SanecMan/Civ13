@@ -1105,4 +1105,4 @@ var/civmax_research = list(230,230,230)
 				var/list/current = splittext(tmpi, ",")
 				craftlist_lists["INDIANS"] += list(current)
 				if (current.len != 13)
-					world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
+					world.log << "Error! Recipe [current[2]] has a length_char of [current.len] (should be 13)."

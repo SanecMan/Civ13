@@ -672,8 +672,8 @@ RECIPE: /material/cloth/,orange hawaiian shirt,/obj/item/clothing/suit/hawaiian/
 RECIPE: /material/cloth/,purple hawaiian shirt,/obj/item/clothing/suit/hawaiian/purple,3,100,0,1,jackets & vests,0,0,165,8,null
 RECIPE: /material/cloth/,green hawaiian shirt,/obj/item/clothing/suit/hawaiian/green,3,100,0,1,jackets & vests,0,0,165,8,null
 RECIPE: /material/cloth/,motorist jacket,/obj/item/clothing/under/motorist,6,110,0,1,jackets & vests,0,0,180,8,null
-RECIPE: /material/cloth/,chest length apron,/obj/item/clothing/suit/storage/closechest_apron_f,4,100,0,1,jackets & vests,0,0,105,8,null
-RECIPE: /material/cloth/,waist length apron,/obj/item/clothing/suit/storage/openchest_apron_f,4,100,0,1,jackets & vests,0,0,105,8,null
+RECIPE: /material/cloth/,chest length_char apron,/obj/item/clothing/suit/storage/closechest_apron_f,4,100,0,1,jackets & vests,0,0,105,8,null
+RECIPE: /material/cloth/,waist length_char apron,/obj/item/clothing/suit/storage/openchest_apron_f,4,100,0,1,jackets & vests,0,0,105,8,null
 
 //*****************| CLOTH ARMOR |***************************
 

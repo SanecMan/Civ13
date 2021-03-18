@@ -26,7 +26,7 @@ json_reader
 			src.json = json
 			. = new/list()
 			src.i = 1
-			while (src.i <= length(json))
+			while (src.i <= length_char(json))
 				var/char = get_char()
 				if (is_whitespace(char))
 					i++
@@ -44,7 +44,7 @@ json_reader
 
 		read_word()
 			var/val = ""
-			while (i <= length(json))
+			while (i <= length_char(json))
 				var/char = get_char()
 				if (is_whitespace(char) || symbols.Find(char))
 					i-- // let scanner handle this character
@@ -55,7 +55,7 @@ json_reader
 		read_string(delim)
 			var/escape 	= FALSE
 			var/val		= ""
-			while (++i <= length(json))
+			while (++i <= length_char(json))
 				var/char = get_char()
 				if (escape)
 					switch(char)
@@ -88,7 +88,7 @@ json_reader
 			ASSERT(args.Find(get_char()))
 
 		get_char()
-			return copytext(json, i, i+1)
+			return copytext_char(json, i, i+1)
 
 		is_whitespace(char)
 			return char == " " || char == "\t" || char == "\n" || text2ascii(char) == 13

@@ -227,7 +227,7 @@
 	var/pressure = FALSE
 	smoke_duration = between(5, smoke_duration*pressure/(ONE_ATMOSPHERE/3), smoke_duration)
 
-	var/const/arcLength = 2.3559 //distance between each smoke cloud
+	var/const/arclength_char = 2.3559 //distance between each smoke cloud
 
 	for (var/i = FALSE, i < range, i++) //calculate positions for smoke coverage - then spawn smoke
 		var/radius = i * 1.5
@@ -237,8 +237,8 @@
 			continue
 
 		var/offset = FALSE
-		var/points = round((radius * 2 * M_PI) / arcLength)
-		var/angle = round(ToDegrees(arcLength / radius), TRUE)
+		var/points = round((radius * 2 * M_PI) / arclength_char)
+		var/angle = round(ToDegrees(arclength_char / radius), TRUE)
 
 		if (!IsInteger(radius))
 			offset = 45		//degrees

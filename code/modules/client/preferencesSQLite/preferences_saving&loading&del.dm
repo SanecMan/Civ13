@@ -101,11 +101,11 @@ var/list/forbidden_pref_save_varnames = list("client_ckey", "last_id")
 			params += "[key]=[val]"
 
 	if (dd_hassuffix(params, ";"))
-		params = copytext(params, 1, length(params))
+		params = copytext_char(params, 1, length_char(params))
 
 
 	if (dd_hassuffix(params, ";"))
-		params = copytext(params, 1, length(params))
+		params = copytext_char(params, 1, length_char(params))
 	var/F = file("SQL/charprefs.txt")
 	var/done1 = FALSE
 	if (isemptylist(charprefs))

@@ -338,9 +338,9 @@
 		PJ.original_hair = pick("Black", "Light Brown", "Dark Brown", "Red", "Orange", "Light Blond", "Blond", "Dirty Blond", "Light Grey", "Grey")
 		PJ.original_facial = PJ.original_hair
 		var/hex_hair = hair_colors[PJ.original_hair]
-		var/red = hex2num(copytext(hex_hair, 2, 4))
-		var/green = hex2num(copytext(hex_hair, 4, 6))
-		var/blue = hex2num(copytext(hex_hair, 6, 8))
+		var/red = hex2num(copytext_char(hex_hair, 2, 4))
+		var/green = hex2num(copytext_char(hex_hair, 4, 6))
+		var/blue = hex2num(copytext_char(hex_hair, 6, 8))
 		src.r_hair = red
 		src.g_hair = green
 		src.b_hair = blue
@@ -349,14 +349,14 @@
 		src.b_facial = blue
 		PJ.original_eyes = pick("Black", "Brown", "Dark Brown", "Green", "Blue")
 		var/hex_eyes = eye_colors[PJ.original_eyes]
-		red = hex2num(copytext(hex_eyes, 2, 4))
-		green = hex2num(copytext(hex_eyes, 4, 6))
-		blue = hex2num(copytext(hex_eyes, 6, 8))
+		red = hex2num(copytext_char(hex_eyes, 2, 4))
+		green = hex2num(copytext_char(hex_eyes, 4, 6))
+		blue = hex2num(copytext_char(hex_eyes, 6, 8))
 		src.r_eyes = red
 		src.g_eyes = green
 		src.b_eyes = blue
 
-		src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length Hair")
+		src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length_char Hair")
 		src.f_style = pick("Shaved","Chinstrap","Medium Beard","Long Beard","Full Beard","Very Long Beard")
 		update_body()
 ///////////////////////////////////////ABASHIRI/////////////////////////////////////////////////////////////////////////////////////////////
@@ -366,7 +366,7 @@
 		switch(randpick)
 			if (1)
 				if (src.nationality == "none")
-					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length Hair")
+					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length_char Hair")
 					src.f_style = pick("Shaved","Chinstrap","Medium Beard","Long Beard","Full Beard","Very Long Beard")
 					PJ.original_eyes = pick("Black", "Brown", "Dark Brown", "Green", "Blue")
 					src.add_note("Known Languages", "Russian")
@@ -381,7 +381,7 @@
 				if (src.nationality == "none")
 					PJ.original_hair = pick("Black", "Dark Brown", "Grey")
 					PJ.original_facial = PJ.original_hair
-					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length Hair")
+					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length_char Hair")
 					src.f_style = pick("Shaved","Chinstrap","Medium Beard","Long Beard","Full Beard","Very Long Beard", "Hipster Beard")
 					PJ.original_eyes = pick("Black", "Brown", "Dark Brown", "Green", "Blue")
 					src.add_language("Ainu", TRUE)
@@ -407,9 +407,9 @@
 					src.add_note("Group", "You are a Japanese Prisoner. You are part of the <b>Japanese</b> faction. Try to escape and/or keep your faction powerful!")
 					src.nationality = "Japanese"
 		var/hex_hair = hair_colors[PJ.original_hair]
-		var/red = hex2num(copytext(hex_hair, 2, 4))
-		var/green = hex2num(copytext(hex_hair, 4, 6))
-		var/blue = hex2num(copytext(hex_hair, 6, 8))
+		var/red = hex2num(copytext_char(hex_hair, 2, 4))
+		var/green = hex2num(copytext_char(hex_hair, 4, 6))
+		var/blue = hex2num(copytext_char(hex_hair, 6, 8))
 		src.r_hair = red
 		src.g_hair = green
 		src.b_hair = blue
@@ -417,9 +417,9 @@
 		src.g_facial = green
 		src.b_facial = blue
 		var/hex_eyes = eye_colors[PJ.original_eyes]
-		red = hex2num(copytext(hex_eyes, 2, 4))
-		green = hex2num(copytext(hex_eyes, 4, 6))
-		blue = hex2num(copytext(hex_eyes, 6, 8))
+		red = hex2num(copytext_char(hex_eyes, 2, 4))
+		green = hex2num(copytext_char(hex_eyes, 4, 6))
+		blue = hex2num(copytext_char(hex_eyes, 6, 8))
 		src.r_eyes = red
 		src.g_eyes = green
 		src.b_eyes = blue

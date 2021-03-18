@@ -3,7 +3,7 @@
 		return
 
 	//Loading list of notes for this key
-	var/savefile/info = new("[get_player_notes_file_dir()][copytext(key, TRUE, 2)]/[key]/info.sav")
+	var/savefile/info = new("[get_player_notes_file_dir()][copytext_char(key, TRUE, 2)]/[key]/info.sav")
 	var/list/infos
 	info >> infos
 	if (!infos) infos = list()
@@ -18,8 +18,8 @@
 		if ("03","23")
 			modifyer = "rd"
 	var/day_string = "[time2text(world.timeofday, "DD")][modifyer]"
-	if (copytext(day_string,1,2) == "0")
-		day_string = copytext(day_string,2)
+	if (copytext_char(day_string,1,2) == "0")
+		day_string = copytext_char(day_string,2)
 	var/full_date = time2text(world.timeofday, "DDD, Month DD of YYYY")
 	var/day_loc = findtext(full_date, time2text(world.timeofday, "DD"))
 
@@ -31,7 +31,7 @@
 		P.author = "Adminbot"
 		P.rank = "Friendly Robot"
 	P.content = note
-	P.timestamp = "[copytext(full_date,1,day_loc)][day_string][copytext(full_date,day_loc+2)]"
+	P.timestamp = "[copytext_char(full_date,1,day_loc)][day_string][copytext_char(full_date,day_loc+2)]"
 
 	infos += P
 	info << infos
@@ -53,7 +53,7 @@
 
 
 /proc/notes_del(var/key, var/index)
-	var/savefile/info = new("[get_player_notes_file_dir()][copytext(key, TRUE, 2)]/[key]/info.sav")
+	var/savefile/info = new("[get_player_notes_file_dir()][copytext_char(key, TRUE, 2)]/[key]/info.sav")
 	var/list/infos
 	info >> infos
 	if (!infos || infos.len < index) return
@@ -69,7 +69,7 @@
 
 /proc/show_player_info_irc(var/key as text)
 	var/dat = "		  Info on [key]\n"
-	var/savefile/info = new("[get_player_notes_file_dir()][copytext(key, TRUE, 2)]/[key]/info.sav")
+	var/savefile/info = new("[get_player_notes_file_dir()][copytext_char(key, TRUE, 2)]/[key]/info.sav")
 	var/list/infos
 	info >> infos
 	if (!infos)

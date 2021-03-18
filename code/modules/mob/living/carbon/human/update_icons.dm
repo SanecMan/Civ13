@@ -14,8 +14,8 @@ var/global/list/light_overlay_cache = list()
 /*
 Calling this  a system is perhaps a bit trumped up. It is essentially update_clothing dismantled into its
 core parts. The key difference is that when we generate overlays we do not generate either lying or standing
-versions. Instead, we generate both and store them in two fixed-length lists, both using the same list-index
-(The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length 19.
+versions. Instead, we generate both and store them in two fixed-length_char lists, both using the same list-index
+(The indexes are in update_icons.dm): Each list for humans is (at the time of writing) of length_char 19.
 This will hopefully be reduced as the system is refined.
 
 	var/overlays_lying[19]			//For the lying down stance

@@ -202,7 +202,7 @@ proc/admin_notice(var/message, var/rights)
 	return "data/player_saves/"
 
 /datum/admins/proc/player_has_info(var/key as text)
-	var/savefile/info = new("[get_player_notes_file_dir()][copytext(key, TRUE, 2)]/[key]/info.sav")
+	var/savefile/info = new("[get_player_notes_file_dir()][copytext_char(key, TRUE, 2)]/[key]/info.sav")
 	var/list/infos
 	info >> infos
 	if (!infos || !infos.len) return FALSE
@@ -226,7 +226,7 @@ proc/admin_notice(var/message, var/rights)
 			break
 	dat +="<span style='color:#000000; font-weight: bold'>Player age: [p_age]</span><br>"
 
-	var/savefile/info = new("[get_player_notes_file_dir()][copytext(key, TRUE, 2)]/[key]/info.sav")
+	var/savefile/info = new("[get_player_notes_file_dir()][copytext_char(key, TRUE, 2)]/[key]/info.sav")
 	var/list/infos
 	info >> infos
 	if (!infos)
@@ -1084,7 +1084,7 @@ var/list/atom_types = null
 					craftlist_lists[current_list] += list(current)
 					world.log << "LOADED: [current_list]"
 					if (current.len != 13)
-						world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
+						world.log << "Error! Recipe [current[2]] has a length_char of [current.len] (should be 13)."
 		else
 			admin_notice("<span class='danger'>Failed to load crafting recipes!</span>", R_DEBUG)
 	if (map)

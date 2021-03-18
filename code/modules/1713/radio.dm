@@ -822,7 +822,7 @@ var/global/FREQP = rand(81,100)
 		return message
 	var/dmessage = message
 	dmessage = splittext(dmessage,"10-")
-	var/tcode = copytext(dmessage[2],1)
+	var/tcode = copytext_char(dmessage[2],1)
 	var/converted = FALSE
 	switch(tcode)
 		if ("0")

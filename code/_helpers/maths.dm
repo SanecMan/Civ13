@@ -157,26 +157,26 @@
 	if (haystack && needle)
 		if (isobject(haystack))
 			if (istype(haystack, /list))
-				if (length(haystack) >= end && start > 0)
+				if (length_char(haystack) >= end && start > 0)
 					var/list/listhaystack = haystack
 					return listhaystack.Find(needle, start, end)
 
 		else
 			if (istext(haystack))
-				if (length(haystack) >= end && start > 0)
+				if (length_char(haystack) >= end && start > 0)
 					return findtext(haystack, needle, start, end)
 
-// Clone of copytext()
-/proc/docopytext(var/string, var/start = TRUE, var/end = FALSE)
+// Clone of copytext_char()
+/proc/docopytext_char(var/string, var/start = TRUE, var/end = FALSE)
 	if (istext(string) && isnum(start) && isnum(end))
 		if (start > 0)
-			return copytext(string, start, end)
+			return copytext_char(string, start, end)
 
 proc/n_repeat(var/string, var/amount)
 	if (istext(string) && isnum(amount))
 		var/i
 		var/newstring = ""
-		if (length(newstring)*amount >=1000)
+		if (length_char(newstring)*amount >=1000)
 			return
 		for (i=0, i<=amount, i++)
 			if (i>=1000)
@@ -189,10 +189,10 @@ proc/n_reverse(var/string)
 	if (istext(string))
 		var/newstring = ""
 		var/i
-		for (i=length(string), i>0, i--)
+		for (i=length_char(string), i>0, i--)
 			if (i>=1000)
 				break
-			newstring = newstring + copytext(string, i, i+1)
+			newstring = newstring + copytext_char(string, i, i+1)
 
 		return newstring
 
@@ -217,9 +217,9 @@ proc/n_inrange(var/num, var/min=-1, var/max=1)
 /proc/string_replacetext(var/haystack,var/a,var/b)
 	if (istext(haystack)&&istext(a)&&istext(b))
 		var/i = TRUE
-		var/lenh=length(haystack)
-		var/lena=length(a)
-		//var/lenb=length(b)
+		var/lenh=length_char(haystack)
+		var/lena=length_char(a)
+		//var/lenb=length_char(b)
 		var/count = FALSE
 		var/list/dat = list()
 		while (i < lenh)
@@ -239,7 +239,7 @@ proc/n_inrange(var/num, var/min=-1, var/max=1)
 		if (count == FALSE)
 			return haystack
 		//var/nlen = lenh + ((lenb - lena) * count)
-		var/buf = copytext(haystack,1,dat[1]) // Prefill
+		var/buf = copytext_char(haystack,1,dat[1]) // Prefill
 		var/lastReadPos = FALSE
 		for (i = TRUE, i <= count, i++)
 			var/precopy = dat[i] - lastReadPos-1
@@ -247,12 +247,12 @@ proc/n_inrange(var/num, var/min=-1, var/max=1)
 			//fixed (char* dest = target, src = source)
 			//CharCopy (dest + targetIndex, src + sourceIndex, count);
 			//CharCopy (dest + curPos, source + lastReadPos, precopy);
-			buf+=copytext(haystack,lastReadPos,precopy)
-			log_misc("buf+=copytext([haystack],[lastReadPos],[precopy])")
+			buf+=copytext_char(haystack,lastReadPos,precopy)
+			log_misc("buf+=copytext_char([haystack],[lastReadPos],[precopy])")
 			log_misc("[buf]")
 			lastReadPos = dat[i] + lena
-			//CharCopy (dest + curPos, replace, newValue.length);
+			//CharCopy (dest + curPos, replace, newValue.length_char);
 			buf+=b
 			log_misc("[buf]")
-		buf+=copytext(haystack,lastReadPos, FALSE)
+		buf+=copytext_char(haystack,lastReadPos, FALSE)
 		return buf

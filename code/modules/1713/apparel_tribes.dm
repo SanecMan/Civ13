@@ -313,7 +313,7 @@ All eras are accepted, preferably store them in relevant sections with appropria
 
 /obj/item/clothing/shoes/lizard_ankleboots 	//same as lizard cowboy
 	name = "lizard scale ankle boots"
-	desc = "Classy lizard scale ankle-length boots, a certain statement for fashion."
+	desc = "Classy lizard scale ankle-length_char boots, a certain statement for fashion."
 	icon_state = "lizard_ankleboots"
 	item_state = "lizard_ankleboots"
 	worn_state = "lizard_ankleboots"

@@ -127,7 +127,7 @@
 	if (!new_text)
 		return
 
-	free_space -= length(strip_html_properly(new_text))
+	free_space -= length_char(strip_html_properly(new_text))
 
 /obj/item/weapon/paper/examine(mob/user)
 	..()
@@ -232,12 +232,12 @@
 			break
 
 	if (links)
-		var/before = copytext(info_links, TRUE, textindex)
-		var/after = copytext(info_links, textindex)
+		var/before = copytext_char(info_links, TRUE, textindex)
+		var/after = copytext_char(info_links, textindex)
 		info_links = before + text + after
 	else
-		var/before = copytext(info, TRUE, textindex)
-		var/after = copytext(info, textindex)
+		var/before = copytext_char(info, TRUE, textindex)
+		var/after = copytext_char(info, textindex)
 		info = before + text + after
 		updateinfolinks()
 

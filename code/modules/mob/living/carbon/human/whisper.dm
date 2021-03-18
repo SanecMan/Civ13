@@ -35,7 +35,7 @@
 	var/datum/language/speaking = parse_language(message)
 
 	if (speaking)
-		message = copytext(message,2+length(speaking.key))
+		message = copytext_char(message,2+length_char(speaking.key))
 	else
 		speaking = get_default_language()
 
@@ -91,7 +91,7 @@
 			continue
 
 	if (voice_sub == "Unknown")
-		if (copytext(message, TRUE, 2) != "*")
+		if (copytext_char(message, TRUE, 2) != "*")
 			var/list/temp_message = splittext(message, " ")
 			var/list/pick_list = list()
 			for (var/i = TRUE, i <= temp_message.len, i++)

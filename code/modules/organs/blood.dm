@@ -180,8 +180,8 @@ var/const/BLOOD_VOLUME_SURVIVE = 20
 	B.data["virus2"] |= virus_copylist(virus2)
 	*/
 	B.data["antibodies"] = antibodies
-	B.data["blood_DNA"] = copytext(dna.unique_enzymes,1,0)
-	B.data["blood_type"] = copytext(dna.b_type,1,0)
+	B.data["blood_DNA"] = copytext_char(dna.unique_enzymes,1,0)
+	B.data["blood_type"] = copytext_char(dna.b_type,1,0)
 
 	// Putting this here due to return shenanigans.
 	if (istype(src,/mob/living/human))
@@ -262,8 +262,8 @@ proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
 		if (donor_species != receiver_species)
 			return TRUE
 
-	var/donor_antigen = copytext(donor,1,length(donor))
-	var/receiver_antigen = copytext(receiver,1,length(receiver))
+	var/donor_antigen = copytext_char(donor,1,length_char(donor))
+	var/receiver_antigen = copytext_char(receiver,1,length_char(receiver))
 	var/donor_rh = (findtext(donor,"+")>0)
 	var/receiver_rh = (findtext(receiver,"+")>0)
 

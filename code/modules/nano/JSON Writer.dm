@@ -41,12 +41,12 @@ json_writer
 			var/static/list/json_escape = list("\\" = "\\\\", "\"" = "\\\"", "\n" = "\\n")
 			for (var/targ in json_escape)
 				var/start = 1
-				while (start <= length(txt))
+				while (start <= length_char(txt))
 					var/i = findtext(txt, targ, start)
 					if (!i)
 						break
-					var/lrep = length(json_escape[targ])
-					txt = copytext(txt, 1, i) + json_escape[targ] + copytext(txt, i + length(targ))
+					var/lrep = length_char(json_escape[targ])
+					txt = copytext_char(txt, 1, i) + json_escape[targ] + copytext_char(txt, i + length_char(targ))
 					start = i + lrep
 
 			return {""[txt]""}

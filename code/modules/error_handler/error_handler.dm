@@ -65,7 +65,7 @@ var/total_runtimes_skipped = 0
 	var/list/desclines = list()
 	if(splitlines.len > 2) // If there aren't at least three lines, there's no info
 		for(var/line in splitlines)
-			if(length(line) < 3)
+			if(length_char(line) < 3)
 				continue // Blank line, skip it
 			if(findtext(line, "source file:"))
 				continue // Redundant, skip it
@@ -83,7 +83,7 @@ var/total_runtimes_skipped = 0
 					desclines.Add(srcinfo)
 					srcinfo = null
 					continue
-			if(copytext(line, 1, 3) != "  ")
+			if(copytext_char(line, 1, 3) != "  ")
 				desclines += ("  " + line) // Pad any unpadded lines, so they look pretty
 			else
 				desclines += line

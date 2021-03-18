@@ -338,7 +338,7 @@
 	else
 		icon_state = "telebaton_0"
 		item_state = "telebaton_0"
-	if(length(blood_DNA))
+	if(length_char(blood_DNA))
 		generate_blood_overlay(TRUE) // Force recheck.
 		overlays.Cut()
 		overlays += blood_overlay

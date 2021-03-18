@@ -33,7 +33,7 @@
 
 /proc/sanitize_hexcolor(color, default="#000000")
 	if (!istext(color)) return default
-	var/len = length(color)
+	var/len = length_char(color)
 	if (len != 7 && len !=4) return default
 	if (text2ascii(color,1) != 35) return default	//35 is the ascii code for "#"
 	. = "#"

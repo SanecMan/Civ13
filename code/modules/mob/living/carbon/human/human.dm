@@ -670,9 +670,9 @@ var/list/coefflist = list()
 
 	if (species.base_color && default_colour)
 		//Apply colour.
-		r_skin = hex2num(copytext(species.base_color,2,4))
-		g_skin = hex2num(copytext(species.base_color,4,6))
-		b_skin = hex2num(copytext(species.base_color,6,8))
+		r_skin = hex2num(copytext_char(species.base_color,2,4))
+		g_skin = hex2num(copytext_char(species.base_color,4,6))
+		b_skin = hex2num(copytext_char(species.base_color,6,8))
 	else
 		r_skin = FALSE
 		g_skin = FALSE
@@ -749,15 +749,15 @@ var/list/coefflist = list()
 		src << "<span class='warning'>There is no space to write on!</span>"
 		return
 
-	var/max_length = bloody_hands * 30 //tweeter style
+	var/max_length_char = bloody_hands * 30 //tweeter style
 
-	var/message = sanitize(input("Write a message. It cannot be longer than [max_length] characters.","Blood writing", ""))
+	var/message = sanitize(input("Write a message. It cannot be longer than [max_length_char] characters.","Blood writing", ""))
 
 	if (message)
-		var/used_blood_amount = round(length(message) / 30, TRUE)
+		var/used_blood_amount = round(length_char(message) / 30, TRUE)
 		bloody_hands = max(0, bloody_hands - used_blood_amount) //use up some blood
 
-		if (length(message) > max_length)
+		if (length_char(message) > max_length_char)
 			message += "-"
 			src << "<span class='warning'>You ran out of blood to write with!</span>"
 
@@ -871,10 +871,10 @@ var/list/coefflist = list()
 	if (flavor_text && flavor_text != "" && !shrink)
 		var/msg = trim(replacetext(flavor_text, "\n", " "))
 		if (!msg) return ""
-		if (length(msg) <= 40)
+		if (length_char(msg) <= 40)
 			return "<span class = 'notice'>[msg]</span>"
 		else
-			return "<span class = 'notice'>[copytext_preserve_html(msg, TRUE, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
+			return "<span class = 'notice'>[copytext_char_preserve_html(msg, TRUE, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
 	return ..()
 
 /mob/living/human/getDNA()

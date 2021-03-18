@@ -325,9 +325,9 @@ var/datum/quickBan_handler/quickBan_handler = null
 			else
 				fields[x] = num2text(fields[x], 20)
 		if (x == "ckey" || x == "cID" || x == "ip")
-			fields[x] = copytext(fields[x], 1, 51)
+			fields[x] = copytext_char(fields[x], 1, 51)
 		else if (x == "reason")
-			fields[x] = copytext(fields[x], 1, 151)
+			fields[x] = copytext_char(fields[x], 1, 151)
 		fields[x] = sanitizeSQL(fields[x], 200)
 
 	fields["test"] = "test"

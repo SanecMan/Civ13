@@ -236,9 +236,9 @@
 /obj/item/weapon/storage/proc/space_orient_objs(var/list/obj/item/display_contents,var/Xcord = 4,var/Ycord = 2)
 
 	var/baseline_max_storage_space = 16 //should be equal to default backpack capacity
-	var/storage_cap_width = 2 //length of sprite for start and end of the box representing total storage space
-	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
-	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
+	var/storage_cap_width = 2 //length_char of sprite for start and end of the box representing total storage space
+	var/stored_cap_width = 4 //length_char of sprite for start and end of the box representing the stored item
+	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length_char of sprite for the box representing total storage space
 
 	storage_start.overlays.Cut()
 

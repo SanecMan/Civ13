@@ -5,7 +5,7 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 
 ////////AXIS: MOVEMENT LOOP/////////
 /obj/structure/vehicleparts/axis
-	var/maxdist = 5 //the highest of length and width
+	var/maxdist = 5 //the highest of length_char and width
 	var/turntimer = 15
 	var/doorcode = 0
 /obj/structure/vehicleparts/axis/ex_act(severity)
@@ -315,7 +315,7 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 		return
 
 //basically, a matrix works like this:
-//matrix_l gives the horizontal length, matrix_h gives the vertical height, assuming its facing NORTH.
+//matrix_l gives the horizontal length_char, matrix_h gives the vertical height, assuming its facing NORTH.
 //so if we have a 3x4 vehicle, the matrix will look like this:
 //
 //|	1,1	|	1,2	|	1,3	|	1,4	|
@@ -323,7 +323,7 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 //|	3,1	|	3,2	|	3,3	|	3,4	|
 //|	4,1	|	4,2	|	4,3	|	4,4	|
 //
-//the matrix always has to be a square with the sides being the value of largest between the length and height.
+//the matrix always has to be a square with the sides being the value of largest between the length_char and height.
 //in this case, 1,1 is the FL, 1,3 is the FR, 4,1 is the BL, 4,3 is the BR.
 //so if we turn LEFT: we will be facing EAST, and it will change to:
 
@@ -394,7 +394,7 @@ var/global/list/tank_names_usa = list("Charlie", "Alpha", "Foxtrot", "Tango", "E
 			for (var/obj/structure/vehicleparts/frame/FF in T1)
 				if (FF.axis == F.axis)
 					sides = "[sides][i]"
-		if (length(sides) == 2)
+		if (length_char(sides) == 2)
 			if (findtext(sides,"1") && findtext(sides,"4")) //SW corner
 				if (dir == SOUTH) //FR
 					corners[1] = F

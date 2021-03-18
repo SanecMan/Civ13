@@ -40,7 +40,7 @@ var/global/list/GlobalPool = list()
 	if (isnull(GlobalPool[get_type]))
 		return FALSE
 
-	if (length(GlobalPool[get_type]) == FALSE)
+	if (length_char(GlobalPool[get_type]) == FALSE)
 		return FALSE
 
 	var/datum/D = pick_n_take(GlobalPool[get_type])
@@ -54,7 +54,7 @@ var/global/list/GlobalPool = list()
 	if (!istype(D))
 		return
 
-	if (length(GlobalPool[D.type]) > ATOM_POOL_COUNT)
+	if (length_char(GlobalPool[D.type]) > ATOM_POOL_COUNT)
 		#ifdef DEBUG_ATOM_POOL
 		world << text("DEBUG_DATUM_POOL: PlaceInPool([]) exceeds []. Discarding.", D.type, ATOM_POOL_COUNT)
 		#endif

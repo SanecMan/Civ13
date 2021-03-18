@@ -46,7 +46,7 @@
 		else		src << "<font color='red'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</font>"
 		return
 
-	//get message text, limit it's length.and clean/escape html
+	//get message text, limit it's length_char.and clean/escape html
 	if (!msg)
 		msg = input(src,"Message:", "Private message to [key_name(C, FALSE, holder ? TRUE : FALSE)]") as text|null
 
@@ -123,7 +123,7 @@
 	var/pm_sender = "admins" //this is a fucking horrible hack but fuck this
 
 /proc/cmd_admin_pm_fromdiscord(var/client/C, var/msg = null, var/sender_name = "admins")
-	//get message text, limit it's length.and clean/escape html
+	//get message text, limit it's length_char.and clean/escape html
 	if (!msg)
 		msg = input(src,"Message:", "Private message to [C.ckey]") as text|null
 
@@ -166,7 +166,7 @@
 		return
 
 
-	//get message text, limit it's length.and clean/escape html
+	//get message text, limit it's length_char.and clean/escape html
 	if (!msg)
 		msg = input(src,"Message:", "Private message to [target]") as text|null
 

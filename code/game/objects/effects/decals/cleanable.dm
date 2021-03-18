@@ -8,7 +8,7 @@
 	..()
 
 /obj/effect/decal/cleanable/New()
-	if (random_icon_states && length(random_icon_states) > 0)
+	if (random_icon_states && length_char(random_icon_states) > 0)
 		icon_state = pick(random_icon_states)
 	..()
 	cleanables += src

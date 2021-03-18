@@ -33,9 +33,9 @@
 
 		var/col = pick ("Black", "Light Brown", "Dark Brown", "Red", "Orange", "Light Blond", "Blond", "Dirty Blond", "Light Grey", "Grey")
 		var/hex_hair = hair_colors[col]
-		red = hex2num(copytext(hex_hair, 2, 4))
-		green = hex2num(copytext(hex_hair, 4, 6))
-		blue = hex2num(copytext(hex_hair, 6, 8))
+		red = hex2num(copytext_char(hex_hair, 2, 4))
+		green = hex2num(copytext_char(hex_hair, 4, 6))
+		blue = hex2num(copytext_char(hex_hair, 6, 8))
 
 		switch(target)
 			if ("hair")
@@ -54,9 +54,9 @@
 
 		var/col2 = pick ("Black", "Brown", "Dark Brown", "Green", "Blue")
 		var/hex_eyes = eye_colors[col2]
-		red = hex2num(copytext(hex_eyes, 2, 4))
-		green = hex2num(copytext(hex_eyes, 4, 6))
-		blue = hex2num(copytext(hex_eyes, 6, 8))
+		red = hex2num(copytext_char(hex_eyes, 2, 4))
+		green = hex2num(copytext_char(hex_eyes, 4, 6))
+		blue = hex2num(copytext_char(hex_eyes, 6, 8))
 
 		r_eyes = red
 		g_eyes = green

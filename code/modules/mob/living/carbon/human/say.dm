@@ -34,12 +34,12 @@
 	var/normal_message = message
 	for (var/rp in radio_prefixes)
 		if (dd_hasprefix(normal_message, rp))
-			normal_message = copytext(normal_message, length(rp)+1, length(normal_message)+1)
+			normal_message = copytext_char(normal_message, length_char(rp)+1, length_char(normal_message)+1)
 
 	var/normal_message_without_html = message_without_html
 	for (var/rp in radio_prefixes)
 		if (dd_hasprefix(normal_message_without_html, rp))
-			normal_message_without_html = copytext(normal_message_without_html, length(rp)+1, length(normal_message_without_html)+1)
+			normal_message_without_html = copytext_char(normal_message_without_html, length_char(rp)+1, length_char(normal_message_without_html)+1)
 	if (wolfman && howling)
 		..(normal_message, alt_name = alt_name, alt_message = normal_message_without_html, animal = animalistic, howl = TRUE, original_message = message_without_html)
 	else
@@ -72,27 +72,27 @@
 		if (client)
 			var/virgin = TRUE	//has the text been modified yet?
 			var/temp = winget(client, "input", "text")
-			if (findtextEx(temp, "Say \"", TRUE, 7) && length(temp) > 5)	//case sensitive means
+			if (findtextEx(temp, "Say \"", TRUE, 7) && length_char(temp) > 5)	//case sensitive means
 
 				temp = replacetext(temp, ";", "")	//general radio
 
 				if (findtext(trim_left(temp), ":", 6, 7))	//dept radio
-					temp = copytext(trim_left(temp), 8)
+					temp = copytext_char(trim_left(temp), 8)
 					virgin = FALSE
 
 				if (virgin)
-					temp = copytext(trim_left(temp), 6)	//normal speech
+					temp = copytext_char(trim_left(temp), 6)	//normal speech
 					virgin = FALSE
 
 				while (findtext(trim_left(temp), ":", TRUE, 2))	//dept radio again (necessary)
-					temp = copytext(trim_left(temp), 3)
+					temp = copytext_char(trim_left(temp), 3)
 
 				if (findtext(temp, "*", TRUE, 2))	//emotes
 					return
-				temp = copytext(trim_left(temp), TRUE, rand(5,8))
+				temp = copytext_char(trim_left(temp), TRUE, rand(5,8))
 
 				var/trimmed = trim_left(temp)
-				if (length(trimmed))
+				if (length_char(trimmed))
 					if (append)
 						temp += pick(append)
 
@@ -124,7 +124,7 @@
 
 /mob/living/human/say_quote(var/message, var/datum/language/speaking = null)
 	var/verb = "says"
-	var/ending = copytext(message, length(message))
+	var/ending = copytext_char(message, length_char(message))
 
 	if (speaking)
 		verb = speaking.get_spoken_verb(ending)

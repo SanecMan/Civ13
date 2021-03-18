@@ -169,12 +169,12 @@
 		if (rand(0,200) < speak_chance)
 			if (speak && speak.len)
 				if ((emote_hear && emote_hear.len) || (emote_see && emote_see.len))
-					var/length = speak.len
+					var/length_char = speak.len
 					if (emote_hear && emote_hear.len)
-						length += emote_hear.len
+						length_char += emote_hear.len
 					if (emote_see && emote_see.len)
-						length += emote_see.len
-					var/randomValue = rand(1,length)
+						length_char += emote_see.len
+					var/randomValue = rand(1,length_char)
 					if (randomValue <= speak.len)
 						say(pick(speak))
 					else
@@ -191,8 +191,8 @@
 				if ((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
 					audible_emote("[pick(emote_hear)].")
 				if ((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-					var/length = emote_hear.len + emote_see.len
-					var/pick = rand(1,length)
+					var/length_char = emote_hear.len + emote_see.len
+					var/pick = rand(1,length_char)
 					if (pick <= emote_see.len)
 						visible_emote("[pick(emote_see)].")
 					else

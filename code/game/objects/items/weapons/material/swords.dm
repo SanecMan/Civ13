@@ -209,7 +209,7 @@ obj/item/weapon/material/sword/wakazashi
 
 /obj/item/weapon/material/sword/smallsword
 	name = "small sword"
-	desc = "A common european sword, with about one meter in length."
+	desc = "A common european sword, with about one meter in length_char."
 	icon_state = "smallsword"
 	item_state = "smallsword"
 	throw_speed = 2

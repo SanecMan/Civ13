@@ -12,7 +12,7 @@
 	var/list/allowedlist = list("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 /obj/structure/telegraph/proc/convertmsg(var/message)
 	var/output = ""
-	for (var/i=1, i<=length(message), i++)
+	for (var/i=1, i<=length_char(message), i++)
 		var/ascii_char = text2ascii(message,i)
 		switch(ascii_char)
 			// A  .. Z
@@ -111,7 +111,7 @@
 			if (C.free_space >= 22)
 				new_text = "<b><font face='Courier New'>Telegram at [roundduration2text_days()]: [new_text]</b></font><br>"
 				C.info += new_text
-				C.free_space -= length(strip_html_properly(new_text))
+				C.free_space -= length_char(strip_html_properly(new_text))
 
 /obj/structure/phoneline
 	name = "utility pole"

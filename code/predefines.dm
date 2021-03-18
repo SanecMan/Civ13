@@ -556,7 +556,7 @@
 #define CYCLE_CASINGS 	2 //experimental: cycle casings, like a revolver. Also works for multibarrelled guns
 #define REMOVE_CASINGS	3 //deletes casings
 
-#define list_cmp(l1, l2) (length(l1 & l2) > 0)
+#define list_cmp(l1, l2) (length_char(l1 & l2) > 0)
 
 #define ZOOM_CONSTANT 7
 

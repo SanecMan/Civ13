@@ -488,8 +488,8 @@ var/list/admin_verbs_host = list(
 		else
 			var/new_key = ckeyEx(input("Enter your desired display name.", "Fake Key", key) as text|null)
 			if (!new_key)	return
-			if (length(new_key) >= 26)
-				new_key = copytext(new_key, 1, 26)
+			if (length_char(new_key) >= 26)
+				new_key = copytext_char(new_key, 1, 26)
 			holder.fakekey = new_key
 		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]")
 		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", 1)
@@ -653,21 +653,21 @@ var/list/admin_verbs_host = list(
 			return
 	var/new_facial = WWinput(src, "Please select a facial hair color.", "Character Generation", null, "color")
 	if (new_facial)
-		M.r_facial = hex2num(copytext(new_facial, 2, 4))
-		M.g_facial = hex2num(copytext(new_facial, 4, 6))
-		M.b_facial = hex2num(copytext(new_facial, 6, 8))
+		M.r_facial = hex2num(copytext_char(new_facial, 2, 4))
+		M.g_facial = hex2num(copytext_char(new_facial, 4, 6))
+		M.b_facial = hex2num(copytext_char(new_facial, 6, 8))
 
 	var/new_hair = WWinput(src, "Please select a hair color.", "Character Generation", null, "color")
 	if (new_facial)
-		M.r_hair = hex2num(copytext(new_hair, 2, 4))
-		M.g_hair = hex2num(copytext(new_hair, 4, 6))
-		M.b_hair = hex2num(copytext(new_hair, 6, 8))
+		M.r_hair = hex2num(copytext_char(new_hair, 2, 4))
+		M.g_hair = hex2num(copytext_char(new_hair, 4, 6))
+		M.b_hair = hex2num(copytext_char(new_hair, 6, 8))
 
 	var/new_eyes = WWinput(src, "Please select an eye color.", "Character Generation", null, "color")
 	if (new_eyes)
-		M.r_eyes = hex2num(copytext(new_eyes, 2, 4))
-		M.g_eyes = hex2num(copytext(new_eyes, 4, 6))
-		M.b_eyes = hex2num(copytext(new_eyes, 6, 8))
+		M.r_eyes = hex2num(copytext_char(new_eyes, 2, 4))
+		M.g_eyes = hex2num(copytext_char(new_eyes, 4, 6))
+		M.b_eyes = hex2num(copytext_char(new_eyes, 6, 8))
 		M.update_eyes()
 
 	var/new_tone = WWinput(src, "Please select a skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation", null, "text")

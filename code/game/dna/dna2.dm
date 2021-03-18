@@ -33,21 +33,21 @@
 #define DNA_UI_GENDER	  14
 #define DNA_UI_BEARD_STYLE 15
 #define DNA_UI_HAIR_STYLE  16
-#define DNA_UI_LENGTH	  16 // Update this when you add something, or you WILL break shit.
+#define DNA_UI_length_char	  16 // Update this when you add something, or you WILL break shit.
 
-#define DNA_SE_LENGTH 27
+#define DNA_SE_length_char 27
 // For later:
-//#define DNA_SE_LENGTH 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
+//#define DNA_SE_length_char 50 // Was STRUCDNASIZE, size 27. 15 new blocks added = 42, plus room to grow.
 
 
 // Defines which values mean "on" or "off".
 //  This is to make some of the more OP superpowers a larger PITA to activate,
 //  and to tell our new DNA datum which values to set in order to turn something
 //  on or off.
-var/global/list/dna_activity_bounds[DNA_SE_LENGTH]
+var/global/list/dna_activity_bounds[DNA_SE_length_char]
 
 // Used to determine what each block means (admin hax and species stuff on /vg/, mostly)
-var/global/list/assigned_blocks[DNA_SE_LENGTH]
+var/global/list/assigned_blocks[DNA_SE_length_char]
 
 var/global/list/datum/dna/gene/dna_genes[0]
 
@@ -71,8 +71,8 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 	// Okay to read, but you're an idiot if you do.
 	// BLOCK = VALUE
-	var/list/SE[DNA_SE_LENGTH]
-	var/list/UI[DNA_UI_LENGTH]
+	var/list/SE[DNA_SE_length_char]
+	var/list/UI[DNA_UI_length_char]
 
 	// From old dna.
 	var/b_type = "A+"  // Should probably change to an integer => string map but I'm lazy.
@@ -89,9 +89,9 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	new_dna.b_type=b_type
 	new_dna.real_name=real_name
 	new_dna.species=species
-	for (var/b=1;b<=DNA_SE_LENGTH;b++)
+	for (var/b=1;b<=DNA_SE_length_char;b++)
 		new_dna.SE[b]=SE[b]
-		if (b<=DNA_UI_LENGTH)
+		if (b<=DNA_UI_length_char)
 			new_dna.UI[b]=UI[b]
 	new_dna.UpdateUI()
 	new_dna.UpdateSE()
@@ -102,7 +102,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Create random UI.
 /datum/dna/proc/ResetUI(var/defer=0)
-	for (var/i=1,i<=DNA_UI_LENGTH,i++)
+	for (var/i=1,i<=DNA_UI_length_char,i++)
 		switch(i)
 			if (DNA_UI_SKIN_TONE)
 				SetUIValueRange(DNA_UI_SKIN_TONE,rand(1,220),220,1) // Otherwise, it gets fucked
@@ -211,7 +211,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Get a sub-block from a block.
 /datum/dna/proc/GetUISubBlock(var/block,var/subBlock)
-	return copytext(GetUIBlock(block),subBlock,subBlock+1)
+	return copytext_char(GetUIBlock(block),subBlock,subBlock+1)
 
 // Do not use this unless you absolutely have to.
 // Set a block from a hex string.  This is inefficient.  If you can, use SetUIValue().
@@ -220,11 +220,11 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	if (block<=0) return
 	var/oldBlock=GetUIBlock(block)
 	var/newBlock=""
-	for (var/i=1, i<=length(oldBlock), i++)
+	for (var/i=1, i<=length_char(oldBlock), i++)
 		if (i==subBlock)
 			newBlock+=newSubBlock
 		else
-			newBlock+=copytext(oldBlock,i,i+1)
+			newBlock+=copytext_char(oldBlock,i,i+1)
 	SetUIBlock(block,newBlock,defer)
 
 ///////////////////////////////////////
@@ -233,7 +233,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // "Zeroes out" all of the blocks.
 /datum/dna/proc/ResetSE()
-	for (var/i = TRUE, i <= DNA_SE_LENGTH, i++)
+	for (var/i = TRUE, i <= DNA_SE_length_char, i++)
 		SetSEValue(i,rand(1,1024),1)
 	UpdateSE()
 
@@ -299,7 +299,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	return SetSEValue(block,nval,defer)
 
 /datum/dna/proc/GetSESubBlock(var/block,var/subBlock)
-	return copytext(GetSEBlock(block),subBlock,subBlock+1)
+	return copytext_char(GetSEBlock(block),subBlock,subBlock+1)
 
 // Do not use this unless you absolutely have to.
 // Set a sub-block from a hex character.  This is inefficient.  If you can, use SetUIValue().
@@ -308,11 +308,11 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	if (block<=0) return
 	var/oldBlock=GetSEBlock(block)
 	var/newBlock=""
-	for (var/i=1, i<=length(oldBlock), i++)
+	for (var/i=1, i<=length_char(oldBlock), i++)
 		if (i==subBlock)
 			newBlock+=newSubBlock
 		else
-			newBlock+=copytext(oldBlock,i,i+1)
+			newBlock+=copytext_char(oldBlock,i,i+1)
 	//testing("SetSESubBlock([block],[subBlock],[newSubBlock],[defer]): [oldBlock] -> [newBlock]")
 	SetSEBlock(block,newBlock,defer)
 
@@ -340,18 +340,18 @@ var/global/list/datum/dna/gene/dna_genes[0]
 //  Just checks our character has all the crap it needs.
 /datum/dna/proc/check_integrity(var/mob/living/human/character)
 	if (character)
-		if (UI.len != DNA_UI_LENGTH)
+		if (UI.len != DNA_UI_length_char)
 			ResetUIFrom(character)
 
-		if (length(struc_enzymes)!= 3*DNA_SE_LENGTH)
+		if (length_char(struc_enzymes)!= 3*DNA_SE_length_char)
 			ResetSE()
 
-		if (length(unique_enzymes) != 32)
+		if (length_char(unique_enzymes) != 32)
 			unique_enzymes = md5(character.real_name)
 	else
-		if (length(uni_identity) != 3*DNA_UI_LENGTH)
+		if (length_char(uni_identity) != 3*DNA_UI_length_char)
 			uni_identity = "00600200A00E0110148FC01300B0095BD7FD3F4"
-		if (length(struc_enzymes)!= 3*DNA_SE_LENGTH)
+		if (length_char(struc_enzymes)!= 3*DNA_SE_length_char)
 			struc_enzymes = "43359156756131E13763334D1C369012032164D4FE4CD61544B6C03F251B6C60A42821D26BA3B0FD6"
 
 // BACK-COMPAT!

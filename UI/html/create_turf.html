@@ -58,7 +58,7 @@
 		
 		function populateList(from_list)
 		{
-			object_list.options.length = 0;
+			object_list.options.length_char = 0;
 			
 			var i;
 			for (i in from_list)
@@ -97,7 +97,7 @@
 		
 		function submitFirst(event)
 		{
-			if (!object_list.options.length)
+			if (!object_list.options.length_char)
 			{
 				return false;
 			}

@@ -147,7 +147,7 @@
 				var/list/current = splittext(tmpi, ",")
 				craftlist_lists["global"] += list(current)
 				if (current.len != 13)
-					world.log << "Error! Recipe [current[2]] has a length of [current.len] (should be 13)."
+					world.log << "Error! Recipe [current[2]] has a length_char of [current.len] (should be 13)."
 
 /obj/map_metadata/art_of_the_deal/proc/spawn_disks(repeat = FALSE)
 	for(var/obj/structure/closet/safe/SF in world)

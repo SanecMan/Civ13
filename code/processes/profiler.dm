@@ -44,7 +44,7 @@
 	var/current_profile_data = world.Profile(PROFILE_REFRESH,format="json")
 	fetch_cost = MC_AVERAGE(fetch_cost, TICK_DELTA_TO_MS(TICK_USAGE_REAL - timer))
 	CHECK_TICK
-	if(!length(current_profile_data)) //Would be nice to have explicit proc to check this
+	if(!length_char(current_profile_data)) //Would be nice to have explicit proc to check this
 		stack_trace("Warning, profiling stopped manually before dump.")
 	var/json_file = file("[GLOB.log_directory]/[PROFILER_FILENAME]")
 	if(fexists(json_file))

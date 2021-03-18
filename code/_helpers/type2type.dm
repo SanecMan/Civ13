@@ -19,7 +19,7 @@
 
 	var/num   = FALSE
 	var/power = TRUE
-	var/i	 = length(hex)
+	var/i	 = length_char(hex)
 
 	while (i)
 		var/char = text2ascii(hex, i)
@@ -39,7 +39,7 @@
 	return num
 
 // Returns the hex value of a number given a value assumed to be a base-ten value
-/proc/num2hex(num, padlength)
+/proc/num2hex(num, padlength_char)
 	var/global/list/hexdigits = list("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F")
 
 	. = ""
@@ -49,7 +49,7 @@
 		num >>= 4 //go to the next half-byte
 
 	//pad with zeroes
-	var/left = padlength - length(.)
+	var/left = padlength_char - length_char(.)
 	while (left-- > 0)
 		. = "0[.]"
 

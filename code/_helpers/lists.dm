@@ -111,7 +111,7 @@ proc/isemptylist(list/list)
 			instances++
 	return instances
 
-//Empties the list by .Cut(). Setting length = FALSE has been confirmed to leak references.
+//Empties the list by .Cut(). Setting length_char = FALSE has been confirmed to leak references.
 proc/clearlist(var/list/L)
 	if (islist(L))
 		L.Cut()
@@ -740,5 +740,5 @@ proc/dd_sortedTextList(list/incoming)
 
 	return L
 
-#define listequal(A, B) (A.len == B.len && !length(A^B))
+#define listequal(A, B) (A.len == B.len && !length_char(A^B))
 

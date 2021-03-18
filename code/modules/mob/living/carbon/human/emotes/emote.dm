@@ -43,11 +43,11 @@ var/list/vocal_emotes = list(
 
 		if (findtext(act, "-", TRUE, null))
 			var/t1 = findtext(act, "-", TRUE, null)
-			param = copytext(act, t1 + 1, length(act) + 1)
-			act = copytext(act, TRUE, t1)
+			param = copytext_char(act, t1 + 1, length_char(act) + 1)
+			act = copytext_char(act, TRUE, t1)
 
 		if (findtext(act,"s",-1) && !findtext(act,"_",-2))//Removes ending s's unless they are prefixed with a '_'
-			act = copytext(act,1,length(act))
+			act = copytext_char(act,1,length_char(act))
 
 		var/muzzled = istype(wear_mask, /obj/item/clothing/mask/muzzle) || istype(wear_mask, /obj/item/weapon/grenade)
 		//var/m_type = 1

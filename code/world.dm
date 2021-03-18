@@ -170,7 +170,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	else if (T == "players")
 		return clients.len
 
-	else if (copytext(T,1,7) == "status")
+	else if (copytext_char(T,1,7) == "status")
 		var/input[] = params2list(T)
 		var/list/s = list()
 		s["version"] = game_version

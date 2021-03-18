@@ -240,14 +240,14 @@
 					if (!playing || !anchored)//If the piano is playing, or is loose
 						playing = FALSE
 						return
-					if (length(note) == FALSE)
+					if (length_char(note) == FALSE)
 						continue
-					//world << "Parse: [copytext(note,1,2)]"
+					//world << "Parse: [copytext_char(note,1,2)]"
 					var/cur_note = text2ascii(note) - 96
 					if (cur_note < 1 || cur_note > 7)
 						continue
-					for (var/i=2 to length(note))
-						var/ni = copytext(note,i,i+1)
+					for (var/i=2 to length_char(note))
+						var/ni = copytext_char(note,i,i+1)
 						if (!text2num(ni))
 							if (ni == "#" || ni == "b" || ni == "n")
 								cur_acc[cur_note] = ni
@@ -255,7 +255,7 @@
 								cur_acc[cur_note] = "#" // so shift is never required
 						else
 							cur_oct[cur_note] = ni
-					playnote(uppertext(copytext(note,1,2)) + cur_acc[cur_note] + cur_oct[cur_note])
+					playnote(uppertext(copytext_char(note,1,2)) + cur_acc[cur_note] + cur_oct[cur_note])
 				if (notes.len >= 2 && text2num(notes[2]))
 					sleep(song.tempo / text2num(notes[2]))
 				else
@@ -306,7 +306,7 @@
 					After a note has an accidental placed, it will be remembered: <i>C,C4,C,C3</i> is <i>C3,C4,C4,C3</i><br>
 					Chords can be played simply by seperating each note with a hyphon: <i>A-C#,Cn-E,E-G#,Gn-B</i><br>
 					A pause may be denoted by an empty chord: <i>C,E,,C,G</i><br>
-					To make a chord be a different time, end it with /x, where the chord length will be length<br>
+					To make a chord be a different time, end it with /x, where the chord length_char will be length_char<br>
 					defined by tempo / x: <i>C,G/2,E/4</i><br>
 					Combined, an example is: <i>E-E4/4,/2,G#/8,B/8,E3-E4/4</i>
 					<br>
@@ -349,8 +349,8 @@
 				return
 			if (song.lines.len > MAX_LINES)
 				return
-			if (length(newline) > MAX_CHARS_PER_LINE)
-				newline = copytext(newline, TRUE, MAX_CHARS_PER_LINE)
+			if (length_char(newline) > MAX_CHARS_PER_LINE)
+				newline = copytext_char(newline, TRUE, MAX_CHARS_PER_LINE)
 			song.lines.Add(newline)
 
 		else if (href_list["deleteline"])
@@ -364,8 +364,8 @@
 			var/content = html_encode(input("Enter your line: ", "Piano", song.lines[num]) as text|null)
 			if (!content)
 				return
-			if (length(content) > MAX_CHARS_PER_LINE)
-				content = copytext(content, TRUE, MAX_CHARS_PER_LINE)
+			if (length_char(content) > MAX_CHARS_PER_LINE)
+				content = copytext_char(content, TRUE, MAX_CHARS_PER_LINE)
 			if (num > song.lines.len || num < 1)
 				return
 			song.lines[num] = content
@@ -386,11 +386,11 @@
 				if (!in_range(src, usr))
 					return
 
-				if (length(t) >= MAX_CHARS_TOTAL)
+				if (length_char(t) >= MAX_CHARS_TOTAL)
 					var/cont = WWinput(usr, "Your message is too long! Would you like to continue editing it?", "Error", "Yes", list("Yes", "No"))
 					if (cont == "No")
 						break
-			while (length(t) > MAX_CHARS_TOTAL)
+			while (length_char(t) > MAX_CHARS_TOTAL)
 
 			//split into lines
 			spawn (0)
@@ -398,8 +398,8 @@
 				var/tempo = 5
 				if (!lines || !lines.len)
 					return
-				if (copytext(lines[1],1,6) == "BPM: ")
-					var/divisor = text2num(copytext(lines[1],6))
+				if (copytext_char(lines[1],1,6) == "BPM: ")
+					var/divisor = text2num(copytext_char(lines[1],6))
 					if (!divisor)
 						divisor = 1
 					tempo = 600 / divisor
@@ -409,7 +409,7 @@
 					lines.Cut(201)
 				var/linenum = TRUE
 				for (var/l in lines)
-					if (length(l) > MAX_CHARS_PER_LINE)
+					if (length_char(l) > MAX_CHARS_PER_LINE)
 						usr << "Line [linenum] too long!"
 						lines.Remove(l)
 					else

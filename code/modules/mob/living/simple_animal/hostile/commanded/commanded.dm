@@ -26,7 +26,7 @@
 		var/text = command_buffer[2]
 		var/filtered_name = lowertext(html_decode(name))
 		if (dd_hasprefix(text,filtered_name))
-			var/substring = copytext(text,length(filtered_name)+1) //get rid of the name.
+			var/substring = copytext_char(text,length_char(filtered_name)+1) //get rid of the name.
 			listen(speaker,substring)
 		command_buffer.Remove(command_buffer[1],command_buffer[2])
 	. = ..()
@@ -109,7 +109,7 @@
 		else
 			var/list/parsed_name = splittext(replace_characters(lowertext(html_decode("[M]")),list("-"=" ", "."=" ", "," = " ", "'" = " ")), " ") //this big MESS is basically 'turn this into words, no punctuation, lowercase so we can check first name/last name/etc'
 			for (var/a in parsed_name)
-				if (a == "the" || length(a) < 2) //get rid of shit words.
+				if (a == "the" || length_char(a) < 2) //get rid of shit words.
 					continue
 				if (findtext(text,"[a]"))
 					found = TRUE

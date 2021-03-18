@@ -64,9 +64,9 @@ mob/var/obj/effect/decal/typing_indicator
 		if (world.time > last_typed_time + TYPING_INDICATOR_LIFETIME)
 			set_typing_indicator(0)
 			return
-		if (length(temp) > 5 && findtext(temp, "Say \"", TRUE, 7))
+		if (length_char(temp) > 5 && findtext(temp, "Say \"", TRUE, 7))
 			set_typing_indicator(1)
-		else if (length(temp) > 3 && findtext(temp, "Me ", TRUE, 5))
+		else if (length_char(temp) > 3 && findtext(temp, "Me ", TRUE, 5))
 			set_typing_indicator(1)
 
 		else

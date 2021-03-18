@@ -39,7 +39,7 @@
 
 /obj/item/stack/medical/bruise_pack
 	name = "roll of gauze"
-	singular_name = "gauze length"
+	singular_name = "gauze length_char"
 	desc = "Some sterile gauze to wrap around bloody stumps."
 	icon_state = "brutepack"
 	flammable = TRUE
@@ -390,7 +390,7 @@
 
 /obj/item/stack/medical/bruise_pack/gauze
 	name = "roll of gauze"
-	singular_name = "gauze length"
+	singular_name = "gauze length_char"
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "gauze"
 	heal_brute = 10 // for healing dogs and other animals

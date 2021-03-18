@@ -104,8 +104,8 @@
 		return FALSE
 
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
-/client/AllowUpload(filename, filelength)
-	if (filelength > UPLOAD_LIMIT)
+/client/AllowUpload(filename, filelength_char)
+	if (filelength_char > UPLOAD_LIMIT)
 		src << "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>"
 		return FALSE
 /*	//Don't need this at the moment. But it's here if it's needed later.
@@ -401,7 +401,7 @@
 
 	//Sanity check, nothing valid in game generates keypress "keys" this long
 	//Means it's some kind of bullshit going on, so get rid of them.
-	if(length(_key) > 50)
+	if(length_char(_key) > 50)
 		log_admin("Client [ckey] just attempted to send an invalid keypress, and was autokicked.")
 		message_admins("Client [ckey] just attempted to send an invalid keypress, and was autokicked.")
 		QDEL_IN(src, 1)

@@ -33,7 +33,7 @@
 	// Whether or not the accessory can be affected by colouration
 	var/do_colouration = TRUE
 
-	var/growth = 0 // to order by length. 0 = bald, 1 = short, 2 = medium (covering the ears), 3 = shoulder length, 4 = mid-back
+	var/growth = 0 // to order by length_char. 0 = bald, 1 = short, 2 = medium (covering the ears), 3 = shoulder length_char, 4 = mid-back
 
 /*
 ////////////////////////////
@@ -70,12 +70,12 @@
 		growth = 3
 
 	long
-		name = "Shoulder-length Hair"
+		name = "Shoulder-length_char Hair"
 		icon_state = "hair_b"
 		growth = 3
 
 	longalt
-		name = "Shoulder-length Hair Alt"
+		name = "Shoulder-length_char Hair Alt"
 		icon_state = "hair_longfringe"
 		gender = FEMALE
 		growth = 3
@@ -362,7 +362,7 @@
 //ultra meme zone here. yeah, nope
 
 //	braid
-//		name = "Floorlength Braid"
+//		name = "Floorlength_char Braid"
 //		icon_state = "hair_braid"
 //		gender = FEMALE
 

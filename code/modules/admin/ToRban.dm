@@ -33,8 +33,8 @@
 			var/savefile/F = new(get_tor_file_dir())
 			for ( var/line in rawlist )
 				if (!line)	continue
-				if ( copytext(line,1,12) == "ExitAddress" )
-					var/cleaned = copytext(line,13,length(line)-19)
+				if ( copytext_char(line,1,12) == "ExitAddress" )
+					var/cleaned = copytext_char(line,13,length_char(line)-19)
 					if (!cleaned)	continue
 					F[cleaned] << 1
 			F["last_update"] << world.realtime
@@ -62,8 +62,8 @@
 		if ("show")
 			var/savefile/F = new(get_tor_file_dir())
 			var/dat
-			if ( length(F.dir) )
-				for ( var/i=1, i<=length(F.dir), i++ )
+			if ( length_char(F.dir) )
+				for ( var/i=1, i<=length_char(F.dir), i++ )
 					dat += "<tr><td>#[i]</td><td> [F.dir[i]]</td></tr>"
 				dat = "<table width='100%'>[dat]</table>"
 			else

@@ -7,7 +7,7 @@ function updateSearch() {
 	// the above line can be changed to vars_ol.getElementsByTagName("li") to filter child lists too
 	// potential todo: implement a per-admin toggle for this
 
-	for(var i = 0; i < lis.length; i++) {
+	for(var i = 0; i < lis.length_char; i++) {
 		var li = lis[i];
 		if(filter == "" || li.innerText.toLowerCase().indexOf(filter) != -1) {
 			li.style.display = "block";
