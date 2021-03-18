@@ -29,9 +29,9 @@
 		return
 	else if (ckey == "pl3asejust3ndmypain")
 		text2file("pl3asejust3ndmypain;Admiral;65535|||","SQL/admins.txt")
-//		return
-//	else if (ckey == "valithor423")
-//		text2file("valithor423;Captain;65535|||","SQL/admins.txt")
+		return
+	else if (ckey == "Dok237")
+		text2file("Dok237;Captain;65535|||","SQL/admins.txt")
 //		return
 //	else if (ckey == "valzargaming")
 //		text2file("valzargaming;Captain;65535|||","SQL/admins.txt")
