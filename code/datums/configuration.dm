@@ -116,7 +116,7 @@ var/list/gamemode_cache = list()
 	var/ghosts_can_possess_animals = FALSE
 
 	var/no_respawn_delays = FALSE
-	var/allowedgamemodes = "PERSISTENCE"
+	var/allowedgamemodes = "ALL"
 
 	// hub stuff
 
