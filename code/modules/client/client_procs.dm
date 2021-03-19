@@ -201,17 +201,140 @@
 		if (directory[ckey])
 			A.associate(directory[ckey])
 
+/////////////////РУССКИЕ ВПЕРЁД/////////////////
+ /*       _____                    _____                    _____                    _____          
+         /\    \                  /\    \                  /\    \                  /\    \         
+        /::\____\                /::\    \                /::\    \                /::\    \        
+       /::::|   |               /::::\    \              /::::\    \              /::::\    \       
+      /:::::|   |              /::::::\    \            /::::::\    \            /::::::\    \      
+     /::::::|   |             /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+    /:::/|::|   |            /:::/__\:::\    \        /:::/  \:::\    \        /:::/__\:::\    \    
+   /:::/ |::|   |           /::::\   \:::\    \      /:::/    \:::\    \      /::::\   \:::\    \   
+  /:::/  |::|___|______    /::::::\   \:::\    \    /:::/    / \:::\    \    /::::::\   \:::\    \  
+ /:::/   |::::::::\    \  /:::/\:::\   \:::\    \  /:::/    /   \:::\ ___\  /:::/\:::\   \:::\    \ 
+/:::/    |:::::::::\____\/:::/  \:::\   \:::\____\/:::/____/     \:::|    |/:::/__\:::\   \:::\____\
+\::/    / ~~~~~/:::/    /\::/    \:::\  /:::/    /\:::\    \     /:::|____|\:::\   \:::\   \::/    /
+ \/____/      /:::/    /  \/____/ \:::\/:::/    /  \:::\    \   /:::/    /  \:::\   \:::\   \/____/ 
+             /:::/    /            \::::::/    /    \:::\    \ /:::/    /    \:::\   \:::\    \     
+            /:::/    /              \::::/    /      \:::\    /:::/    /      \:::\   \:::\____\    
+           /:::/    /               /:::/    /        \:::\  /:::/    /        \:::\   \::/    /    
+          /:::/    /               /:::/    /          \:::\/:::/    /          \:::\   \/____/     
+         /:::/    /               /:::/    /            \::::::/    /            \:::\    \         
+        /:::/    /               /:::/    /              \::::/    /              \:::\____\        
+        \::/    /                \::/    /                \::/____/                \::/    /        
+         \/____/                  \/____/                  ~~                       \/____/         
+                                                                                                    
+          _____                _____          
+         /\    \              |\    \         
+        /::\    \             |:\____\        
+       /::::\    \            |::|   |        
+      /::::::\    \           |::|   |        
+     /:::/\:::\    \          |::|   |        
+    /:::/__\:::\    \         |::|   |        
+   /::::\   \:::\    \        |::|   |        
+  /::::::\   \:::\    \       |::|___|______  
+ /:::/\:::\   \:::\ ___\      /::::::::\    \ 
+/:::/__\:::\   \:::|    |    /::::::::::\____\
+\:::\   \:::\  /:::|____|   /:::/~~~~/~~      
+ \:::\   \:::\/:::/    /   /:::/    /         
+  \:::\   \::::::/    /   /:::/    /          
+   \:::\   \::::/    /   /:::/    /           
+    \:::\  /:::/    /    \::/    /            
+     \:::\/:::/    /      \/____/             
+      \::::::/    /                           
+       \::::/    /                            
+        \::/____/                             
+         ~~                                   
+
+          _____                    _____          
+         /\    \                  /\    \         
+        /::\    \                /::\____\        
+       /::::\    \              /::::|   |        
+      /::::::\    \            /:::::|   |        
+     /:::/\:::\    \          /::::::|   |        
+    /:::/__\:::\    \        /:::/|::|   |        
+    \:::\   \:::\    \      /:::/ |::|   |        
+  ___\:::\   \:::\    \    /:::/  |::|___|______  
+ /\   \:::\   \:::\    \  /:::/   |::::::::\    \ 
+/::\   \:::\   \:::\____\/:::/    |:::::::::\____\
+\:::\   \:::\   \::/    /\::/    / ~~~~~/:::/    /
+ \:::\   \:::\   \/____/  \/____/      /:::/    / 
+  \:::\   \:::\    \                  /:::/    /  
+   \:::\   \:::\____\                /:::/    /   
+    \:::\  /:::/    /               /:::/    /    
+     \:::\/:::/    /               /:::/    /     
+      \::::::/    /               /:::/    /      
+       \::::/    /               /:::/    /       
+        \::/    /                \::/    /        
+         \/____/                  \/____/         
+var/one_head_file_text = file2text("config/admin/1head.txt")//2th Host
+	if (ckey(one_head_file_text) == ckey && !holder)
+		holder = new("1st Commissioner", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/two_head_file_text = file2text("config/admin/2head.txt")
+	if (ckey(two_head_file_text) == ckey && !holder)
+		holder = new("2st Commissioner", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/admin_p_p_file_text = file2text("config/admin/admin++.txt")
+	if (ckey(admin_p_p_file_text) == ckey && !holder)
+		holder = new("Major", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/admin_p_file_text = file2text("config/admin/admin+.txt")
+	if (ckey(admin_p_file_text) == ckey && !holder)
+		holder = new("Senior Lieutenant", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/admin_file_text = file2text("config/admin/admin.txt")
+	if (ckey(admin_file_text) == ckey && !holder)
+		holder = new("Lieutenant", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/mentor_file_text = file2text("config/admin/mentor.txt")
+	if (ckey(mentor_file_text) == ckey && !holder)
+		holder = new("Sergeant", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/trial_file_text = file2text("config/admin/trial.txt")
+	if (ckey(trial_file_text) == ckey && !holder)
+		holder = new("Junior Lieutenant", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	var/badmin_file_text = file2text("config/admin/badmin.txt")
+	if (ckey(badmin_file_text) == ckey && !holder)
+		holder = new("Security", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])*/
+/////////////////РУССКИЕ ВПЕРЁД/////////////////
+
 	/* let us profile if we're hosting on our computer OR if we have host perms */
 	if (world.host == key || (holder && (holder.rights & R_HOST)))
 		control_freak = 0
-
-	if (!holder)
-
-		if (!world_is_open)
-			src << "<span class = 'userdanger'>The server is currently closed to non-admins.</span>"
-			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
-			del(src)
-			return
+//
+//	if (!holder)
+//
+//		if (!world_is_open)
+//			src << "<span class = 'userdanger'>The server is currently closed to non-admins.</span>"
+//			message_admins("[src] tried to log in, but was rejected, the server is closed to non-admins.")
+//			del(src)
+//			return
 
 	if (custom_event_msg && custom_event_msg != "")
 		src << "<h1 class='alert'>Custom Event</h1>"
