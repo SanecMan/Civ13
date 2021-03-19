@@ -994,5 +994,5 @@
 #include "code\processes\zoom\zoom_scopes.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\nomads\nomads_europe.dmm"
+#include "maps\nomads\nomads_mountain.dmm"
 // END_INCLUDE

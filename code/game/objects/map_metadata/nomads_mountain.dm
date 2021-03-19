@@ -5,7 +5,7 @@
 	title = "Nomads (Mountain)"
 	lobby_icon_state = "civ13"
 	caribbean_blocking_area_types = list(/area/caribbean/no_mans_land/invisible_wall/)
-	respawn_delay = 6000 // 10 minutes!
+	respawn_delay = 3000 // 5 minutes!
 	has_hunger = TRUE
 
 	faction_organization = list(
@@ -14,20 +14,26 @@
 	roundend_condition_sides = list(
 		list(CIVILIAN) = /area/caribbean/british
 		)
-	age = "5000 B.C."
+	age = "1400"
 	civilizations = TRUE
 	var/tribes_nr = 1
 	faction_distribution_coeffs = list(CIVILIAN = 1)
 	battle_name = "the civilizations"
-	mission_start_message = "<big>Your people has lived in the mountains for ages. Now, its time to expand and dig deeper, but as your ancestors always said, the deeper you dig, the more dangerous it gets...</big><br><b>Wiki Guide: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
+	mission_start_message = "<meta charset='utf-8'><big>Ваш народ веками жил в горах, изучая технологии быстрее людей живущих на поверхности. Теперь пора расширяться и копать глубже, но, как всегда говорили ваши предки, чем глубже вы копаете, тем опаснее становится...</big><br>Вы новый член этой экспедиции!<br><b>Вики на Английском: https://civ13.github.io/civ13-wiki/Civilizations_and_Nomads</b>"
 	ambience = list('sound/ambience/jungle1.ogg')
 	faction1 = CIVILIAN
 	availablefactions = list("Nomad")
 	songs = list(
 		"Words Through the Sky:1" = 'sound/music/words_through_the_sky.ogg',)
 	research_active = TRUE
+	default_research = 0
+	age1_done = TRUE
+	age2_done = TRUE
+	age3_done = TRUE
+	age4_done = TRUE
+	age5_done = TRUE
 	nomads = TRUE
-	gamemode = "Classic (Stone Age Start)"
+	gamemode = "Classic Forterss (Imperial Age)"
 	var/real_season = "wet"
 /obj/map_metadata/nomads_mountain/New()
 	..()
