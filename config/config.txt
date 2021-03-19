@@ -6,7 +6,7 @@ SERVER_NAME RU|INT Civilization 13
 MASTER_DIRECTORY /home/civ13
 
 ## If this server is running: Persistence mode, RP maps only, TDM only, or both (PERSISTENCE RP TDM ALL).
-ALLOWED_GAMEMODES ALL
+ALLOWED_GAMEMODES PERSISTENCE
 
 ## The main content of your hub message
 HUB_BODY Русские, Англоговорящие и ты
