@@ -25,7 +25,7 @@ for pid in pids:
 		# due to BUGS we need to make sure the file we use as a reference is newer than the other
 		# todo: add test server support
 		may_restart_server = []
-		may_restart_server.append("1714")
+		may_restart_server.append("2021")
 
 		if len(may_restart_server) == 0:
 			may_restart_server.append("notathing")

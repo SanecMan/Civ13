@@ -11,6 +11,7 @@
 ## +EVERYTHING (or +HOST or +ALL) = Simply gives you everything without having to type every flag
 
 Mentor +MENTOR
+
 Trial Sergeant +MOD + TRIALADMIN +REJUV
 Sergeant +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
 Master Sergeant +@ +SPAWN
@@ -20,3 +21,16 @@ Admiral +EVERYTHING
 Host +EVERYTHING
 Debug Host +EVERYTHING
 HHost +EVERYTHING
+
+##Русские ранги
+Sergeant +MENTOR
+
+Junior Lieutenant +MOD + TRIALADMIN +REJUV
+Lieutenant +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
+Senior Lieutenant +@ +SPAWN
+Major +@ +PERMISSIONS
+Senior Major +@
+Security +EVERYTHING
+1st Commissioner +EVERYTHING
+2st Commissioner +EVERYTHING
+3st Commissioner +EVERYTHING
