@@ -22,6 +22,6 @@ cdir = cdir.replace("cdir:", "")
 #		path = line.replace("\n", "")
 #		shutil.rmtree(os.path.join(mdir,cdir,path))
 #		shutil.copytree(os.path.join(mdir,"civ13-git",path), os.path.join(mdir,cdir,path))
-
-shutil.rmtree(os.path.join(mdir,cdir,"config/names"))
-shutil.copytree(os.path.join(mdir,"civ13-git/config/names"), os.path.join(mdir,cdir,"config/names"), symlinks=False, ignore=None)
+#
+#shutil.rmtree(os.path.join(mdir,cdir,"config/names"))
+#shutil.copytree(os.path.join(mdir,"civ13-git/config/names"), os.path.join(mdir,cdir,"config/names"), symlinks=False, ignore=None)
