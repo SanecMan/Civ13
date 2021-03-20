@@ -1,6 +1,6 @@
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice.
 ## IMPORTANT: Don't include special characters such as ' in here
-SERVER_NAME RU|INT Civilization 13
+SERVER_NAME RU Non-official Civilization 13
 
 ## Where is the game folder located?
 MASTER_DIRECTORY /home/civ13
@@ -210,7 +210,7 @@ SHOW_MODS 1
 SHOW_MENTORS 1
 
 #disables field of view if uncommented
-#DISABLE_FOV
+DISABLE_FOV
 
 #if uncommented, redirects all players to the target server
 #REDIRECT_ALL_PLAYERS byond://civ13.com:1714

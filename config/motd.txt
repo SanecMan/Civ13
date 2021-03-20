@@ -1,5 +1,5 @@
 <hr />
-<h2><small><span style="font-size: 1.20em;">Welcome to <b><span style="font-size: 1.20em;">RU|INT Civilization 13<span style="color: #cd4c6c;"> - Beta Edition</span></span></b></span></small></h2>
+<h2><small><span style="font-size: 1.20em;">Welcome to <b><span style="font-size: 1.20em;">RU Non-official Civilization 13<span style="color: #cd4c6c;"> - Beta Edition</span></span></b></span></small></h2>
 <p><i><i> The current map is <b>{server_map}</b>. <br />This server is running {server_version}, and you are running {client_version}.</i></i></p>
 <h2><small>Github RU: https://github.com/SanecMan/Civ13</small></h2>
 <h2><small>Discord RU: https://discord.gg/2xQMkWSKyB</small></h2>

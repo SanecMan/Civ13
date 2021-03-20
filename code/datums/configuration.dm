@@ -434,7 +434,7 @@ var/list/gamemode_cache = list()
 					config.round_end_countdown = text2num(value)
 
 				if ("disable_fov")
-					config.disable_fov = FALSE
+					config.disable_fov = TRUE
 
 				if ("redirect_all_players")
 					redirect_all_players = value
