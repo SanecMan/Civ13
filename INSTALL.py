@@ -56,7 +56,7 @@ print("Updating the config...")
 with open(os.path.join(mdir,cdir,"scripts/paths.txt"), 'r') as file :
   filedata = file.read()
 
-filedata = filedata.replace("/home/civ13", mdir)
+filedata = filedata.replace("/home/civ13-git", mdir)
 
 with open(os.path.join(mdir,cdir,"scripts/paths.txt"), 'w') as file:
   file.write(filedata)
