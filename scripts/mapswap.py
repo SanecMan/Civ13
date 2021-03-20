@@ -130,6 +130,9 @@ for pid in pids:
 							os.kill(int(pid), signal.SIGKILL)
 							print("Compiling...")
 							os.system('DreamDaemon {}{}/civ13.dme'.format(mdir,cdir))
+							print("Moving into reboot in 20 seconds!")
+
+							time.sleep(20)
 #							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
 #							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
 #							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
