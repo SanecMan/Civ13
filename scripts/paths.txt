@@ -1,4 +1,4 @@
 ////define your master folder (the one with "Civ13" in it) here. The second line is the name of this copy's folder (e.g., "civ13")
-mdir:build/
-cdir:Civ13/
+mdir:/home/civ13/
+cdir:civ13-git/
 port:2021
