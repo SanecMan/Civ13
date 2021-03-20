@@ -98,9 +98,9 @@ t2 = time.time() - t1
 
 print("Finished rebuilding in {} seconds".format(t2))
 
-#print("Moving into reboot in 30 seconds!")
+print("Moving into reboot in 10 seconds!")
 
-#time.sleep(30)
+time.sleep(30)
 
 pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 
@@ -128,7 +128,8 @@ for pid in pids:
 						if process is not None:
 							print("Killing the server...")
 							os.kill(int(pid), signal.SIGKILL)
-#							print("Copying binaries...")
+							print("Compiling...")
+							os.system('DreamDaemon {}{}/civ13.dme'.format(mdir,cdir))
 #							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
 #							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
 #							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
