@@ -135,7 +135,7 @@ for pid in pids:
 							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
 							time.sleep(8)
 							print("Rebooting the server...")
-							os.system('sudo DreamDaemon {}{}civ13.dmb {} -trusted -webclient -logself &'.format(mdir,cdir,port))
+							os.system('sudo DreamDaemon {}{}civ13.dmb {} -trusted -logself &'.format(mdir,cdir,port))
 							print("Restarted main server on port {}.".format(port))
 
 	except IOError:
