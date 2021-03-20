@@ -26,6 +26,8 @@ os.system("sudo git reset --hard origin/master")
 
 print("Rebuilding binaries...")
 
+os.system("sudo rm civ13.dmb")
+
 os.system("sudo DreamMaker civ13.dme")
 
 os.system("cd")
@@ -34,16 +36,16 @@ print("Copying configuration settings...")
 
 os.system("sudo python3 {}{}scripts/copyconfigfiles.py".format(mdir,cdir))
 
-print("Copying binaries...")
-
-dmb = os.path.join(mdir,'civ13-git/civ13.dmb')
-rsc = os.path.join(mdir,'civ13-git/civ13.rsc')
-
-shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
-
-
-shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
-
+#print("Copying binaries...")
+#
+#dmb = os.path.join(mdir,'civ13-git/civ13.dmb')
+#rsc = os.path.join(mdir,'civ13-git/civ13.rsc')
+#
+#shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
+#
+#
+#shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
+#
 t2 = time.time() - t1
 
 print("Finished updating all directories in {} seconds".format(t2))
