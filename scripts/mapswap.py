@@ -137,7 +137,7 @@ for pid in pids:
 							print("Rebooting the server...")
 #							os.system('DreamDaemon /home/civ13/civ13-git/civ13.dmb -trusted -logself -port {} &'.format(port))
 #							print("Restarted main server on port {}.".format(port))
-							os.system('python3 launch.py')
+							exec(open('launch.py').read())
 	except IOError:
 		continue
 
