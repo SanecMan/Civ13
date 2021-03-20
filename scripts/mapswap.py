@@ -100,7 +100,7 @@ print("Finished rebuilding in {} seconds".format(t2))
 
 print("Moving into reboot in 10 seconds!")
 
-time.sleep(30)
+time.sleep(10)
 
 pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 
