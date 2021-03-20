@@ -46,7 +46,6 @@ unga,barbarian
 UwU,hmm
 OwO,hmm
 we live in a society,we reside in a human community
-игрок,брат
 лол,смешно
 брух,смешно
 спидран,рывок
@@ -81,8 +80,6 @@ we live in a society,we reside in a human community
 ментор,бог
 сска,игра
 сосака,игра
-пидорас,гей
-анал,жопа
 морлок,забавный
 щитспавн,наказание
 афк,посплю
