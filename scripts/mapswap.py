@@ -128,16 +128,17 @@ for pid in pids:
 						if process is not None:
 							print("Killing the server...")
 							os.kill(int(pid), signal.SIGKILL)
-							print("Copying binaries...")
-							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
-							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
-							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
-							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
-							time.sleep(8)
-							print("Rebooting the server...")
-							os.system('DreamDaemon /home/civ13/civ13-git/civ13.dmb -trusted -logself -port {} &'.format(port))
-							print("Restarted main server on port {}.".format(port))
-							exec(open('launch.py').read())
+#							print("Copying binaries...")
+#							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
+#							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
+#							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
+#							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
+#							time.sleep(8)
+#							print("Rebooting the server...")
+#							os.system('DreamDaemon /home/civ13/civ13-git/civ13.dmb -trusted -logself -port {} &'.format(port))
+#							print("Restarted main server on port {}.".format(port))
+#							exec(open('launch.py').read())
+							os.system("sudo python3 {}{}scripts/launch.py".format(mdir,cdir))
 	except IOError:
 		continue
 
