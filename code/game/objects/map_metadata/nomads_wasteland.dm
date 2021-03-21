@@ -27,7 +27,7 @@
 		"Words Through the Sky:1" = 'sound/music/words_through_the_sky.ogg',)
 	research_active = TRUE
 	nomads = TRUE
-	gamemode = "Nuclear Wasteland"
+	gamemode = "Cataclysm: Dark Wasteland Ahead"
 	ordinal_age = 8
 	default_research = 230
 	research_active = FALSE
@@ -57,7 +57,7 @@
 /obj/map_metadata/nomads_wasteland/cross_message(faction)
 	return ""
 
-/obj/map_metadata/nomads_wasteland/proc/nuke_proc(var/timer=72000)
+/obj/map_metadata/nomads_wasteland/proc/nuke_proc(var/timer=720000)
 	if (processes.ticker.playtime_elapsed > timer && !nonukes)
 		var/vx = rand(25,world.maxx-25)
 		var/vy = rand(25,world.maxy-25)
@@ -77,7 +77,7 @@
 			nuke_proc(timer)
 	return
 /obj/map_metadata/nomads_wasteland/proc/supplydrop_proc()
-	if (world_radiation >= 280 && !nonukes)
+	if (world_radiation >= 0 && !nonukes)
 		var/droptype = pick("supplies","food","weapons","medicine")
 		var/turf/locationt = pick(supplydrop_turfs)
 		switch(droptype)
