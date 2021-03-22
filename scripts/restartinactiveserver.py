@@ -44,7 +44,7 @@ for pid in pids:
 							os.kill(int(pid), signal.SIGKILL)
 							# for some reason I have to do this now
 							time.sleep(5)
-							os.system('sudo DreamDaemon {}{}civ13.dmb {} -trusted -webclient -logself &'.format(mdir,cdir,port))
+							os.system('sudo DreamDaemon {}{}civ13.dmb -trusted -logself -port {} &'.format(mdir,cdir,port))
 							print("Restarted main server on port {}.".format(port))
 	except IOError:
 		continue
