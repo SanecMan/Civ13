@@ -98,9 +98,9 @@ t2 = time.time() - t1
 
 print("Finished rebuilding in {} seconds".format(t2))
 
-print("Moving into reboot in 10 seconds!")
+print("Moving into reboot in 30 seconds!")
 
-time.sleep(10)
+time.sleep(30)
 
 pids = [pid for pid in os.listdir('/proc') if pid.isdigit()]
 
@@ -128,21 +128,16 @@ for pid in pids:
 						if process is not None:
 							print("Killing the server...")
 							os.kill(int(pid), signal.SIGKILL)
-							print("Compiling...")
-							os.system('DreamDaemon {}{}/civ13.dme'.format(mdir,cdir))
-							print("Moving into reboot in 30 seconds!")
-
-							time.sleep(30)
+							print("Copying binaries...")
 							dmb = os.path.join('{}civ13-git/civ13.dmb'.format(mdir))
 							rsc = os.path.join('{}civ13-git/civ13.rsc'.format(mdir))
 							shutil.copyfile(dmb, '{}{}civ13.dmb'.format(mdir,cdir))
 							shutil.copyfile(rsc, '{}{}civ13.rsc'.format(mdir,cdir))
 							time.sleep(8)
 							print("Rebooting the server...")
-#							os.system('DreamDaemon /home/civ13/civ13-git/civ13.dmb -trusted -logself -port {} &'.format(port))
-#							print("Restarted main server on port {}.".format(port))
-#							exec(open('launch.py').read())
-							os.system("sudo python3 {}{}scripts/launch.py".format(mdir,cdir))
+							os.system('sudo DreamDaemon {}{}civ13.dmb {} -trusted -webclient -logself &'.format(mdir,cdir,port))
+							print("Restarted main server on port {}.".format(port))
+
 	except IOError:
 		continue
 
