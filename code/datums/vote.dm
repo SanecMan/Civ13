@@ -263,23 +263,23 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (C.holder.rights & R_ADMIN)
 				admin = TRUE
 		voting |= C
-		. = "<html><head><title>Voting Panel</title></head><body>"
+		. = "<meta charset='utf-8'><html><head><title>Voting Panel</title></head><body>"
 		if (mode)
-			if (question)	. += "<h2>Vote: '[question]'</h2>"
-			else			. += "<h2>Vote: [capitalize(mode)]</h2>"
-			. += "Time Left: [time_remaining] s<hr>"
-			. += "<table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
+			if (question)	. += "<meta charset='utf-8'><h2>Vote: '[question]'</h2>"
+			else			. += "<meta charset='utf-8'><h2>Vote: [capitalize(mode)]</h2>"
+			. += "<meta charset='utf-8'>Time Left: [time_remaining] s<hr>"
+			. += "<meta charset='utf-8'><table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
 			for (var/i = 1, i <= choices.len, i++)
 				var/votes = choices[choices[i]]
 				if (!votes)	votes = 0
 				. += "<tr>"
 
 				if (disabled.Find(choices[i]))
-					. += "<td><font color = 'grey'>DISABLED ([disabled[choices[i]]]): [choices[i]]</td><td align = 'center'>[votes]</font></td>"
+					. += "<meta charset='utf-8'><td><font color = 'grey'>DISABLED ([disabled[choices[i]]]): [choices[i]]</td><td align = 'center'>[votes]</font></td>"
 				else if (current_votes[C.ckey] == i)
-					. += "<td><b><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
+					. += "<meta charset='utf-8'><td><b><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
 				else
-					. += "<td><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></td><td align = 'center'>[votes]</td>"
+					. += "<meta charset='utf-8'><td><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></td><td align = 'center'>[votes]</td>"
 				if (additional_text.len >= i)
 					. += additional_text[i]
 				. += "</tr>"

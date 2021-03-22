@@ -127,7 +127,7 @@
 	if (!new_text)
 		return
 
-	free_space -= length_char(strip_html_properly(new_text))
+	free_space -= length(strip_html_properly(new_text))
 
 /obj/item/weapon/paper/examine(mob/user)
 	..()
@@ -139,10 +139,10 @@
 
 /obj/item/weapon/paper/proc/show_content(var/mob/user, var/forceshow=0)
 	if (!(istype(user, /mob/living/human) || isghost(user) && !forceshow))
-		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<meta charset='utf-8'><HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[stars(info)][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 	else
-		user << browse("<HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
+		user << browse("<meta charset='utf-8'><HTML><HEAD><TITLE>[name]</TITLE></HEAD><BODY>[info][stamps]</BODY></HTML>", "window=[name]")
 		onclose(user, "[name]")
 
 /obj/item/weapon/paper/verb/rename()
@@ -232,12 +232,12 @@
 			break
 
 	if (links)
-		var/before = copytext_char(info_links, TRUE, textindex)
-		var/after = copytext_char(info_links, textindex)
+		var/before = copytext(info_links, TRUE, textindex)
+		var/after = copytext(info_links, textindex)
 		info_links = before + text + after
 	else
-		var/before = copytext_char(info, TRUE, textindex)
-		var/after = copytext_char(info, textindex)
+		var/before = copytext(info, TRUE, textindex)
+		var/after = copytext(info, textindex)
 		info = before + text + after
 		updateinfolinks()
 
@@ -245,7 +245,7 @@
 	info_links = info
 	var/i = FALSE
 	for (i=1,i<=fields,i++)
-		addtofield(i, "<font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", TRUE)
+		addtofield(i, "<meta charset='utf-8'><font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", TRUE)
 	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
 
