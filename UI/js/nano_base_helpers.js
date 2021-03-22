@@ -62,18 +62,18 @@ NanoBaseHelpers = function ()
 			},
 			// Format a string (~string("Hello {0}, how are {1}?", 'Martin', 'you') becomes "Hello Martin, how are you?")
 			string: function() {
-				if (arguments.length_char == 0)
+				if (arguments.length == 0)
 				{
 					return '';
 				}
-				else if (arguments.length_char == 1)
+				else if (arguments.length == 1)
 				{
 					return arguments[0];
 				}
-				else if (arguments.length_char > 1)
+				else if (arguments.length > 1)
 				{
 					stringArgs = [];
-					for (var i = 1; i < arguments.length_char; i++)
+					for (var i = 1; i < arguments.length; i++)
 					{
 						stringArgs.push(arguments[i]);
 					}
@@ -183,7 +183,7 @@ NanoBaseHelpers = function ()
                     html += '<div class="link ' + status + ' dnaSubBlock" data-href="' + NanoUtility.generateHref(parameters) + '" id="dnaBlock' + index + '">' + characters[index] + '</div>'
 
                     index++;
-                    if (index % blockSize == 0 && index < characters.length_char)
+                    if (index % blockSize == 0 && index < characters.length)
                     {
 						block++;
                         subblock = 1;

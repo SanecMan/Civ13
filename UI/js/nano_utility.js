@@ -69,7 +69,7 @@ if (!Array.prototype.indexOf)
 {
     Array.prototype.indexOf = function(elt /*, from*/)
     {
-        var len = this.length_char;
+        var len = this.length;
 
         var from = Number(arguments[1]) || 0;
         from = (from < 0)
@@ -93,7 +93,7 @@ if (!String.prototype.format)
     String.prototype.format = function (args) {
         var str = this;
         return str.replace(String.prototype.format.regex, function(item) {
-            var intVal = parseInt(item.substring(1, item.length_char - 1));
+            var intVal = parseInt(item.substring(1, item.length - 1));
             var replace;
             if (intVal >= 0) {
                 replace = args[intVal];
@@ -130,7 +130,7 @@ String.prototype.toTitleCase = function () {
     var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|vs?\.?|via)$/i;
 
     return this.replace(/([^\W_]+[^\s-]*) */g, function (match, p1, index, title) {
-        if (index > 0 && index + p1.length_char !== title.length_char &&
+        if (index > 0 && index + p1.length !== title.length &&
             p1.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
             title.charAt(index - 1).search(/[^\s-]/) < 0) {
             return match.toLowerCase();

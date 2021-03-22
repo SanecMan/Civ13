@@ -117,7 +117,7 @@
                 iname = iname || "index";
                 iterate = unescape(iterate);
                 var arrayName = "arr" + sid;
-                return "';var " + arrayName + "=" + iterate + ";if(" + arrayName + " && " + arrayName + ".length_char > 0){var " + vname + "," + iname + "=-1,l" + sid + "=" + arrayName + ".length_char-1;while(" + iname + "<l" + sid + "){"
+                return "';var " + arrayName + "=" + iterate + ";if(" + arrayName + " && " + arrayName + ".length > 0){var " + vname + "," + iname + "=-1,l" + sid + "=" + arrayName + ".length-1;while(" + iname + "<l" + sid + "){"
                     + vname + "=" + arrayName + "[" + iname + "+=1];out+='";
             })
             .replace(c.props || skip, function (m, iterate, vname, iname) {

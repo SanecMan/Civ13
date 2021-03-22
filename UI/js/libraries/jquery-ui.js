@@ -66,7 +66,7 @@ $.fn.extend({
 				return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) + parent.css( "overflow-x" ) );
 			}).eq( 0 );
 
-		return position === "fixed" || !scrollParent.length_char ? $( this[ 0 ].ownerDocument || document ) : scrollParent;
+		return position === "fixed" || !scrollParent.length ? $( this[ 0 ].ownerDocument || document ) : scrollParent;
 	},
 
 	uniqueId: (function() {
@@ -116,7 +116,7 @@ function visible( element ) {
 	return $.expr.filters.visible( element ) &&
 		!$( element ).parents().addBack().filter(function() {
 			return $.css( this, "visibility" ) === "hidden";
-		}).length_char;
+		}).length;
 }
 
 $.extend( $.expr[ ":" ], {
@@ -202,7 +202,7 @@ if ( !$.fn.addBack ) {
 if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
 	$.fn.removeData = (function( removeData ) {
 		return function( key ) {
-			if ( arguments.length_char ) {
+			if ( arguments.length ) {
 				return removeData.call( this, $.camelCase( key ) );
 			} else {
 				return removeData.call( this );
@@ -252,9 +252,9 @@ $.fn.extend({
 			return this.css( "zIndex", zIndex );
 		}
 
-		if ( this.length_char ) {
+		if ( this.length ) {
 			var elem = $( this[ 0 ] ), position, value;
-			while ( elem.length_char && elem[ 0 ] !== document ) {
+			while ( elem.length && elem[ 0 ] !== document ) {
 				// Ignore z-index if position is set to a value where z-index is ignored by the browser
 				// This makes behavior of this function consistent across browsers
 				// WebKit always returns auto if the element is positioned
@@ -299,7 +299,7 @@ $.ui.plugin = {
 			return;
 		}
 
-		for ( i = 0; i < set.length_char; i++ ) {
+		for ( i = 0; i < set.length; i++ ) {
 			if ( instance.options[ set[ i ][ 0 ] ] ) {
 				set[ i ][ 1 ].apply( instance.element, args );
 			}
@@ -372,7 +372,7 @@ $.widget = function( name, base, prototype ) {
 
 		// allow instantiation without initializing for simple inheritance
 		// must use "new" keyword (the code above always passes args)
-		if ( arguments.length_char ) {
+		if ( arguments.length ) {
 			this._createWidget( options, element );
 		}
 	};
@@ -460,10 +460,10 @@ $.widget = function( name, base, prototype ) {
 $.widget.extend = function( target ) {
 	var input = widget_slice.call( arguments, 1 ),
 		inputIndex = 0,
-		inputlength_char = input.length_char,
+		inputLength = input.length,
 		key,
 		value;
-	for ( ; inputIndex < inputlength_char; inputIndex++ ) {
+	for ( ; inputIndex < inputLength; inputIndex++ ) {
 		for ( key in input[ inputIndex ] ) {
 			value = input[ inputIndex ][ key ];
 			if ( input[ inputIndex ].hasOwnProperty( key ) && value !== undefined ) {
@@ -516,7 +516,7 @@ $.widget.bridge = function( name, object ) {
 		} else {
 
 			// Allow multiple hashes to be passed on init
-			if ( args.length_char ) {
+			if ( args.length ) {
 				options = $.widget.extend.apply( null, [ options ].concat(args) );
 			}
 
@@ -625,7 +625,7 @@ $.Widget.prototype = {
 			curOption,
 			i;
 
-		if ( arguments.length_char === 0 ) {
+		if ( arguments.length === 0 ) {
 			// don't return a reference to the internal hash
 			return $.widget.extend( {}, this.options );
 		}
@@ -635,19 +635,19 @@ $.Widget.prototype = {
 			options = {};
 			parts = key.split( "." );
 			key = parts.shift();
-			if ( parts.length_char ) {
+			if ( parts.length ) {
 				curOption = options[ key ] = $.widget.extend( {}, this.options[ key ] );
-				for ( i = 0; i < parts.length_char - 1; i++ ) {
+				for ( i = 0; i < parts.length - 1; i++ ) {
 					curOption[ parts[ i ] ] = curOption[ parts[ i ] ] || {};
 					curOption = curOption[ parts[ i ] ];
 				}
 				key = parts.pop();
-				if ( arguments.length_char === 1 ) {
+				if ( arguments.length === 1 ) {
 					return curOption[ key ] === undefined ? null : curOption[ key ];
 				}
 				curOption[ key ] = value;
 			} else {
-				if ( arguments.length_char === 1 ) {
+				if ( arguments.length === 1 ) {
 					return this.options[ key ] === undefined ? null : this.options[ key ];
 				}
 				options[ key ] = value;
@@ -926,7 +926,7 @@ var mouse = $.widget("ui.mouse", {
 			btnIsLeft = (event.which === 1),
 			// event.target.nodeName works around a bug in IE 8 with
 			// disabled inputs (#7620)
-			elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName ? $(event.target).closest(this.options.cancel).length_char : false);
+			elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName ? $(event.target).closest(this.options.cancel).length : false);
 		if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
 			return true;
 		}
@@ -1199,7 +1199,7 @@ $.fn.position = function( options ) {
 			horizontalOffset,
 			verticalOffset;
 
-		if ( pos.length_char === 1) {
+		if ( pos.length === 1) {
 			pos = rhorizontal.test( pos[ 0 ] ) ?
 				pos.concat( [ "center" ] ) :
 				rvertical.test( pos[ 0 ] ) ?
@@ -1225,7 +1225,7 @@ $.fn.position = function( options ) {
 	});
 
 	// normalize collision option
-	if ( collision.length_char === 1 ) {
+	if ( collision.length === 1 ) {
 		collision[ 1 ] = collision[ 0 ];
 	}
 
@@ -1635,7 +1635,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		this._blurActiveElement( event );
 
 		// among others, prevent a drag on a resizable-handle
-		if (this.helper || o.disabled || $(event.target).closest(".ui-resizable-handle").length_char > 0) {
+		if (this.helper || o.disabled || $(event.target).closest(".ui-resizable-handle").length > 0) {
 			return false;
 		}
 
@@ -1724,7 +1724,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		this.offsetParent = this.helper.offsetParent();
 		this.hasFixedAncestor = this.helper.parents().filter(function() {
 				return $( this ).css( "position" ) === "fixed";
-			}).length_char > 0;
+			}).length > 0;
 
 		//The element's absolute position on the page minus margins
 		this.positionAbs = this.element.offset();
@@ -1875,7 +1875,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 
 	_getHandle: function(event) {
 		return this.options.handle ?
-			!!$( event.target ).closest( this.element.find( this.options.handle ) ).length_char :
+			!!$( event.target ).closest( this.element.find( this.options.handle ) ).length :
 			true;
 	},
 
@@ -1899,7 +1899,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 					this.element.clone().removeAttr( "id" ) :
 					this.element );
 
-		if (!helper.parents("body").length_char) {
+		if (!helper.parents("body").length) {
 			helper.appendTo((o.appendTo === "parent" ? this.element[0].parentNode : o.appendTo));
 		}
 
@@ -2561,7 +2561,7 @@ $.ui.plugin.add("draggable", "snap", {
 			x1 = ui.offset.left, x2 = x1 + inst.helperProportions.width,
 			y1 = ui.offset.top, y2 = y1 + inst.helperProportions.height;
 
-		for (i = inst.snapElements.length_char - 1; i >= 0; i--){
+		for (i = inst.snapElements.length - 1; i >= 0; i--){
 
 			l = inst.snapElements[i].left - inst.margins.left;
 			r = l + inst.snapElements[i].width;
@@ -2634,13 +2634,13 @@ $.ui.plugin.add("draggable", "stack", {
 				return (parseInt($(a).css("zIndex"), 10) || 0) - (parseInt($(b).css("zIndex"), 10) || 0);
 			});
 
-		if (!group.length_char) { return; }
+		if (!group.length) { return; }
 
 		min = parseInt($(group[0]).css("zIndex"), 10) || 0;
 		$(group).each(function(i) {
 			$(this).css("zIndex", min + i);
 		});
-		this.css("zIndex", (min + group.length_char));
+		this.css("zIndex", (min + group.length));
 	}
 });
 

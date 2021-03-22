@@ -1,7 +1,7 @@
 // This is the base state class, it is not to be used directly
 
 function NanoStateClass() {
-	/*if (typeof this.key != 'string' || !this.key.length_char)
+	/*if (typeof this.key != 'string' || !this.key.length)
 	{
 		alert('ERROR: Tried to create a state with an invalid state key: ' + this.key);
 		return;
