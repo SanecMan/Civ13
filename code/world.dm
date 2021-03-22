@@ -275,6 +275,8 @@ var/world_topic_spam_protect_time = world.timeofday
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
 	if (map)
 		s += "<b>Gamemode:</b> [map.gamemode]"
+	if (config && config.hostedby)
+		s += "hosted by <b>[config.hostedby]</b>"
 	if (config.hub_body)
 		s += config.hub_body
 

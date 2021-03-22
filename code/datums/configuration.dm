@@ -111,7 +111,7 @@ var/list/gamemode_cache = list()
 	var/dooc_allowed = TRUE
 	var/dsay_allowed = TRUE
 
-	var/list/language_prefixes = list(",","#","-")//Default language prefixes
+	var/list/language_prefixes = list(":")//Default language prefixes
 
 	var/ghosts_can_possess_animals = FALSE
 
@@ -126,6 +126,7 @@ var/list/gamemode_cache = list()
 	var/open_hub_discord_in_new_window = TRUE
 	var/hub_body = ""
 	var/hub_banner_url = "https://i.imgur.com/fukQQKr.png"
+	var/hostedby = "younamehere"
 
 	// dumb memes
 	var/allow_dabbing = FALSE
@@ -306,6 +307,9 @@ var/list/gamemode_cache = list()
 
 				if ("serversuffix")
 					config.server_suffix = TRUE
+
+				if ("hostedby")
+					config.hostedby = value
 
 				if ("serverurl")
 					config.serverurl = value
