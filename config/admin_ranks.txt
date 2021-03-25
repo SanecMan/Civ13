@@ -12,21 +12,11 @@
 
 Mentor +MENTOR
 
-Trial Sergeant +MOD + TRIALADMIN +REJUV
-Sergeant +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
-Master Sergeant +@ +SPAWN
-Lieutenant +@ +PERMISSIONS
-Captain +@
-Admiral +EVERYTHING
-Host +EVERYTHING
-Debug Host +EVERYTHING
-HHost +EVERYTHING
+TrialAdmin      +MOD + TRIALADMIN +REJUV
+Admin           +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
+GameAdmin       +@ +PERMISSIONS
+SeniorAdmin     +@
 
-##Русские ранги
-Technician +MENTOR
-Senior Technician +ADMIN +REJUV +VAREDIT +POSSESS +SERVER +FUN +STEALTH +SOUNDS +DEBUG +MOD +TRIALADMIN
-Engineer +@
-Brigengineer +EVERYTHING
-Divengineer +EVERYTHING
-Corinner +EVERYTHING
-Armingener +EVERYTHING
+HeadDeveloper   +EVERYTHING
+HeadAdmin       +EVERYTHING
+Host            +EVERYTHING
