@@ -827,31 +827,31 @@ var/global/FREQP = rand(81,100)
 	switch(tcode)
 		if ("0")
 			converted = TRUE
-			dmessage = "10-0: <b>On my way</b>, currently at [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
+			dmessage = "10-0: В пути, еду в [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
 		if ("1")
 			converted = TRUE
-			dmessage = "10-1: Reporting in, current location is [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
+			dmessage = "10-1: Сообщаю, я нахожусь [speaker.get_coded_loc(speaker)] ([speaker.x],[speaker.y])."
 		if ("2")
 			converted = TRUE
-			dmessage = "10-2: Reporting in, currently available."
+			dmessage = "10-2: Сообщаю, свободен."
 		if ("3")
 			converted = TRUE
-			dmessage = "10-3: Reporting in, currently busy."
+			dmessage = "10-3: Сообщаю, занят."
 		if ("4")
 			converted = TRUE
-			dmessage = "10-4: Affirmative!"
+			dmessage = "10-4: Принято!"
 		if ("5")
 			converted = TRUE
-			dmessage = "10-5: Negative!"
+			dmessage = "10-5: Отказано!"
 		if ("6")
 			converted = TRUE
-			dmessage = "10-6: Returning to the station."
+			dmessage = "10-6: Возращаюсь."
 		if ("7")
 			converted = TRUE
-			dmessage = "10-7: Prisoner in custody."
+			dmessage = "10-7: Задержан подозреваемый."
 		if ("8")
 			converted = TRUE
-			dmessage = "10-8: NEED IMMEDIATE ASSISTANCE AT [speaker.get_coded_loc()] ([speaker.x],[speaker.y])!"
+			dmessage = "10-8: НЕОБХОДИМА СРОЧНАЯ ПОМОЩЬ В [speaker.get_coded_loc()] ([speaker.x],[speaker.y])!"
 
 	if (converted)
 		return dmessage
