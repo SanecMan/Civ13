@@ -68,8 +68,8 @@
 	var/newnamef = list("Paramedics" = list(230,230,230,null,0,"cross","#7F0000","#FFFFFF",0,0))
 	custom_civs += newnamea
 	custom_civs += newnameb
-	custom_civs += newnamec
-	custom_civs += newnamed
+//	custom_civs += newnamec
+//	custom_civs += newnamed
 	custom_civs += newnamee
 	custom_civs += newnamef
 	spawn(15000)
