@@ -269,27 +269,27 @@
 	faction = "Giovanni Blu Stocks"
 	fake = TRUE
 
-/obj/item/weapon/disk/yellow
+/*/obj/item/weapon/disk/yellow
 	name = "yellow diskette"
 	icon_state = "disk_yellow"
 	item_state = "disk_yellow"
-	faction = "Goldstein Solutions"
+	faction = "Goldstein Solutions"*/
 
-/obj/item/weapon/disk/yellow/fake
+/*/obj/item/weapon/disk/yellow/fake
 	name = "yellow diskette"
 	faction = "Goldstein Solutions"
-	fake = TRUE
+	fake = TRUE*/
 
-/obj/item/weapon/disk/green
+/*/obj/item/weapon/disk/green
 	name = "green diskette"
 	icon_state = "disk_green"
 	item_state = "disk_green"
-	faction = "Kogama Kraftsmen"
+	faction = "Kogama Kraftsmen"*/
 
-/obj/item/weapon/disk/green/fake
+/*/obj/item/weapon/disk/green/fake
 	name = "green diskette"
 	faction = "Kogama Kraftsmen"
-	fake = TRUE
+	fake = TRUE*/
 ///OSes/////////////////
 
 /obj/item/weapon/disk/os
