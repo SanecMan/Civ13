@@ -29,8 +29,8 @@
 	scores = list(
 		"Rednikov Industries" = 0,
 		"Giovanni Blu Stocks" = 0,
-		"Kogama Kraftsmen" = 0,
-		"Goldstein Solutions" = 0,
+//		"Kogama Kraftsmen" = 0,
+//		"Goldstein Solutions" = 0,
 		"Police" = 0,)
 	required_players = 6
 	var/list/delivery_locations = list()
@@ -47,14 +47,14 @@
 	picked += assign_precursors["Giovanni Blu Stocks"]
 	possibilities1 = list("crimsonite crystals","indigon crystals","galdonium crystals")
 	possibilities1 -= picked
-	if ("galdonium crystals" in possibilities1)
+/*	if ("galdonium crystals" in possibilities1)
 		assign_precursors["Kogama Kraftsmen"] = "galdonium crystals"
 	else
 		assign_precursors["Kogama Kraftsmen"] = pick(possibilities1)
 	picked += assign_precursors["Kogama Kraftsmen"]
 	possibilities1 = list("crimsonite crystals","indigon crystals","verdine crystals")
 	possibilities1 -= picked
-	assign_precursors["Goldstein Solutions"] = pick(possibilities1)
+	assign_precursors["Goldstein Solutions"] = pick(possibilities1)*/
 
 /obj/map_metadata/art_of_the_deal/New()
 	..()
@@ -62,8 +62,8 @@
 		score()
 	var/newnamea = list("Rednikov Industries" = list(230,230,230,null,0,"sun","#7F0000","#7F7F7F",0,0))
 	var/newnameb = list("Giovanni Blu Stocks" = list(230,230,230,null,0,"sun","#00007F","#7F7F7F",0,0))
-	var/newnamec = list("Kogama Kraftsmen" = list(230,230,230,null,0,"sun","#007F00","#7F7F7F",0,0))
-	var/newnamed = list("Goldstein Solutions" = list(230,230,230,null,0,"sun","#E5E500","#7F7F7F",0,0))
+//	var/newnamec = list("Kogama Kraftsmen" = list(230,230,230,null,0,"sun","#007F00","#7F7F7F",0,0))
+//	var/newnamed = list("Goldstein Solutions" = list(230,230,230,null,0,"sun","#E5E500","#7F7F7F",0,0))
 	var/newnamee = list("Police" = list(230,230,230,null,0,"star","#E5E500","#00007F",0,0))
 	var/newnamef = list("Paramedics" = list(230,230,230,null,0,"cross","#7F0000","#FFFFFF",0,0))
 	custom_civs += newnamea
@@ -167,7 +167,7 @@
 					else
 						new/obj/item/weapon/disk/blue(SF)
 						new/obj/item/weapon/disk/blue/fake(SF)
-				if ("Kogama Kraftsmen")
+/*				if ("Kogama Kraftsmen")
 					if (SF.opened)
 						new/obj/item/weapon/disk/green(SF.loc)
 						new/obj/item/weapon/disk/green/fake(SF.loc)
@@ -180,11 +180,11 @@
 						new/obj/item/weapon/disk/yellow/fake(SF.loc)
 					else
 						new/obj/item/weapon/disk/yellow(SF)
-						new/obj/item/weapon/disk/yellow/fake(SF)
+						new/obj/item/weapon/disk/yellow/fake(SF)*/
 	if (repeat)
 		spawn(12000)
 			spawn_disks(repeat)
-	world << "<font size=2 color ='yellow'>New disks have arrived at the vaults!</font>"
+//	world << "<font size=2 color ='yellow'>New disks have arrived at the vaults!</font>" //Что бы каждый раз думали прежде чем отходить от базы
 
 /obj/map_metadata/art_of_the_deal/proc/refill_marketplace(repeat = FALSE)
 	if (precursor_stocks.len >= 4)
@@ -627,12 +627,12 @@
 				//x,y,product,amount,payment,factionmail
 				var/faction
 				switch(i[6])
-					if ("mail@greene.ug")
-						faction = "Kogama Kraftsmen"
+//					if ("mail@greene.ug")
+//						faction = "Kogama Kraftsmen"
 					if ("mail@rednikov.ug")
 						faction = "Rednikov Industries"
-					if ("mail@goldstein.ug")
-						faction = "Goldstein Solutions"
+//					if ("mail@goldstein.ug")
+//						faction = "Goldstein Solutions"
 					if ("mail@blu.ug")
 						faction = "Giovanni Blu Stocks"
 				if (faction && H.civilization == faction && i[1]==src.x && i[2]==src.y && P.name == i[3] && P.amount >= i[4])
