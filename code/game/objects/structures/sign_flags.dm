@@ -301,18 +301,18 @@
 	name = "Rednikov Industries Logo"
 	desc = "A sign with the logo of Rednikov Industries"
 	icon_state = "red_logo"
-/obj/structure/sign/logo/yellow
+/*/obj/structure/sign/logo/yellow
 	name = "Goldstein Solutions"
 	desc = "A sign with the logo of Goldstein Solutions"
-	icon_state = "yellow_logo"
+	icon_state = "yellow_logo"*/
 /obj/structure/sign/logo/blue
 	name = "Giovanni Blu Stocks"
 	desc = "A sign with the logo of Giovanni Blu Stocks"
 	icon_state = "blue_logo"
-/obj/structure/sign/logo/green
+/*/obj/structure/sign/logo/green
 	name = "Kogama Kraftsmen"
 	desc = "A sign with the logo of Kogama Kraftsmen Traders"
-	icon_state = "green_logo"
+	icon_state = "green_logo"*/
 
 /obj/item/flagmaker
 	name = "custom flag maker"

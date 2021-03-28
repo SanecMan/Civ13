@@ -31,9 +31,8 @@
 		"Giovanni Blu Stocks" = 0,
 //		"Kogama Kraftsmen" = 0,
 //		"Goldstein Solutions" = 0,
-		"Police" = 0,
-		"Government" = 500,)
-	required_players = 6
+		"Police" = 0,)
+	required_players = 10
 	var/list/delivery_locations = list()
 	var/list/delivery_orders = list()
 
@@ -207,7 +206,7 @@
 		if (ispath(chosen1[1]))
 			var/pt = chosen1[1]
 			var/obj/item/weapon/gun/projectile/ST = new pt(locate(1,1,1))
-			ST.serial = ""
+//			ST.serial = ""
 			map.globalmarketplace += list("[idx]" = list("Anonymous",ST,1,chosen1[2],"deepnet","[idx]",1))
 			ST.forceMove(locate(0,0,0))
 	var/num = rand(1,2) //equipment

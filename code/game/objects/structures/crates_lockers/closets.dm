@@ -469,13 +469,13 @@
 		new /obj/item/weapon/disk/blue/fake(src)
 		new /obj/item/weapon/disk/blue/fake(src)
 */
-/obj/structure/closet/safe/yellow
+/*/obj/structure/closet/safe/yellow
 	New()
 		..()
 		custom_code = YELLOWCODE
 		locked = TRUE
 		faction = "Goldstein Solutions"
-		new /obj/item/stack/money/dollar/twenty(src)
+		new /obj/item/stack/money/dollar/twenty(src)*/
 /*
 		new /obj/item/weapon/disk/yellow(src)
 		new /obj/item/weapon/disk/yellow(src)
@@ -484,13 +484,13 @@
 		new /obj/item/weapon/disk/yellow/fake(src)
 		new /obj/item/weapon/disk/yellow/fake(src)
 */
-/obj/structure/closet/safe/green
+/*/obj/structure/closet/safe/green
 	New()
 		..()
 		custom_code = GREENCODE
 		locked = TRUE
 		faction = "Kogama Kraftsmen"
-		new /obj/item/stack/money/dollar/twenty(src)
+		new /obj/item/stack/money/dollar/twenty(src)*/
 /*
 		new /obj/item/weapon/disk/green(src)
 		new /obj/item/weapon/disk/green(src)

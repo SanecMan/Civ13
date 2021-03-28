@@ -804,8 +804,8 @@
 //				mdomain = "goldstein.ug"
 			if ("Police")
 				mdomain = "police.gov"
-			if ("Government")
-				mdomain = "gov"
+//			if ("Government")
+//				mdomain = "gov"
 		var/cname = "mail@[mdomain]"
 		if (tmp_comp_vars["mail_snd"]=="Sender")
 			tmp_comp_vars["mail_snd"] = cname
@@ -835,8 +835,8 @@
 //			mdomain = "goldstein.ug"
 		if ("Police")
 			mdomain = "police.gov"
-		if ("Government")
-			mdomain = "gov"
+//		if ("Government")
+//			mdomain = "gov"
 	var/uname = "[lowertext(replacetext(user.real_name," ",""))]@[mdomain]"
 	var/cname = "mail@[mdomain]"
 	if (tmp_comp_vars["mail_snd"]=="Sender")
