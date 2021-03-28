@@ -32,6 +32,7 @@
 	var/html = {"
 		<html>
 		<head>
+			<meta charset="utf-8">
 			<script src='view_variables.js'></script>
 			<title>[D] (\ref[D] - [D.type])</title>
 			<style>
@@ -76,9 +77,9 @@
 			</div>
 			<hr/>
 			<font size='1'>
-				<b>E</b> - Edit, tries to determine the variable type by itself.<br/>
-				<b>C</b> - Change, asks you for the var type first.<br/>
-				<b>M</b> - Mass modify: changes this variable for all objects of this type.<br/>
+				<b>E</b> - Редактирует, пытаясь самостоятельно определить тип переменной.<br/>
+				<b>C</b> - Изменяет, сначала запрашивает тип переменной.<br/>
+				<b>M</b> - Массовое редактирование: изменяет эту переменную для всех объектов этого типа.<br/>
 			</font>
 			<hr/>
 			<table width='100%'><tr>
