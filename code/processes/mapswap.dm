@@ -3,7 +3,7 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
-		"Chad Mode" = 0,
+		"Chad Mode" = 20,
 		"Bronze Age (500 B.C.-400 A.D.)" = 0,
 		//"Dark Ages (400-700)" = 0,
 		"Middle Ages (700-1450)" = 0,
@@ -188,7 +188,7 @@
 		else if (epoch == "Chad Mode")
 	// chad mode group for TDM
 			maps = list(
-				MAP_JUNGLE_OF_THE_CHADS = 0,
+				MAP_JUNGLE_OF_THE_CHADS = 20,
 			)
 		else if (epoch == "The Art of the Deal")
 			maps = list(
