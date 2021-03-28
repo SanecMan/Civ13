@@ -25,13 +25,14 @@
 	var/list/winner_ckeys = list()
 	faction1 = CIVILIAN
 	faction2 = PIRATES
-	gamemode = "Negotiations"
+	gamemode = "Darkrp"
 	scores = list(
 		"Rednikov Industries" = 0,
 		"Giovanni Blu Stocks" = 0,
 //		"Kogama Kraftsmen" = 0,
 //		"Goldstein Solutions" = 0,
-		"Police" = 0,)
+		"Police" = 0,
+		"Government" = 500,)
 	required_players = 6
 	var/list/delivery_locations = list()
 	var/list/delivery_orders = list()
@@ -65,10 +66,11 @@
 //	var/newnamec = list("Kogama Kraftsmen" = list(230,230,230,null,0,"sun","#007F00","#7F7F7F",0,0))
 //	var/newnamed = list("Goldstein Solutions" = list(230,230,230,null,0,"sun","#E5E500","#7F7F7F",0,0))
 	var/newnamee = list("Police" = list(230,230,230,null,0,"star","#E5E500","#00007F",0,0))
+	var/newnamec = list("Government" = list(230,230,230,null,0,"star","#ffffff","#00007F",0,0))
 	var/newnamef = list("Paramedics" = list(230,230,230,null,0,"cross","#7F0000","#FFFFFF",0,0))
 	custom_civs += newnamea
 	custom_civs += newnameb
-//	custom_civs += newnamec
+	custom_civs += newnamec
 //	custom_civs += newnamed
 	custom_civs += newnamee
 	custom_civs += newnamef

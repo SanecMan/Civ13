@@ -622,27 +622,27 @@ var/global/redirect_all_players = null
 			WWalert(usr,"You must be male to play as this faction.","Error")
 			return FALSE
 	if (job.is_deal)
-		var/y_nr = processes.job_data.get_active_positions_name("Goldstein Solutions")
-		var/g_nr = processes.job_data.get_active_positions_name("Kogama Kraftsmen")
+//		var/y_nr = processes.job_data.get_active_positions_name("Goldstein Solutions")
+//		var/g_nr = processes.job_data.get_active_positions_name("Kogama Kraftsmen")
 		var/r_nr = processes.job_data.get_active_positions_name("Rednikov Industries")
 		var/b_nr = processes.job_data.get_active_positions_name("Giovanni Blu Stocks")
 
 		if (istype(job, /datum/job/civilian/businessman/red))
-			if (r_nr > y_nr || r_nr > b_nr || r_nr > g_nr)
+			if (r_nr > b_nr)
 				WWalert(usr,"Too many people playing as this role.","Error")
 				return FALSE
 		else if(istype(job, /datum/job/civilian/businessman/blue))
-			if (b_nr > y_nr || b_nr > r_nr || b_nr > g_nr)
+			if (b_nr > r_nr)
 				WWalert(usr,"Too many people playing as this role.","Error")
 				return FALSE
-		else if(istype(job, /datum/job/civilian/businessman/green))
+/*		else if(istype(job, /datum/job/civilian/businessman/green))
 			if (g_nr > y_nr || g_nr > b_nr || g_nr > r_nr)
 				WWalert(usr,"Too many people playing as this role.","Error")
 				return FALSE
 		else if(istype(job, /datum/job/civilian/businessman/yellow))
 			if (y_nr > r_nr || y_nr > b_nr || y_nr > g_nr)
 				WWalert(usr,"Too many people playing as this role.","Error")
-				return FALSE
+				return FALSE*/
 	if (job.is_yakuza)
 		var/yy_nr = processes.job_data.get_active_positions_name("Yamaguchi-Gumi Kaiin")
 		var/yi_nr = processes.job_data.get_active_positions_name("Ichiwa-Kai Kaiin")

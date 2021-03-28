@@ -2048,18 +2048,18 @@
 	H.setStat("medical", STAT_NORMAL)
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
-/datum/job/civilian/businessman/yellow
+/*/datum/job/civilian/businessman/yellow
 	title = "Goldstein Solutions"
 	selection_color = "#7e7e06"
 	spawn_location = "JoinLateCivA"
-	min_positions = 3
-	max_positions = 50
+	min_positions = 0
+	max_positions = 0
 
 /datum/job/civilian/businessman/yellow/CEO
 	title = "Goldstein Solutions CEO"
 	is_officer = TRUE
-	min_positions = 1
-	max_positions = 1
+	min_positions = 0
+	max_positions = 0
 	rank_abbreviation = "CEO"
 	whitelisted = TRUE
 /datum/job/civilian/businessman/yellow/equip(var/mob/living/human/H)
@@ -2094,19 +2094,19 @@
 	var/obj/item/clothing/accessory/armband/spanish/armband = new /obj/item/clothing/accessory/armband/spanish(null)
 	uniform1.attackby(armband, H)
 	..()
-	return TRUE
+	return TRUE*/
 
-/datum/job/civilian/businessman/green
+/*/datum/job/civilian/businessman/green
 	title = "Kogama Kraftsmen"
 	selection_color = "#2D632D"
 	spawn_location = "JoinLateCivB"
-	min_positions = 3
-	max_positions = 50
+	min_positions = 0
+	max_positions = 0
 /datum/job/civilian/businessman/green/CEO
 	title = "Kogama Kraftsmen CEO"
 	is_officer = TRUE
-	min_positions = 1
-	max_positions = 1
+	min_positions = 0
+	max_positions = 0
 	rank_abbreviation = "CEO"
 	whitelisted = TRUE
 
@@ -2142,7 +2142,7 @@
 	var/obj/item/clothing/accessory/armband/portuguese/armband = new /obj/item/clothing/accessory/armband/portuguese(null)
 	uniform1.attackby(armband, H)
 	..()
-	return TRUE
+	return TRUE*/
 
 /datum/job/civilian/businessman/blue
 	title = "Giovanni Blu Stocks"
@@ -2276,19 +2276,20 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police(H), slot_belt)
 	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
-	H.add_note("Role", "You are a member of the police force. Your objectives are to arrest as many businessmen as possible and aprehend money and disks!")
-	H.add_note("Undercover", "If you need to go undercover and conceal your officer status, toggle it under the IC tab.")
-	H.add_note("Police Codes", "As an officer, you can use police codes for fast broadcasting. It will be automatically converted to plaintext. Just use the radio prefix followed by the code, for example, \";10-4\" for affirmative.")
-	H.add_note("List of Police Codes", "<b>10-0:</b> On my way (shows current location)<br><br> \
-		<b>10-1:</b> Report in / share location.<br><br> \
-		<b>10-2:</b> Report in as being available.<br><br> \
-		<b>10-3:</b> Report in as being busy.<br><br> \
-		<b>10-4:</b> Roger that / Affirmative.<br><br> \
-		<b>10-5:</b> Negative / Impossible.<br><br> \
-		<b>10-6:</b> Returning to the Police Station.<br><br> \
-		<b>10-7:</b> Prisoner in custody / Arrested suspect.<br><br> \
-		<b>10-8:</b> Request immediate assistance / Officer injured - All non-busy units should answer with a <b>10-0</b> and proceed to location (shows current location)<br><br> \
-		<b>10-9:</b> Officer down, all units should answer with a <b>10-0</b> and proceed to location (shows current location) - This is automatically sent if an officer gets killed, no need for manual input, use <b>10-8</b> instead.")
+	H.add_note("Role", "Вы член полиции и ваша задача ловить членов банды и нарушающих спокойствие граждан.")
+	H.add_note("Маскировка", "Мы можете замаскироваться через вкладку IC")
+	H.add_note("Мафия", "Вы имеете право аррестовать мафию за любое нарушение")
+	H.add_note("Коды", "Как офицер, вы знаете коды, например \";10-4\" даёт согласие.")
+	H.add_note("Лист кодов", "<b>10-0:</b> В пути на место <br><br> \
+		<b>10-1:</b> Сообщить своё местоположение.<br><br> \
+		<b>10-2:</b> Сообщить что свободен.<br><br> \
+		<b>10-3:</b> Сообщить что занят.<br><br> \
+		<b>10-4:</b> Принято.<br><br> \
+		<b>10-5:</b> Отказано.<br><br> \
+		<b>10-6:</b> Возращаюсь в участок.<br><br> \
+		<b>10-7:</b> Обнаружен / аррестован подозреваемый.<br><br> \
+		<b>10-8:</b> Офицер ранен / находится в критическом состоянии, код <b>10-0</b> сообщит координаты офицера<br><br> \
+		<b>10-9:</b> Офицер убит, код <b>10-0</b> сообщит последние координаты офицера - автоматическая отправка, рекомендуется использовать код <b>10-8</b>.")
 
 	H.setStat("strength", STAT_NORMAL)
 	H.setStat("crafting", STAT_NORMAL)
@@ -2298,6 +2299,70 @@
 	H.setStat("pistol", STAT_HIGH)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_NORMAL)
+	spawn(50)
+		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
+
+/datum/job/civilian/policeofficer/military
+	title = "Military Officer"
+	en_meaning = ""
+	rank_abbreviation = ""
+	whitelisted = TRUE
+	spawn_location = "JoinLateCivM"
+	rank_abbreviation = "Pvt."
+	selection_color = "#4e3c3c"
+	can_be_female = TRUE
+	is_deal = TRUE
+	can_get_coordinates = TRUE
+	is_officer = TRUE
+
+	min_positions = 1
+	max_positions = 5
+
+/datum/job/civilian/policeofficer/military/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+	H.civilization = "Government"
+	H.verbs += /mob/living/human/proc/undercover
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/us_uni(H), slot_w_uniform)
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/coat/american(H), slot_wear_suit)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/police(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/map(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/smallpouches/us_ww2_sgt(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/attachment/bayonet/military(H), slot_l_store)
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/holsterh = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform.attackby(holsterh, H)
+	give_random_name(H)
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/radio/walkietalkie/factionpolice(H), slot_wear_id)
+	var/obj/item/clothing/under/uniform1 = H.w_uniform
+	var/obj/item/clothing/accessory/holster/hip/hiph = new /obj/item/clothing/accessory/holster/hip(null)
+	uniform1.attackby(hiph, H)
+	var/obj/item/clothing/accessory/armband/policebadge/pb = new /obj/item/clothing/accessory/armband/policebadge(null)
+	spawn(15)
+		pb.name = "[replacetext(H.real_name,"Pvt. ","")] military badge"
+		pb.desc = "a military badge in star shape, with <b>[replacetext(H.real_name,"Pvt. ","")]</b> engraved."
+	uniform1.attackby(pb, H)
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(H), slot_shoes)
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/traffic_police(H), slot_head)
+	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police(H), slot_belt)
+	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
+	H.add_note("Role", "Вы военный и ваша задача защитить извне этот город")
+	H.add_note("База", "Охраняйте свою базу и не давайте проникнуть сюда гражданским, особенно мафии")
+	H.add_note("Доступ", "У вас есть доступ в полицейский участок, но вы не являетесь полицией")
+	H.add_note("Места", "Лучшие места для проверки является левая часть карты")
+
+	H.setStat("strength", STAT_HIGH)
+	H.setStat("crafting", STAT_HIGH)
+	H.setStat("rifle", STAT_HIGH)
+	H.setStat("dexterity", STAT_HIGH)
+	H.setStat("swords", STAT_HIGH)
+	H.setStat("pistol", STAT_HIGH)
+	H.setStat("bows", STAT_HIGH)
+	H.setStat("medical", STAT_HIGH)
+	H.setStat("machinegun", STAT_HIGH)
+	return TRUE
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
 
@@ -2387,22 +2452,17 @@
 /datum/job/civilian/hobo/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/gatorpants(H), slot_w_uniform)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/punk(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/clothing/gloves/fingerless(H), slot_gloves)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/bag/trash(H), slot_belt)
-	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/punk(H), slot_shoes)
-	var/obj/item/clothing/under/uniform1 = H.w_uniform
-	var/obj/item/clothing/accessory/armband/punk/armband = new /obj/item/clothing/accessory/armband/punk(null)
-	uniform1.attackby(armband, H)
 	H.add_note("Role", "You are a Bum. You should find a way to earn some cash. Maybe try helping out one of the gangs in the area.")
-	H.setStat("strength", STAT_HIGH)
-	H.setStat("crafting", STAT_VERY_HIGH)
-	H.setStat("rifle", STAT_NORMAL)
-	H.setStat("dexterity", STAT_NORMAL)
-	H.setStat("swords", STAT_NORMAL)
-	H.setStat("pistol", STAT_NORMAL)
-	H.setStat("bows", STAT_NORMAL)
-	H.setStat("medical", STAT_VERY_HIGH)
+	H.setStat("strength", STAT_MAX)
+	H.setStat("crafting", STAT_MAX)
+	H.setStat("rifle", STAT_MAX)
+	H.setStat("dexterity", STAT_MAX)
+	H.setStat("swords", STAT_MAX)
+	H.setStat("pistol", STAT_MAX)
+	H.setStat("bows", STAT_MAX)
+	H.setStat("medical", STAT_MAX)
 
 /datum/job/civilian/fireperson
 	title = "Fire Response"

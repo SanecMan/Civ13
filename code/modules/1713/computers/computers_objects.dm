@@ -332,20 +332,20 @@
 	desc = "A highly advanced chip, manufactured by Rednikov Industries."
 	icon_state = "card_red"
 
-/obj/item/stack/component/green
+/*/obj/item/stack/component/green
 	name = "McGT S5R1 chip"
 	desc = "A highly advanced chip, manufactured by Kogama Kraftsmen."
-	icon_state = "card_ram"
+	icon_state = "card_ram"*/
 
 /obj/item/stack/component/blue
 	name = "GBSA-1994 chip"
 	desc = "A highly advanced chip, manufactured by Giovanni Blu Stocks."
 	icon_state = "cpu_chip_blue"
 
-/obj/item/stack/component/yellow
+/*/obj/item/stack/component/yellow
 	name = "GS-IC-M3 chip"
 	desc = "A highly advanced chip, manufactured by Goldstein Solutions."
-	icon_state = "yellow_card"
+	icon_state = "yellow_card"*/
 /////////////////precursors///////////////////
 ///////////////components/////////////////////
 /obj/item/stack/precursor
@@ -365,11 +365,11 @@
 	icon_state = "ore_crimsonite"
 	produces = /obj/item/stack/component/red
 
-/obj/item/stack/precursor/green
+/*/obj/item/stack/precursor/green
 	name = "verdine crystals"
 	desc = "A rare chemical, in crystallized form. Has a green tinge."
 	icon_state = "ore_verdine"
-	produces = /obj/item/stack/component/green
+	produces = /obj/item/stack/component/green*/
 
 /obj/item/stack/precursor/blue
 	name = "indigon crystals"
@@ -377,11 +377,11 @@
 	icon_state = "ore_indigon"
 	produces = /obj/item/stack/component/blue
 
-/obj/item/stack/precursor/yellow
+/*/obj/item/stack/precursor/yellow
 	name = "galdonium crystals"
 	desc = "A rare chemical, in crystallized form. Has a yellow tinge."
 	icon_state = "ore_galdonium"
-	produces = /obj/item/stack/component/yellow
+	produces = /obj/item/stack/component/yellow*/
 
 //////////////////assembler/////////////////////
 /obj/structure/assembler
@@ -416,13 +416,13 @@
 	requires = /obj/item/stack/precursor/red
 	faction = "Rednikov Industries"
 
-/obj/structure/assembler/loader/green
+/*/obj/structure/assembler/loader/green
 	requires = /obj/item/stack/precursor/green
-	faction = "Kogama Kraftsmen"
+	faction = "Kogama Kraftsmen"*/
 
-/obj/structure/assembler/loader/yellow
+/*/obj/structure/assembler/loader/yellow
 	requires = /obj/item/stack/precursor/yellow
-	faction = "Goldstein Solutions"
+	faction = "Goldstein Solutions"*/
 
 /obj/structure/assembler/loader/blue
 	requires = /obj/item/stack/precursor/blue

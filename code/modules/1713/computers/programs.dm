@@ -798,12 +798,14 @@
 				mdomain = "rednikov.ug"
 			if ("Giovanni Blu Stocks")
 				mdomain = "blu.ug"
-			if ("Kogama Kraftsmen")
-				mdomain = "greene.ug"
-			if ("Goldstein Solutions")
-				mdomain = "goldstein.ug"
+//			if ("Kogama Kraftsmen")
+//				mdomain = "greene.ug"
+//			if ("Goldstein Solutions")
+//				mdomain = "goldstein.ug"
 			if ("Police")
 				mdomain = "police.gov"
+			if ("Government")
+				mdomain = "gov"
 		var/cname = "mail@[mdomain]"
 		if (tmp_comp_vars["mail_snd"]=="Sender")
 			tmp_comp_vars["mail_snd"] = cname
@@ -827,12 +829,14 @@
 			mdomain = "rednikov.ug"
 		if ("Giovanni Blu Stocks")
 			mdomain = "blu.ug"
-		if ("Kogama Kraftsmen")
-			mdomain = "greene.ug"
-		if ("Goldstein Solutions")
-			mdomain = "goldstein.ug"
+//		if ("Kogama Kraftsmen")
+//			mdomain = "greene.ug"
+//		if ("Goldstein Solutions")
+//			mdomain = "goldstein.ug"
 		if ("Police")
 			mdomain = "police.gov"
+		if ("Government")
+			mdomain = "gov"
 	var/uname = "[lowertext(replacetext(user.real_name," ",""))]@[mdomain]"
 	var/cname = "mail@[mdomain]"
 	if (tmp_comp_vars["mail_snd"]=="Sender")
@@ -1262,9 +1266,9 @@
 	compatible_os = list("unga OS 94","unga OS 94 Police Edition")
 
 /datum/program/squadtracker/do_html(mob/living/human/user)
-	mainmenu = "<h2>SQUAD STATUS</h2><br>"
+	mainmenu = "<meta charset='utf-8'><h2>СТАТУС ОТРЯДА</h2><br>"
 	if (origin.operatingsystem == "unga OS 94 Police Edition" && user.civilization != "Police" && user.civilization != "Paramedics")
-		mainbody = "<font color ='red'><b>ACCESS DENIED</b></font>"
+		mainbody = "<meta charset='utf-8'><font color ='red'><b>ДОСТУП ЗАПРЕЩЁН</b></font>"
 	else
 		mainbody = ""
 		for(var/mob/living/human/H in player_list)
@@ -1283,9 +1287,9 @@
 	compatible_os = list("unga OS 94 Police Edition")
 
 /datum/program/licenseplates/do_html(mob/living/human/user)
-	mainmenu = "<h2>LICENSE PLATE DATABASE</h2><br>"
+	mainmenu = "<meta charset='utf-8'><h2>БАЗА ДАННЫХ ЛИЦЕЗНИЙ</h2><br>"
 	if (user.civilization != "Police")
-		mainbody = "<font color ='red'><b>ACCESS DENIED</b></font>"
+		mainbody = "<meta charset='utf-8'><font color ='red'><b>ДОСТУП ЗАПРЕЩЁН</b></font>"
 	else
 		mainbody = ""
 		for(var/list/L in map.vehicle_registations)
@@ -1297,8 +1301,8 @@
 	compatible_os = list("unga OS 94 Police Edition")
 
 /datum/program/permits/do_html(mob/living/human/user)
-	mainmenu = "<h2>GUN PERMITS</h2><br>"
-	mainmenu += "<a href='?src=\ref[src];permits=1'>Request Permit</a>"
+	mainmenu = "<meta charset='utf-8'><h2>РАЗРЕШЕНИЯ НА ОРУЖИЯ</h2><br>"
+	mainmenu += "<meta charset='utf-8'><a href='?src=\ref[src];permits=1'>Выдать Разрешение</a>"
 	if (user.civilization == "Police" || user.civilization == "Paramedics")
 		mainbody = "<font color='yellow'>This service is intended for civilians.</font>"
 	..()
@@ -1672,20 +1676,20 @@
 						chosenprec = map.precursor_stocks["indigon crystals"]
 					if ("crimsonite crystals")
 						chosenprec = map.precursor_stocks["crimsonite crystals"]
-					if ("verdine crystals")
-						chosenprec = map.precursor_stocks["verdine crystals"]
-					if ("galdonium crystals")
-						chosenprec = map.precursor_stocks["galdonium crystals"]
+//					if ("verdine crystals")
+//						chosenprec = map.precursor_stocks["verdine crystals"]
+//					if ("galdonium crystals")
+//						chosenprec = map.precursor_stocks["galdonium crystals"]
 				var/forsale
 				switch(map.assign_precursors[user.civilization])
 					if ("indigon crystals")
 						forsale = /obj/item/stack/precursor/blue
 					if ("crimsonite crystals")
 						forsale = /obj/item/stack/precursor/red
-					if ("verdine crystals")
+/*					if ("verdine crystals")
 						forsale = /obj/item/stack/precursor/green
 					if ("galdonium crystals")
-						forsale = /obj/item/stack/precursor/yellow
+						forsale = /obj/item/stack/precursor/yellow*/
 				var/obj/item/stack/money/mstack = null
 				if (istype(user.l_hand, /obj/item/stack/money))
 					mstack = user.l_hand
@@ -1721,10 +1725,10 @@
 					forsale = map.assign_precursors["Rednikov Industries"]
 				if ("Giovanni Blu Stocks")
 					forsale = map.assign_precursors["Giovanni Blu Stocks"]
-				if ("Kogama Kraftsmen")
-					forsale = map.assign_precursors["Kogama Kraftsmen"]
-				if ("Goldstein Solutions")
-					forsale = map.assign_precursors["Goldstein Solutions"]
+//				if ("Kogama Kraftsmen")
+//					forsale = map.assign_precursors["Kogama Kraftsmen"]
+//				if ("Goldstein Solutions")
+//					forsale = map.assign_precursors["Goldstein Solutions"]
 
 			if (forsale)
 				var/cost
