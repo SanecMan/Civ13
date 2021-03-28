@@ -255,30 +255,12 @@ var/world_topic_spam_protect_time = world.timeofday
 	config.load("config/config.txt", "config")
 
 /world/proc/update_status()
-
-	if (world.port == config.testing_port)
-		visibility = FALSE
-
 	var/s = ""
 
-	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
-	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
-
-	if (config.hub_banner_url)
-		s += "<img src=\"https://i.imgur.com/fukQQKr.png\"><br>"
-	if (map)
-		s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
-
-	// we can't execute code in config settings, so this is a workaround.
-	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
-	if (map)
-		s += "<b>Gamemode:</b> [map.gamemode]"
-	if (config && config.hostedby)
-		s += "hosted by <b>[config.hostedby]</b>"
-	if (config.hub_body)
-		s += config.hub_body
+	s += "<center><a href=\"[config.discordurl]\"><big><b>[customserver_name()]</b></big><br>"
+	s += "<b>Map:</b> [map.title] ([roundduration2text()])<br>"
+	s += "Mode: <b>[map.gamemode]</b><br>"
+	s += "Hosted by: <b>[config.hostedby]</b><br>"
 
 	status = s
 
