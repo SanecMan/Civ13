@@ -1590,8 +1590,8 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/kerchief(H), slot_head)
 	give_random_name(H)
 	H.s_tone = rand(-32,-24)
-	if (H.f_style != "Full Beard" && H.f_style != "Medium Beard" && H.f_style != "Long Beard" && H.f_style != "Very Long Beard" && H.f_style != "Dwarf Beard" && H.f_style != "Volaju" && H.f_style != "Abraham Lincoln Beard" && H.f_style != "Van Dyke Mustache" && H.f_style != "Hulk Hogan Mustache")
-		H.f_style = pick("Shaved","Hipster Beard","Goatee","Watson Mustache")
+	if (H.f_style != "Shaved" && H.f_style != "Short Facial Hair" && H.f_style != "Goatee" && H.f_style != "Watson Mustache")
+		H.f_style = pick("Shaved","Short Facial Hair","Goatee", "Watson Mustache")
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/pickaxe(H), slot_belt)
 	H.equip_to_slot_or_del(new/obj/item/weapon/material/shovel(H), slot_back)
 	H.equip_to_slot_or_del(new/obj/item/stack/money/real(H), slot_l_store)
@@ -2274,7 +2274,7 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/swat(H), slot_shoes)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/traffic_police(H), slot_head)
 	H.equip_to_slot_or_del(new /obj/item/weapon/storage/belt/police(H), slot_belt)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/pistol/glock17(H), slot_l_hand)
+	H.equip_to_slot_or_del(new /obj/item/gunbox(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/ten(H), slot_r_hand)
 	H.add_note("Role", "You are a member of the police force. Your objectives are to arrest as many businessmen as possible and aprehend money and disks!")
 	H.add_note("Undercover", "If you need to go undercover and conceal your officer status, toggle it under the IC tab.")
@@ -2311,7 +2311,7 @@
 	is_deal = TRUE
 	can_be_female = TRUE
 	min_positions = 3
-	max_positions = 50
+	max_positions = 15
 
 /datum/job/civilian/paramedic/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -2349,7 +2349,7 @@
 	is_deal = TRUE
 	can_be_female = TRUE
 	min_positions = 1
-	max_positions = 15
+	max_positions = 4
 
 /datum/job/civilian/mechanic/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -2378,11 +2378,11 @@
 	rank_abbreviation = ""
 	whitelisted = FALSE
 	spawn_location = "JoinLateCivG"
-	selection_color = "#8b4513	"
+	selection_color = "#8b4513"
 	is_deal = TRUE
 	can_be_female = TRUE
 	min_positions = 1
-	max_positions = 15
+	max_positions = 3
 
 /datum/job/civilian/hobo/equip(var/mob/living/human/H)
 	if (!H)	return FALSE
@@ -2403,7 +2403,7 @@
 	H.setStat("pistol", STAT_NORMAL)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_VERY_HIGH)
-
+/*
 /datum/job/civilian/fireperson
 	title = "Fire Response"
 	en_meaning = ""
@@ -2442,7 +2442,7 @@
 	H.setStat("medical", STAT_HIGH)
 	spawn(50)
 		H.client.screen += new/obj/screen/areashow_aod("Area Location","8,14", H, null, "")
-
+*/
 /datum/job/civilian/businessman/legitimate
 	title = "Legitimate Business"
 	selection_color = "#6f4e37"

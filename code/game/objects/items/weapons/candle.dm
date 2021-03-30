@@ -11,6 +11,8 @@
 
 /obj/item/weapon/flame/candle/New()
 	wax = rand(900, 1050) //30-40 minutes on average.
+	pixel_x = rand(-8, 8)
+	pixel_y = rand(-8, 8)
 	..()
 
 /obj/item/weapon/flame/candle/on
@@ -90,3 +92,14 @@
 		i = 2
 	else i = 3
 	icon_state = "candle[i][lit ? "_lit" : ""]_lard"
+
+/obj/item/weapon/flame/candle/lard/process()
+	if (!lit)
+		return
+	wax--
+	if (!wax)
+		new/obj/item/trash/candle/lard(loc)
+		if (istype(loc, /mob))
+			dropped()
+		qdel(src)
+	update_icon()

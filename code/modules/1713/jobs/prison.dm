@@ -37,12 +37,12 @@
 	uniform.attackby(holsterh, H)
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, the commander of <b></b>. Organize your squad leaders and make sure all the prisoners are kept in their place!")
-	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("strength", STAT_MAX)
 	H.setStat("crafting", STAT_NORMAL)
-	H.setStat("rifle", STAT_MEDIUM_HIGH)
-	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("rifle", STAT_MAX)
+	H.setStat("dexterity", STAT_MAX)
 	H.setStat("swords", STAT_HIGH)
-	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("pistol", STAT_MAX)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	H.verbs += /mob/living/human/proc/Sound_Alarm
@@ -86,12 +86,12 @@
 	uniform.attackby(holsterh, H)
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, an officer of the NKVD GULAG guards. Organize your men and keep the prisoners in place!")
-	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("strength", STAT_VERY_VERY_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
 	H.setStat("rifle", STAT_MEDIUM_HIGH)
-	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("dexterity", STAT_VERY_VERY_HIGH)
 	H.setStat("swords", STAT_HIGH)
-	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("pistol", STAT_VERY_VERY_HIGH)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	H.verbs += /mob/living/human/proc/Sound_Alarm
@@ -131,14 +131,14 @@
 	uniform.attackby(armband, H)
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a medic of the GULAG staff. Keep both the prisoners and the guards healthy and alive.")
-	H.setStat("strength", STAT_NORMAL)
+	H.setStat("strength", STAT_VERY_VERY_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
-	H.setStat("rifle", STAT_MEDIUM_HIGH)
-	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("rifle", STAT_VERY_VERY_HIGH)
+	H.setStat("dexterity", STAT_VERY_VERY_HIGH)
 	H.setStat("swords", STAT_NORMAL)
-	H.setStat("pistol", STAT_NORMAL)
+	H.setStat("pistol", STAT_VERY_VERY_HIGH)
 	H.setStat("bows", STAT_NORMAL)
-	H.setStat("medical", STAT_VERY_HIGH)
+	H.setStat("medical", STAT_VERY_VERY_HIGH)
 	return TRUE
 
 /datum/job/russian/nkvd_gulag_guard
@@ -168,12 +168,12 @@
 
 	give_random_name(H)
 	H.add_note("Role", "You are a <b>[title]</b>, a guard of the GULAG. Keep the prisoners in place!")
-	H.setStat("strength", STAT_MEDIUM_HIGH)
+	H.setStat("strength", STAT_VERY_HIGH)
 	H.setStat("crafting", STAT_NORMAL)
-	H.setStat("rifle", STAT_MEDIUM_HIGH)
-	H.setStat("dexterity", STAT_NORMAL)
+	H.setStat("rifle", STAT_VERY_HIGH)
+	H.setStat("dexterity", STAT_VERY_HIGH)
 	H.setStat("swords", STAT_HIGH)
-	H.setStat("pistol", STAT_MEDIUM_HIGH)
+	H.setStat("pistol", STAT_VERY_HIGH)
 	H.setStat("bows", STAT_NORMAL)
 	H.setStat("medical", STAT_MEDIUM_LOW)
 	return TRUE
@@ -289,13 +289,14 @@
 			src.nationality = "Japanese"
 			src.add_language("Japanese",FALSE)
 			src.h_style = "Short Hair"
-			src.f_style = "Hipster Beard"
+			src.f_style = "Short Facial Hair"
 			src.r_hair = 22
 			src.g_hair = 22
 			src.b_hair = 22
 			src.r_facial = 22
 			src.g_facial = 22
 			src.b_facial = 22
+			PJ.original_hair = "Black"
 			update_body()
 			return
 		var/randpick = rand(1,4)
@@ -381,8 +382,8 @@
 				if (src.nationality == "none")
 					PJ.original_hair = pick("Black", "Dark Brown", "Grey")
 					PJ.original_facial = PJ.original_hair
-					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length_char Hair")
-					src.f_style = pick("Shaved","Chinstrap","Medium Beard","Long Beard","Full Beard","Very Long Beard", "Hipster Beard")
+					src.h_style = pick("Bald","Crewcut","Undercut","Short Hair","Cut Hair","Skinhead","Parted","Bedhead","Shoulder-length Hair")
+					src.f_style = pick("Shaved","Chinstrap","Medium Beard","Long Beard","Full Beard","Very Long Beard", "Short Facial Hair")
 					PJ.original_eyes = pick("Black", "Brown", "Dark Brown", "Green", "Blue")
 					src.add_language("Ainu", TRUE)
 					src.add_note("Known Languages", "Japanese")
@@ -397,7 +398,7 @@
 					PJ.original_hair = pick("Black", "Dark Brown", "Grey")
 					PJ.original_facial = PJ.original_hair
 					src.h_style = pick("Bald","Short Hair","Cut Hair","Skinhead")
-					src.f_style = pick("Shaved","Chinstrap","Medium Beard", "Hipster Beard")
+					src.f_style = pick("Shaved","Chinstrap","Medium Beard", "Short Facial Hair")
 					PJ.original_eyes = pick("Black","Dark Brown")
 					src.add_language("Japanese", TRUE)
 					src.add_note("Known Languages", "Japanese")
@@ -427,6 +428,32 @@
 /mob/living/human/proc/gulag_languages(var/mob/living/human)
 ///////////////////////////////PRISONS////////////////////////////////////////
 	if (map && map.ID == MAP_GULAG13)
+		spawn(5)
+			if (src.nationality == "Russian")
+				src.add_language("Russian",TRUE)
+				src.remove_language("English")
+				return
+			if (src.nationality == "German")
+				src.add_language("German",TRUE)
+				src.remove_language("English")
+				src.remove_note("Known Languages","English")
+				return
+			if (src.nationality == "Polish")
+				src.add_language("Polish",TRUE)
+				src.remove_language("English")
+				src.remove_note("Known Languages","English")
+				return
+			if (src.nationality == "Ukrainian")
+				src.add_language("Ukrainian",TRUE)
+				src.remove_language("English")
+				src.remove_note("Known Languages","English")
+				return
+			if (src.nationality == "Japanese")
+				src.add_language("Japanese",TRUE)
+				src.remove_language("English")
+				src.remove_note("Known Languages","English")
+				return
+	if (map && map.ID == MAP_OCCUPATION)
 		spawn(5)
 			if (src.nationality == "Russian")
 				src.add_language("Russian",TRUE)
@@ -491,6 +518,9 @@
 		H.add_note("Role", "You are a <b>Miner</b>. Your job is to get to the mines and collect minerals for the guards.")
 		randrole = title
 		H.gulag_languages()
+		H.setStat("strength", STAT_MEDIUM_HIGH)
+		if (H.client.ckey == "kanohashinobi")
+			H.setStat("crafting", STAT_VERY_VERY_HIGH)
 /*
 /datum/job/civilian/prisoner/logger
 	title = "Logger"
@@ -549,6 +579,7 @@
 		H.add_note("Role", "You are a <b>Nurse Helper</b>. Keep other prisoners alive with the sparse supplies you have...")
 		randrole = title
 		H.gulag_languages()
+		H.setStat("medical", STAT_VERY_VERY_HIGH)
 
 /datum/job/civilian/prisoner/kitchen
 	title = "Kitchen Duty"
@@ -569,6 +600,8 @@
 		H.add_note("Role", "You are on <b>Kitchen Duty</b>. Your job is to manage the prisoner's stock of food (if the guards actually deliver it...) and keep everyone fed.")
 		randrole = title
 		H.gulag_languages()
+		H.setStat("dexterity", STAT_HIGH)
+		H.setStat("swords", STAT_MEDIUM_HIGH)
 
 /datum/job/civilian/prisoner/collaborator
 	title = "Collaborator"
@@ -602,6 +635,10 @@
 		uniform.attackby(armband, H)
 		H.gulag_languages()
 		H.add_note("Primary Role", "You are a <b>Collaborator</b>. Your job is to get information and pass it to the guards. Be careful, your fellow prisoners might not like it if they find it out... Try to act like your assigned role, <b>[randrole]</b>.")
+		H.setStat("strength", STAT_VERY_HIGH)
+		H.setStat("rifle", STAT_VERY_HIGH)
+		H.setStat("dexterity", STAT_VERY_VERY_HIGH)
+		H.setStat("pistol", STAT_VERY_VERY_HIGH)
 
 ////////////////////////////////////////////////////ABASHIRI PRISONERS////////////////////////////////////////////
 /datum/job/civilian/abashiri/prisoner/wing1
