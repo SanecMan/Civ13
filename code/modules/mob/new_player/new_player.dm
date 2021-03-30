@@ -105,25 +105,25 @@ var/global/redirect_all_players = null
 	</body></html>
 	"}
 
-	var/output = "<div align='center'><b>Welcome, [key]!</b>"
-	output +="<hr>"
-	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character & Preferences</A></p>"
+//	var/output = "<div align='center'><b>Добро пожаловать [key]</b>"
+	var/output = ""
+	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</A></p>"
 
 	if (!ticker || ticker.current_state <= GAME_STATE_PREGAME)
-		output += "<p><a href='byond://?src=\ref[src];ready=0'>The game has not started yet.</a></p>"
+		output += "<p><a href='byond://?src=\ref[src];ready=0'>Загрузка</a></p>"
 	else
 		if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_FOUR_KINGDOMS)
-			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Join a Tribe!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Стать трибуналом</a></p>"
 		else if (map.civilizations == TRUE && map.nomads == FALSE)
-			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Join a Civilization!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Стать жителем</a></p>"
 		else if (map.nomads == TRUE)
-			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Join!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];nomads=1'>Стать колонистом</a></p>"
 		else
-			output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];late_join=1'>Войти в раунд</a></p>"
 
 	var/height = 250
 
-	output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+	output += "<p><a href='byond://?src=\ref[src];observe=1'>Наблюдать</A></p>"
 
 	output += "</div>"
 
@@ -180,7 +180,7 @@ var/global/redirect_all_players = null
 			WWalert(src,"You're banned from observing.","Error")
 			return TRUE
 
-		if (WWinput(src, "Are you sure you wish to observe?", "Player Setup", "Yes", list("Yes","No")) == "Yes")
+		if (WWinput(src, "Вы точно хотите наблюдать за игрой?", "Player Setup", "Yes", list("Yes","No")) == "Yes")
 			if (!client)	return TRUE
 			var/mob/observer/ghost/observer = new(150, 317, 1)
 
@@ -193,7 +193,7 @@ var/global/redirect_all_players = null
 			if (T)
 				observer.loc = T
 			else
-				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to another map point.</span>"
+				src << "<span class='danger'>Ошибка спавна</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 			announce_ghost_joinleave(src)
@@ -218,19 +218,19 @@ var/global/redirect_all_players = null
 			return TRUE
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Вы не можете","Упс")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вы не можете зайти в игру","Упс")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Ждите","Упс")
 			return TRUE
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Ваши особенности конфликтуют.","Упс")
 			return FALSE
 
 		if (client && client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -250,19 +250,19 @@ var/global/redirect_all_players = null
 	if (href_list["tribes"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Вы не можете","Упс")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вы не можете зайти в игру","Упс")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Ждите","Упс")
 			return
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Ваши особенности дисбалансны","Упс")
 			return FALSE
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -292,19 +292,19 @@ var/global/redirect_all_players = null
 	if (href_list["civilizations"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Вы не можете","Error")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вы не можете зайти в игру","Error")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Ждите","Error")
 			return
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Ваши особенности дисбалансны","Error")
 			return FALSE
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -339,19 +339,19 @@ var/global/redirect_all_players = null
 	if (href_list["nomads"])
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Вы не можете","Error")
 			return TRUE
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вы не можете зайти в игру","Error")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Ждите","Error")
 			return
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"<Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"<Ваши особенности дисбалансны","Error")
 			return FALSE
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -383,11 +383,11 @@ var/global/redirect_all_players = null
 	if (href_list["late_join"])
 
 		if (check_trait_points(client.prefs.traits) > 0)
-			WWalert(src,"Your traits are not balanced! You can't join until you balance them (sum has to be <= 0).","Error")
+			WWalert(src,"Ваши особенности дисбалансны","Error")
 			return FALSE
 
 		if (client && client.quickBan_isbanned("Playing"))
-			WWalert(src,"You're banned from playing.","Error")
+			WWalert(src,"Вы не можете","Error")
 			return TRUE
 
 		if (!isemptylist(approved_list) && config.useapprovedlist)
@@ -403,11 +403,11 @@ var/global/redirect_all_players = null
 				return
 
 		if (!ticker.players_can_join)
-			WWalert(src,"You can't join the game yet.","Error")
+			WWalert(src,"Вы не можете зайти в игру","Error")
 			return TRUE
 
 		if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
-			WWalert(src,"The round is either not ready, or has already finished.","Error")
+			WWalert(src,"Ждите","Error")
 			return
 
 		if (client.next_normal_respawn > world.realtime && !config.no_respawn_delays)
@@ -529,11 +529,11 @@ var/global/redirect_all_players = null
 		return FALSE
 	if (!ticker || ticker.current_state != GAME_STATE_PLAYING)
 		if (!nomsg)
-			WWalert(usr,"The round is either not ready, or has already finished.","Error")
+			WWalert(usr,"Ждите","Error")
 			if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.civilizations == TRUE || map.ID == MAP_FOUR_KINGDOMS)
 				abandon_mob()
 				spawn(10)
-					WWalert(usr,"The round is either not ready, or has already finished.", "Error")
+					WWalert(usr,"Ждите", "Error")
 		return FALSE
 	if (!config.enter_allowed)
 		if (!nomsg)
