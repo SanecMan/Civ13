@@ -33,7 +33,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			// No more change mode votes after the game has started.
 			// 3 is GAME_STATE_PLAYING, but that #define is undefined for some reason
 			if (mode == "gamemode" && ticker.current_state >= 2)
-				world << "<b>Voting aborted due to game start.</b>"
+				world << "<b>Голосование прервано из-за начала раунда.</b>"
 				reset()
 				return
 
@@ -112,7 +112,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 		if (winners.len)
 			if (winners.len > 1)
 			//	if (mode != "gamemode") // Here we are making sure we don't announce potential game modes
-				text = "<b>Vote Tied Between:</b>\n"
+				text = "<b>Итоги:</b>\n"
 				for (var/option in winners)
 					text += "\t[option]\n"
 			var/newwinner = pick(winners)
@@ -121,14 +121,14 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			for (var/key in current_votes)
 				if (choices[current_votes[key]] == newwinner)
 					round_voters += key // Keep track of who voted for the winning round.
-			text += "<b>Vote Result: <span class = 'ping'>[newwinner]</span></b><br>"
-			text += "<b>The vote has ended. </b>"
+			text += "<b>Итог: <span class = 'ping'>[newwinner]</span></b><br>"
+			text += "<b>Голосование завершено. </b>"
 			if (callback)
 				if (callback.len == 2)
 					call(callback[1], callback[2])(newwinner)
 				callback = null
 		else
-			text += "<b>Vote Result: <span class = 'ping'>No</span> - Not enough YES votes (75% is needed)</b>"
+			text += "<b>Итог: <span class = 'ping'>Нет</span></b>"
 		log_vote(text)
 		world << "<font color='purple'>[text]</font>"
 		return .
@@ -139,7 +139,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			switch(mode)
 				if ("restart")
 					if (. == "Restart Round")
-						world << "Round ending due to vote."
+						world << "Раунд окончен."
 						log_game("Ending the round due to restart vote.")
 						map.next_win = world.time - 100
 						processes.epochswap.admin_triggered = FALSE
@@ -199,7 +199,7 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						choices[epoch] = 0
 					for (var/epoch in processes.epochswap.epochs)
 						if (clients.len < processes.epochswap.epochs[epoch])
-							disabled[epoch] = "[processes.epochswap.epochs[epoch]] players needed"
+							disabled[epoch] = "Необходимо [processes.epochswap.epochs[epoch]] игроков"
 				if ("map")
 					for (var/map in processes.mapswap.maps)
 						if (!default)
@@ -209,12 +209,12 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 						choices[map] = 0
 					for (var/map in processes.mapswap.maps)
 						if (clients.len < processes.mapswap.maps[map])
-							disabled[capitalize(lowertext(map))] = "[processes.mapswap.maps[map]] players needed"
+							disabled[capitalize(lowertext(map))] = "Необходимо [processes.mapswap.maps[map]] игроков"
 				if ("custom")
-					question = input(usr,"What is the vote for?") as text|null
+					question = input(usr,"Ваш вопрос") as text|null
 					if (!question)	return FALSE
 					for (var/i=1,i<=10,i++)
-						var/option = capitalize(input(usr,"Please enter an option or hit cancel to finish") as text|null)
+						var/option = capitalize(input(usr,"Энтер отправляет ответ, отмена начинает голосование") as text|null)
 						if (!option || mode || !usr.client)	break
 						choices.Add(option)
 					if (!choices.len)
@@ -241,17 +241,17 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			mode = vote_type
 			initiator = initiator_key
 			started_time = world.time
-			var/text = "[capitalize(mode)] vote started by [initiator]."
+			var/text = "Голосование на [capitalize(mode)] запущено [initiator]."
 			if (mode == "custom")
 				text += "\n[question]"
 
 			log_vote(text)
-			world << "<span class = 'deadsay'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>"
+			world << "<span class = 'deadsay'><b>[text]</b>\n<b>Голосование начато.</b><a href='?src=\ref[src]'>Нажми на меня</a> что бы отдать свой голос. \nУ тебя ещё [config.vote_period/10] секунд до завершения.</span>"
 
 			world << sound('sound/ambience/alarm4.ogg', repeat = FALSE, wait = FALSE, volume = 50, channel = 3)
 			if (mode == "gamemode" && round_progressing)
 				round_progressing = FALSE
-				world << "<font color='red'><b>Round start has been delayed.</b></font>"
+				world << "<font color='red'><b>Запуск раунда отложен.</b></font>"
 			time_remaining = round(config.vote_period/10)
 			callback = _callback
 			return TRUE
@@ -264,19 +264,19 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if (C.holder.rights & R_ADMIN)
 				admin = TRUE
 		voting |= C
-		. = "<meta charset='utf-8'><html><head><title>Voting Panel</title></head><body>"
+		. = "<meta charset='utf-8'><html><head><title>Голосование</title></head><body>"
 		if (mode)
-			if (question)	. += "<meta charset='utf-8'><h2>Vote: '[question]'</h2>"
-			else			. += "<meta charset='utf-8'><h2>Vote: [capitalize(mode)]</h2>"
-			. += "<meta charset='utf-8'>Time Left: [time_remaining] s<hr>"
-			. += "<meta charset='utf-8'><table width = '100%'><tr><td align = 'center'><b>Choices</b></td><td align = 'center'><b>Votes</b></td>"
+			if (question)	. += "<meta charset='utf-8'><h2>'[question]'</h2>" //Вопрос
+			else			. += "<meta charset='utf-8'><h2>[capitalize(mode)]</h2>" //Вопрос
+			. += "<meta charset='utf-8'>Ещё [time_remaining] до конца<hr>"
+			. += "<meta charset='utf-8'><table width = '100%'><tr><td align = 'center'><b>Варианты</b></td><td align = 'center'><b>Голоса</b></td>"
 			for (var/i = 1, i <= choices.len, i++)
 				var/votes = choices[choices[i]]
 				if (!votes)	votes = 0
 				. += "<tr>"
 
 				if (disabled.Find(choices[i]))
-					. += "<meta charset='utf-8'><td><font color = 'grey'>DISABLED ([disabled[choices[i]]]): [choices[i]]</td><td align = 'center'>[votes]</font></td>"
+					. += "<meta charset='utf-8'><td><font color = 'grey'>ОТКЛЮЧЕНО ([disabled[choices[i]]]): [choices[i]]</td><td align = 'center'>[votes]</font></td>"
 				else if (current_votes[C.ckey] == i)
 					. += "<meta charset='utf-8'><td><b><a href='?src=\ref[src];vote=[i]'>[choices[i]]</a></b></td><td align = 'center'>[votes]</td>"
 				else
@@ -287,24 +287,24 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 
 			. += "</table><hr>"
 			if (admin && mode != "map")
-				. += "(<a href='?src=\ref[src];vote=cancel'>Cancel Vote</a>) "
+				. += "(<a href='?src=\ref[src];vote=cancel'>Отменить голосование</a>) "
 		else
 			. += "<h2>Start a vote:</h2><hr><ul><li>"
 			//restart
 			if (admin || config.allow_vote_restart)
-				. += "<a href='?src=\ref[src];vote=restart'>Restart</a>"
+				. += "<a href='?src=\ref[src];vote=restart'>Рестарт</a>"
 			else
-				. += "<font color='grey'>Restart (Disallowed)</font>"
+				. += "<font color='grey'>Рестарт</font>"
 			. += "</li><li>"
 			if (admin)
 				. += "\t(<a href='?src=\ref[src];vote=toggle_restart'>[config.allow_vote_restart?"Allowed":"Disallowed"]</a>)"
 				. += "</li><li>"
-				. += "<a href='?src=\ref[src];vote=gamemode'>Gamemode</a></li>"
+				. += "<a href='?src=\ref[src];vote=gamemode'>Режим</a></li>"
 			//custom
 			if (admin)
-				. += "<li><a href='?src=\ref[src];vote=custom'>Custom</a></li>"
+				. += "<li><a href='?src=\ref[src];vote=custom'>Своё</a></li>"
 			. += "</ul><hr>"
-		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Close</a></body></html>"
+		. += "<a href='?src=\ref[src];vote=close' style='position:absolute;right:50px'>Закрыть</a></body></html>"
 
 		return .
 
@@ -328,10 +328,10 @@ var/global/list/round_voters = list() //Keeps track of the individuals voting fo
 			if ("restart")
 				if (config.allow_vote_restart || usr.client.holder)
 					if (config.vote_no_dead && usr.stat == DEAD && !usr.client.holder)
-						usr << "You can't start restart votes if you are not playing."
+						usr << "Вы не находитесь в раунде, голосование недоступно для вас"
 						return FALSE
-					if (map.nomads && clients.len < 10 && ((world.time-round_start_time)>36000) && !usr.client.holder)
-						usr << "You can't start restart votes if the server population is lower than 10 and the round has been going for over an hour."
+					if (map.nomads && clients.len < 20 && ((world.time-round_start_time)>36000) && !usr.client.holder)
+						usr << "Вы не можете начать повторное голосование, если игроков меньше 20 и раунд продолжается более часа."
 						return FALSE
 					initiate_vote("restart",usr.key)
 			if ("custom")
