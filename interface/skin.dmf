@@ -609,15 +609,13 @@ window "mainwindow"
 		is-maximized = true
 		keep-aspect = true
 		macro = "macro"
-		outer-size = 1936x1096
-		inner-size = 1920x1080
 	elem "mainvsplit"
 		type = CHILD
 		pos = 0,0
 		size = 640x440
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #1c1c1c
+		background-color = #271a0c
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
@@ -630,7 +628,6 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -638,7 +635,6 @@ window "mapwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 656x496
 	elem "map"
 		type = MAP
 		pos = 0,0
@@ -668,7 +664,6 @@ window "outputwindow"
 		can-resize = false
 		is-pane = true
 		can-scroll = vertical
-		outer-size = 656x496
 	elem "hotkey_toggle"
 		type = BUTTON
 		pos = 546,459
@@ -678,9 +673,9 @@ window "outputwindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #1c1c1c
+		background-color = #392611
 		saved-params = "is-checked"
-		text = "HOTKEY"
+		text = "Hotkey Toggle"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
 		button-type = pushbox
 	elem "saybutton"
@@ -692,9 +687,9 @@ window "outputwindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #1c1c1c
+		background-color = #392611
 		saved-params = "is-checked"
-		text = "SAY"
+		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
 		button-type = pushbox
 	elem "input"
@@ -705,7 +700,7 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-family = "Book Antiqua"
 		font-size = 8
-		background-color = #1c1c1c
+		background-color = #a68b7d
 		is-default = true
 		border = sunken
 		saved-params = ""
@@ -717,7 +712,7 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-family = "Book Antiqua,Bookman Old Style,@SimSun-ExtB"
 		font-size = 9
-		background-color = #1c1c1c
+		background-color = #392611
 		is-default = true
 		saved-params = "max-lines"
 		style = ".system {color:#ff0000;}"
@@ -730,12 +725,10 @@ window "browserwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Browser"
 		statusbar = false
 		is-pane = true
-		outer-size = 658x527
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
@@ -755,7 +748,7 @@ window "infowindow"
 		size = 420x477
 		anchor1 = none
 		anchor2 = none
-		background-color = #080808
+		background-color = #271a0c
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Info"
 		titlebar = false
@@ -764,8 +757,6 @@ window "infowindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 436x493
-		inner-size = 420x477
 	elem "info"
 		type = INFO
 		pos = 0,24
@@ -775,13 +766,13 @@ window "infowindow"
 		font-family = "Book Antiqua"
 		font-size = 8
 		text-color = #e1e1d7
-		background-color = #080808
+		background-color = #271a0c
 		is-default = true
 		drop-zone = false
 		saved-params = ""
 		highlight-color = #ff8040
 		tab-text-color = #e1e1d7
-		tab-background-color = #080808
+		tab-background-color = #271a0c
 		tab-font-family = "Book Antiqua"
 		tab-font-size = 9
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
@@ -794,7 +785,7 @@ window "rpane"
 		size = 420x457
 		anchor1 = none
 		anchor2 = none
-		background-color = #1c1c1c
+		background-color = #271a0c
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -802,15 +793,13 @@ window "rpane"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
-		outer-size = 436x473
-		inner-size = 420x457
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
 		size = 420x482
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #1c1c1c
+		background-color = #271a0c
 		saved-params = "splitter"
 		left = "buttons"
 		right = "outputwindow"
@@ -826,9 +815,9 @@ window "rpane"
 		font-size = 12
 		font-style = "bold italic"
 		text-color = #e1e1d7
-		background-color = #1c1c1c
+		background-color = #271a0c
 		saved-params = ""
-		text = "CivWeb"
+		text = "Civilization 13"
 
 window "text_editor"
 	elem "text_editor"
@@ -837,22 +826,18 @@ window "text_editor"
 		size = 360x488
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		is-visible = false
 		border = sunken
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Text Editor"
 		can-minimize = false
 		can-resize = false
-		outer-size = 378x557
-		inner-size = 360x510
 	elem "exit"
 		type = BUTTON
 		pos = 248,456
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "is-checked"
 		text = "Exit without saving"
 		command = ""
@@ -862,7 +847,6 @@ window "text_editor"
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "is-checked"
 		text = "Save"
 		command = ""
@@ -872,7 +856,6 @@ window "text_editor"
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "is-checked"
 		text = "Save + Exit"
 		command = ""
