@@ -234,7 +234,7 @@ var/world_topic_spam_protect_time = world.timeofday
 	spawn (150)
 
 		var/sleeptime = 0
-		world << "<span class = 'danger'>Rebooting!</span> <span class='notice'>Click here to rejoin (It may take a minute or two): <b>byond://[world.internet_address]:[port]</b></span>"
+		world << "<span class='notice'>Ваша крепость была покинута.</b></span>"
 
 		sleep(sleeptime) // I think this is needed so C << link() doesn't fail
 		if (processScheduler) // just in case
@@ -262,21 +262,21 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>CIVWEB</b></a></center><br>"
 	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<center><a href=\"[config.discordurl]\"><b>CIVWEB</b></a></center><br>"
 
 //	if (config.hub_banner_url)
 //		s += "<img src=\"https://i.imgur.com/fukQQKr.png\"><br>"
 	if (config && config.hostedby)
-		s += "hosted by <b>[config.hostedby]</b>"
+		s += "<small><small><small>joke</small></small></small>"
 	if (map)
-		s += "<b>Карта:</b> [map.title] ([roundduration2text()])<br>"
+		s += ""
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
 	if (map)
-		s += "<b>Режим:</b> [map.gamemode]"
+		s += ""
 	if (config.hub_body)
 		s += config.hub_body
 
