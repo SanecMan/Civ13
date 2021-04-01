@@ -23,7 +23,7 @@
 	faction2 = CHINESE
 	valid_weather_types = list(WEATHER_NONE, WEATHER_WET)
 	songs = list(
-		"Mugi to Heitai:1" = 'sound/music/mugi_to_heitai.ogg',)
+		"Муги То Хэйтай – Кодзи Цурута:1" = 'sound/music/mugi_to_heitai.ogg',)
 
 /obj/map_metadata/nanjing/job_enabled_specialcheck(var/datum/job/J)
 	..()

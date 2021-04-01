@@ -59,8 +59,8 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 			pregame_timeleft = GAMETICKER_PREGAME_TIME
 			maytip = TRUE
 
-			world << "<b><span style = 'notice'>Welcome to the pre-game lobby!</span></b>"
-			world << "The game will start in [pregame_timeleft] seconds."
+			world << "<b><span style = 'notice'>Добро пожаловать в Лобби!</span></b>"
+			world << "Начало игры через [pregame_timeleft] секунд."
 
 			while (current_state == GAME_STATE_PREGAME)
 				for (var/i=0, i<10, i++)

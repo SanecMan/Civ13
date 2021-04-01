@@ -1,6 +1,6 @@
 
 /hook/roundstart/proc/mainstuff()
-	world << "<b><big>The round has started!</big></b>"
+	world << "<b><big>Да начнётся игра!</big></b>"
 
 	for (var/C in clients)
 		winset(C, null, "mainwindow.flash=1")

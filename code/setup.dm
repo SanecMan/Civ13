@@ -5,7 +5,7 @@
 		job_master = new /datum/controller/occupations()
 		job_master.SetupOccupations()
 	//	job_master.LoadJobs("config/jobs.txt")
-		admin_notice("<span class='danger'>Job setup complete.</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Роли загружены.</span>", R_DEBUG)
 
 	// ticklag
 
@@ -13,18 +13,18 @@
 
 	// objects
 
-	admin_notice("<span class='danger'>Initializing objects...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Гружу обьекты...</span>", R_DEBUG)
 	sleep(-1)
 	for (var/atom/movable/object in world)
 		if (!object.gcDestroyed)
 			object.initialize()
 
-	admin_notice("<span class='danger'>Initializing areas...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Прогружаю зоны...</span>", R_DEBUG)
 	sleep(-1)
 	for (var/area/area in area_list)
 		area.initialize()
 
-	admin_notice("<span class='danger'>Initializing approved list...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Спец список загружается...</span>", R_DEBUG)
 	sleep(-1)
 	var/F = file("SQL/approved.txt")
 	if (fexists(F))
@@ -34,9 +34,9 @@
 				var/list/current = splittext(i, "=")
 				approved_list += current[1]
 	else
-		admin_notice("<span class='danger'>Failed to load approved list!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Спец список не загружен.</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing whitelistlist...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Гружу вайтлист...</span>", R_DEBUG)
 	sleep(-1)
 	var/F2 = file("SQL/whitelist.txt")
 	if (fexists(F2))
@@ -46,15 +46,15 @@
 				var/list/current = splittext(i, "=")
 				whitelist_list += current[1]
 	else
-		admin_notice("<span class='danger'>Failed to load whitelist!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Вайтлист не включён или произошла ошибка.</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing ban list...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю банилку...</span>", R_DEBUG)
 	sleep(-1)
 	if (load_bans())
 	else
-		admin_notice("<span class='danger'>Failed to load ban list!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Банилка не загружена.</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing crafting recipes...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю рецепты крафта...</span>", R_DEBUG)
 	sleep(-1)
 
 	var/all_craft_lists = flist("config/crafting/")
@@ -74,9 +74,9 @@
 					if (current.len != 13)
 						world.log << "Error! Recipe [current[2]] has a length_char of [current.len] (should be 13)."
 		else
-			admin_notice("<span class='danger'>Failed to load crafting recipes!</span>", R_DEBUG)
+			admin_notice("<span class='danger'>Рецепты крафта не загружены.</span>", R_DEBUG)
 
-	admin_notice("<span class='danger'>Initializing dictionary...</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загружаю словаь слов...</span>", R_DEBUG)
 	sleep(-1)
 	var/F4 = file("config/dictionary.txt")
 	if (fexists(F4))
@@ -88,7 +88,7 @@
 				if (current.len != 2)
 					world.log << "Error! Dictionary entry [current[1]] has a length_char of [current.len] (should be 2)."
 	else
-		admin_notice("<span class='danger'>Failed to load the dictionary!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Словарь слов выключен или не загружен.</span>", R_DEBUG)
 	sleep(-1)
 	var/F5 = file("scripts/clear_oggs.py")
 	if (fexists(F5) && world.system_type == UNIX)
@@ -96,7 +96,7 @@
 //	else if (fexists(F5) && world.system_type != UNIX)
 //		shell("python3 scripts/windows/clear_oggs.py")
 	else
-		admin_notice("<span class='danger'>Failed to find the ogg cleaner script!</span>", R_DEBUG)
+		admin_notice("<span class='danger'>Ошибка при очистке кэша .ogg файлов</span>", R_DEBUG)
 	sleep(-1)
 /////////////////PERSISTENCE STUFF/////////////////////
 /*	var/Fp = file("set_persistent.py")
@@ -131,8 +131,8 @@
 			map.default_research = 19
 		map.gamemode = "Persistent (Auto-Research)"
 		config.allow_vote_restart = FALSE
-		world << "<big><b>The current round has been set as a Persistent Round.</b></big>"
+		world << "<big><b>Текущий раунд теперь является постоянным (Persistent).</b></big>"
 
 	//////////////////////////////////////////////////////
-	admin_notice("<span class='danger'>Initializations complete.</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Загрузка завершена.</span>", R_DEBUG)
 	sleep(-1)

@@ -58,7 +58,7 @@
 
 /obj/map_metadata/battleroyale/cross_message(faction)
 	if (faction == PIRATES)
-		return "<font size = 4><b>The round has started!</b> Players may now cross the invisible wall!</font>"
+		return "<font size = 4><b>Да начнётся игра!</b> Игроки ещё могут подключиться пока стоит невидимая стена.</font>"
 
 /obj/map_metadata/battleroyale/update_win_condition()
 	if (processes.ticker.playtime_elapsed >= 18000)
