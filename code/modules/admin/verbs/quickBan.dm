@@ -33,11 +33,11 @@ var/list/ban_types = list("Faction Ban", "Job Ban", "Server Ban", "Playing Ban",
 							for(var/L in details_lines)
 								text2file("[L]|||", bans_file)
 
-			log_admin("[key_name(caller)] removed a ban for '[UID]/[ckey]/[cID]/[ip]'.")
-			message_admins("[key_name(caller)] removed a ban for '[UID]/[ckey]/[cID]/[ip]'.")
+			log_admin("[key_name(caller)] снял бан с '[UID]/[ckey]/[cID]/[ip]'.")
+			message_admins("[key_name(caller)] снял бан с '[UID]/[ckey]/[cID]/[ip]'.")
 			for (var/client/C in clients)
 				if (C.ckey == ckey)
-					C << "<span class = 'good'>href_list["Your ban has been lifted."]</span>"
+					C << "<span class = 'good'>href_list["Твои грехи искуплены."]</span>"
 
 var/datum/quickBan_handler/quickBan_handler = null
 
@@ -86,11 +86,11 @@ var/datum/quickBan_handler/quickBan_handler = null
 					result3 += list(result2)
 		result = result3
 
-	var/html = "<center><big>List of Quick Bans</big></center>"
+	var/html = "<meta charset='utf-8'><center><big>Лист Банов</big></center>"
 	var/list/possibilities = list()
 	if (islist(result) && !isemptylist(result))
 		for (var/list/v in result)
-			possibilities += "<big><b>UID [v[3]]</b> (<a href='byond://?src=\ref[quickBan_handler];caller=\ref[src];quickBan_removeBan=1;quickBan_removeBan_UID=[v[3]];quickBan_removeBan_ckey=[v[9]];quickBan_removeBan_cID=[v[10]];quickBan_removeBan_ip=[v[11]]'>DELETE</a>)</big>: [v[9]]/[v[10]]/[v[11]], type '[v[1]]' ([v[2]]): banned for '[v[4]]' by [v[5]] on [v[6]]. <b>[v[8]]</b>. (After assigned date)"
+			possibilities += "<meta charset='utf-8'><big><b>UID [v[3]]</b> (<a href='byond://?src=\ref[quickBan_handler];caller=\ref[src];quickBan_removeBan=1;quickBan_removeBan_UID=[v[3]];quickBan_removeBan_ckey=[v[9]];quickBan_removeBan_cID=[v[10]];quickBan_removeBan_ip=[v[11]]'>DELETE</a>)</big>: [v[9]]/[v[10]]/[v[11]], type '[v[1]]' ([v[2]]): banned for '[v[4]]' by [v[5]] on [v[6]]. <b>[v[8]]</b>. (After assigned date)"
 	for (var/possibility in possibilities)
 		html += "<br>"
 		html += possibility
@@ -403,15 +403,15 @@ var/datum/quickBan_handler/quickBan_handler = null
 
 	if (reason)
 		if (bantype == "Server")
-			src << "<span class = 'userdanger'>You're banned. Reason: '[reason]'. This ban was assigned on [date] and [expire_info] (after assigned date)</span>"
+			src << "<meta charset='utf-8'><span class = 'userdanger'>Ты забанен. Поздравляю. Причина бана: '[reason]'. Бан будет снят [date]. [expire_info]</span>"
 			return TRUE
 		else
-			src << "<span class = 'userdanger'>You're [lowertext(bantype)]-banned. Reason: '[reason]'. This ban was assigned on [date] and [expire_info] (after assigned date)</span>"
+			src << "<meta charset='utf-8'><span class = 'userdanger'>Ты получил бан типа [lowertext(bantype)]. Поздравляю. Причина бана: '[reason]'. Бан будет снят [date]. [expire_info]</span>"
 	return FALSE
 
 /* kick us if we just got banned */
 /client/proc/quickBan_kicked(var/bantype, var/reason, var/expire_info)
-	src << "<span class = 'userdanger'>You have been given a [lowertext(bantype)]-ban. Reason: '[reason]'. [expire_info].</span>"
+	src << "<meta charset='utf-8'><span class = 'userdanger'>Ты получил бан типа [lowertext(bantype)]. Поздравляю. Причина бана: '[reason]'. [expire_info].</span>"
 	del src
 
 /* check if we're an admin trying to quickBan another admin */
@@ -424,7 +424,7 @@ var/datum/quickBan_handler/quickBan_handler = null
 			for(var/i in admincheck)
 				var/list/admincheck_two = splittext(i, ";")
 				if (admincheck_two.len && admincheck_two[1] == "[_ckey]")
-					src << "<span class = 'danger'>You can't ban admins!</span>"
+					src << "<span class = 'danger'>Не можешь.</span>"
 					return TRUE
 	return FALSE
 
