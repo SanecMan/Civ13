@@ -133,18 +133,6 @@
 	if (H.getStatCoeff("crafting") < 2.5 && map.civilizations)
 		user << "You don't have the skills to design a new gun! Use an existing blueprint."
 		return FALSE
-	var/found = FALSE
-	if (istype(user.l_hand, /obj/item/stack/money))
-		var/obj/item/stack/money/M = user.l_hand
-		if (M.value*M.amount >= 20)
-			found = TRUE
-	else if (istype(user.r_hand, /obj/item/stack/money))
-		var/obj/item/stack/money/M = user.r_hand
-		if (M.value*M.amount >= 20)
-			found = TRUE
-	if (!found)
-		user << "You don't have enough money to make a new blueprint! You need 50 gold or equivalent in one of your hands."
-		return FALSE
 ////////////////STOCK///////////////////////////////
 	var/list/display = list("Cancel")
 	if (map.ordinal_age == 5)
