@@ -3,7 +3,7 @@
 
 	var/list/epochs = list(
 		//"Stone Age (?-3000 B.C.)" = 0,
-		"Chad Mode" = 40,
+		"Chad Mode" = 0,
 		"Bronze Age (500 B.C.-400 A.D.)" = 0,
 		//"Dark Ages (400-700)" = 0,
 		"Middle Ages (700-1450)" = 0,
@@ -14,11 +14,11 @@
 		"World War II (1931-1948)" = 0,
 		"Cold War Era (1949-1984)" = 0,
 		"Modern Era (1985-2020)" = 0,
-		"Civilization 13 (Nomads)" = 40,
+		"Civilization 13 (Nomads)" = 0,
 		"Civilization 13 (Colony & Pioneers)" = 0,
 		"Civilization 13 (Prison Camps)" = 15,
 		"Civilization 13 (Others)" = 0,
-		"Battle Royale" = 32,
+		"Battle Royale" = 0,
 	)
 	var/ready = TRUE
 	var/admin_triggered = FALSE
@@ -50,21 +50,21 @@
 				"Cold War Era (1949-1984)" = 0,
 				"Modern Era (1985-2020)" = 0,
 //				"Chad Mode" = 0,
-				"Battle Royale" = 32,
+				"Battle Royale" = 6,
 			)
 		else if (config.allowedgamemodes == "RP")
 			epochs = list(
-				"The Art of the Deal" = 20,
-				"Civilization 13 (Nomads)" = 40,
+				"The Art of the Deal" = 10,
+				"Civilization 13 (Nomads)" = 0,
 				"Civilization 13 (Colony & Pioneers)" = 0,
 				"Civilization 13 (Prison Camps)" = 15,
 				"Civilization 13 (Others)" = 0,)
 		else if (config.allowedgamemodes == "PERSISTENCE")
 			epochs = list(
-				"Civilization 13 (Nomads)" = 40,)
+				"Civilization 13 (Nomads)" = 0,)
 		else if (config.allowedgamemodes == "BR")
 			epochs = list(
-				"Battle Royale" = 20,)
+				"Battle Royale" = 6,)
 		ready = FALSE
 		vote.initiate_vote("epoch", "EpochSwap Process", TRUE, list(src, "swap"))
 
@@ -114,10 +114,10 @@
 	// 2013 - TDM
 			maps = list(
 				MAP_HOSTAGES = 0,
-				MAP_ARAB_TOWN = 4,
-				MAP_ARAB_TOWN_2 = 4,
+				MAP_ARAB_TOWN = 0,
+				MAP_ARAB_TOWN_2 = 0,
 				MAP_ALLEYWAY = 0,
-				MAP_CAPITOL_HILL = 20,
+				MAP_CAPITOL_HILL = 10,
 				MAP_FOOTBALL = 4,
 			)
 		else if (epoch == "Cold War Era (1949-1984)")
@@ -188,7 +188,7 @@
 		else if (epoch == "Chad Mode")
 	// chad mode group for TDM
 			maps = list(
-				MAP_JUNGLE_OF_THE_CHADS = 40,
+				MAP_JUNGLE_OF_THE_CHADS = 0,
 			)
 		else if (epoch == "The Art of the Deal")
 			maps = list(
@@ -210,19 +210,19 @@
 		else if (epoch == "Civilization 13 (Nomads)")
 			maps = list(
 //				MAP_CIVILIZATIONS = 0,
-///				MAP_NOMADS = 0, // где три тильды - выключены мной а не англичанами
-///				MAP_NOMADS_DESERT = 0,
-///				MAP_NOMADS_ICE_AGE = 0,
-///				MAP_NOMADS_JUNGLE = 0,
-///				MAP_NOMADS_DIVIDE = 10,
-///				MAP_NOMADS_CONTINENTAL = 20,
-///				MAP_NOMADS_PANGEA = 10,
+				MAP_NOMADS = 0,
+				MAP_NOMADS_DESERT = 0,
+				MAP_NOMADS_ICE_AGE = 0,
+				MAP_NOMADS_JUNGLE = 0,
+				MAP_NOMADS_DIVIDE = 10,
+				MAP_NOMADS_CONTINENTAL = 20,
+				MAP_NOMADS_PANGEA = 10,
 				MAP_NOMADS_WASTELAND = 0,
 				MAP_NOMADS_WASTELAND_2 = 0,
-///				MAP_NOMADS_NEW_WORLD = 10,
-///				MAP_NOMADS_MEDITERRANEAN = 10,
+				MAP_NOMADS_NEW_WORLD = 10,
+				MAP_NOMADS_MEDITERRANEAN = 10,
 //				MAP_NOMADS_ISLAND = 0,
-///				MAP_NOMADS_KARAFUTO = 0,
+				MAP_NOMADS_KARAFUTO = 0,
 			)
 		else if (epoch == "Civilization 13 (Colony & Pioneers)")
 			maps = list(
@@ -241,7 +241,7 @@
 				MAP_TRIBES = 12,
 				MAP_HUNT = 0,
 				MAP_LITTLE_CREEK = 10,
-				MAP_THE_ART_OF_THE_DEAL = 15,
+				MAP_THE_ART_OF_THE_DEAL = 10,
 				MAP_FOUR_KINGDOMS = 0,
 			)
 		else if (epoch == "Battle Royale")
@@ -318,12 +318,12 @@
 
 	map.gamemode = vote.voted_gamemode
 	if (vote.voted_gamemode == "Classic (Stone Age Start)")
-		world << "<big><b>Классика</b>, изучение активно.</big>"
+		world << "<big>Starting <b>Classic</b> mode. Starting epoch is the Stone Age, research active.</big>"
 		map.ordinal_age = 0
 		return
 
 	if (vote.voted_gamemode == "Chad Mode")
-		world << "<font color=#CECE00><big><b>Режим Безумия</b>, изучение неактивно. Уменьшены стартовые предметы, увеличено количество врагов.</big></font>"
+		world << "<font color=#CECE00><big>Starting <b>Chad Mode</b>. Game epoch is the Stone Age, research inactive. Reduced starting items and more hostile conditions.</big></font>"
 		map.ordinal_age = 0
 		map.research_active = FALSE
 		map.chad_mode = TRUE
@@ -359,7 +359,7 @@
 		return
 
 	if (vote.voted_gamemode == "Chad Mode +")
-		world << "<font color=#CECE00><big><b>Режим Безумия +</b>, изучение через жертвоприношение. Уменьшены стартовые предметы, увеличено количество врагов.</big></font>"
+		world << "<font color=#CECE00><big>Starting <b>Chad Mode +</b>. Starting epoch is the Stone Age, research is done by sacrificing players. Reduced starting items and more hostile conditions.</big></font>"
 		map.ordinal_age = 0
 		map.research_active = TRUE
 		map.chad_mode = TRUE
@@ -396,7 +396,7 @@
 		return
 
 	else if (vote.voted_gamemode == "Bronze Age (No Research)")
-		world << "<big><b>Бронзовая Эра</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Bronze Age</b> mode. Game epoch is the Bronze Age, research inactive.</big>"
 		map.ordinal_age = 1
 		map.age = "313 B.C."
 		map.age1_done = TRUE
@@ -412,7 +412,7 @@
 		return
 
 	else if (vote.voted_gamemode == "Auto-Research Mode")
-		world << "Начало вашего пути идёт от <b>Каменного Века</b>, изучение происходит само, расслабьтесь и стройте свой город мечты.</big>"
+		world << "<big>Starting <b>Auto-Research mode</b>. Starting epoch is the Stone Age, research active but automatic.</big>"
 		map.research_active = FALSE //well, it is, but we dont get research kits.
 		map.autoresearch = TRUE
 		map.ordinal_age = 0
@@ -421,14 +421,14 @@
 		return
 
 	else if (vote.voted_gamemode == "Resource-Based Research")
-		world << "<big>Начало вашего пути идёт от <b>Каменного Века</b>, изучение работает через <b>Исследовательское Бюро (Research Desks)</b>.</big>"
+		world << "<big>Starting <b>Resource-Based Research</b>. Starting epoch is the Stone Age, research active and requires the sale of items through <b>Research Desks</b>.</big>"
 		map.research_active = FALSE //well, it is, but we dont get research kits.
 		map.resourceresearch = TRUE
 		map.ordinal_age = 0
 		return
 
 	else if (vote.voted_gamemode == "Bronze Age Start")
-		world << "<big>Начало вашего пути идёт от <b>Бронзовой Эры</b>, изучение активно.</big>"
+		world << "<big>Starting Classic mode with <b>Bronze Age</b> start. Starting epoch is the Bronze Age, research active.</big>"
 		map.ordinal_age = 1
 		map.age = "313 B.C."
 		map.age1_done = TRUE
@@ -443,7 +443,7 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	else if (vote.voted_gamemode == "Medieval (No Research)")
-		world << "<big><b>Средние Века</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Medieval Age</b> mode. Game Epoch is the Medieval Age, research inactive.</big>"
 		map.ordinal_age = 2
 		map.age = "1013"
 		map.age1_done = TRUE
@@ -459,7 +459,7 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	else if (vote.voted_gamemode == "Imperial Age (No Research)")
-		world << "<big><b>Эра Империализма</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Imperial Age</b> mode. Game Epoch is the Imperial Age, research inactive.</big>"
 		map.ordinal_age = 3
 		map.age = "1713"
 		map.age1_done = TRUE
@@ -476,7 +476,7 @@
 		map.civf_research = list(customresearch,customresearch,customresearch,null)
 		return
 	else if (vote.voted_gamemode == "Industrial Age (No Research)")
-		world << "<big><b>Индустриальная Эра</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Industrial Age</b> mode. Game Epoch is the Industrial Age, research inactive.</big>"
 		map.ordinal_age = 4
 		map.age = "1873"
 		map.age1_done = TRUE
@@ -495,7 +495,7 @@
 		return
 
 	else if (vote.voted_gamemode == "Early Modern Age (No Research)")
-		world << "<big><b>Эпоха Модерна</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Early Modern Age</b> mode. Game Epoch is the EarLy Modern Age, research inactive.</big>"
 		map.ordinal_age = 5
 		map.age = "1903"
 		map.age1_done = TRUE
@@ -515,7 +515,7 @@
 		return
 
 	else if (vote.voted_gamemode == "WW2 Age (No Research)")
-		world << "<big>Starting <b>Период Второй Мировой Войны</b> mode, изучение неактивно.</big>"
+		world << "<big>Starting <b>WW2 Age</b> mode. Game Epoch is the WW2 Age, research inactive.</big>"
 		map.ordinal_age = 6
 		map.age = "1943"
 		map.age1_done = TRUE
@@ -536,7 +536,7 @@
 		return
 
 	else if (vote.voted_gamemode == "Modern Age (No Research)")
-		world << "<big>Starting <b>Современная Эра</b>, изучение неактивно.</big>"
+		world << "<big>Starting <b>Modern Age</b> mode. Game Epoch is the Modern Age, research inactive.</big>"
 		map.ordinal_age = 8
 		map.age = "2013"
 		map.age1_done = TRUE
@@ -559,21 +559,21 @@
 		return
 	/// TDM MODES ///
 	else if (vote.voted_gamemode == "Normal")
-		world << "<font color='green'><big>Normal Mode</big><br>Без куллдауна по респавну.</big></font>"
+		world << "<font color='green'><big>Normal Mode</big><br>No respawn delays.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = TRUE
 		map.gamemode = "Normal"
 		global_damage_modifier = 1
 		return
 	else if (vote.voted_gamemode == "Competitive")
-		world << "<font color='yellow'><big>Competitive Mode</big><br>Куллдаун при респавне, увеличеный урон.</big></font>"
+		world << "<font color='yellow'><big>Competitive Mode</big><br>Respawn delay enabled, increased damage.</big></font>"
 		config.disable_fov = TRUE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Competitive"
 		global_damage_modifier = 1.15
 		return
 	else if (vote.voted_gamemode == "Hardcore")
-		world << "<font color='red'><big>HARDCORE Mode</big><br>Респавн отключён, увеличеный урон, включены награды.</big></font>"
+		world << "<font color='red'><big>HARDCORE Mode</big><br>No respawns, increased damage. Field of View enabled. Awards active.</big></font>"
 		config.disable_fov = FALSE
 		config.no_respawn_delays = FALSE
 		map.gamemode = "Hardcore"
