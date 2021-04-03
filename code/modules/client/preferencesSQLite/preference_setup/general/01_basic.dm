@@ -31,7 +31,7 @@
 		currcursor = "Green Crosshair"
 	else
 		currcursor = "Default"
-	. += "<b>Cursor Style: </b><a href='?src=\ref[src];select_cursor=1'><b>[currcursor]</b></A><br><br>"
+	. += "<meta charset='utf-8'><b>Тип Курсора: </b><a href='?src=\ref[src];select_cursor=1'><b>[currcursor]</b></A><br><br>"
 	if (ishuman(user) && user.stat != DEAD)
 		. += "<br>"
 	else
@@ -97,7 +97,7 @@
 		return TOPIC_REFRESH
 
 	else if (href_list["select_cursor"])
-		var/cursor_new = WWinput(usr, "Choose Cursor Style:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
+		var/cursor_new = WWinput(usr, "Выберите тип курсора:", "Mouse Cursor", "Default", list("Default","Red Crosshair","Green Crosshair","White Crosshair"))
 		if (cursor_new == "Default")
 			pref.cursor = null
 		else if (cursor_new == "Red Crosshair")

@@ -27,8 +27,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	if (ishuman(user) && user.stat != DEAD)
-		. += "<center><font size='5' color='red'><b>YOU CAN'T CHANGE YOUR CHARACTER PREFERENCES WHILE PLAYING!</b></font><br><br>"
-		. += "<font size='2' color='red'>Come back after your character dies.</font></center>"
+		. += "<center><font size='5' color='red'><b>Запрещено менять персонажа находясь в раунде.</b></font><br><br>"
 	else
 		var/mob_species = all_species[pref.species]
 		. += "<table><tr style='vertical-align:top'><td>"
