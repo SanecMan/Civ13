@@ -292,6 +292,7 @@
 #include "code\game\objects\map_metadata\kursk.dm"
 #include "code\game\objects\map_metadata\little_creek.dm"
 #include "code\game\objects\map_metadata\little_creek_tdm.dm"
+#include "code\game\objects\map_metadata\lobby.dm"
 #include "code\game\objects\map_metadata\missionary_ridge.dm"
 #include "code\game\objects\map_metadata\nanjing.dm"
 #include "code\game\objects\map_metadata\nankou.dm"
@@ -998,5 +999,5 @@
 #include "code\processes\zoom\zoom_scopes.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\1943\nanjing.dmm"
+#include "maps\nomads\lobby.dmm"
 // END_INCLUDE
