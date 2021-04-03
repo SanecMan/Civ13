@@ -245,8 +245,8 @@
 	info_links = info
 	var/i = FALSE
 	for (i=1,i<=fields,i++)
-		addtofield(i, "<meta charset='utf-8'><font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", TRUE)
-	info_links = info_links + "<font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
+		addtofield(i, "<meta charset='utf-8'><meta charset='utf-8'><font face=\"[deffont]\"><A href='?src=\ref[src];write=[i]'>write</A></font>", TRUE)
+	info_links = info_links + "<meta charset='utf-8'><font face=\"[deffont]\"><A href='?src=\ref[src];write=end'>write</A></font>"
 
 
 /obj/item/weapon/paper/proc/clearpaper()
