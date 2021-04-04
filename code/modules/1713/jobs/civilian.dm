@@ -2409,7 +2409,7 @@
 	en_meaning = ""
 	rank_abbreviation = "Fire Response"
 	whitelisted = TRUE
-	spawn_location = "JoinLateCivH"
+	spawn_location = "TAODfireres"
 	selection_color = "#880000"
 	is_deal = TRUE
 	can_be_female = TRUE
@@ -2431,7 +2431,7 @@
 	H.equip_to_slot_or_del(new /obj/item/weapon/fire_extinguisher(H), slot_l_hand)
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/nbc/olive/fire(H), slot_wear_suit)
 	H.equip_to_slot_or_del(new /obj/item/clothing/head/nbc/olive/fire(H), slot_head)
-	H.add_note("Role", "You are a fireperson. Put out fires, fix broken roads, coordinate with other emergency services, and try to keep everyone safe.")
+	H.add_note("Role", "Вы пожарник. Ваша задача следить что бы не было пожаров и вовремя тушить их если они есть.")
 	H.setStat("strength", STAT_VERY_HIGH)
 	H.setStat("crafting", STAT_VERY_HIGH)
 	H.setStat("rifle", STAT_NORMAL)
@@ -2446,7 +2446,7 @@
 /datum/job/civilian/businessman/legitimate
 	title = "Legitimate Business"
 	selection_color = "#6f4e37"
-	spawn_location = "JoinLateCivI"
+	spawn_location = "TAODleg"
 	min_positions = 3
 	max_positions = 15
 	whitelisted = TRUE
@@ -2457,7 +2457,7 @@
 	H.equip_to_slot_or_del(new /obj/item/clothing/under/modern2(H), slot_w_uniform)
 	H.equip_to_slot_or_del(new /obj/item/stack/money/dollar/onehundy(H), slot_l_store)
 	H.equip_to_slot_or_del(new /obj/item/weapon/telephone/mobile(H), slot_r_store)
-	H.add_note("Role", "You are a legitimate business person. Find a business to invest in or start your own.")
+	H.add_note("Role", "Вы бизмесмен. Ваша задача развивать инфраструктуру города и создать свой бизнес, легально.")
 
 
 
