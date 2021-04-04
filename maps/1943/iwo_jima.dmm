@@ -461,7 +461,7 @@
 "iT" = (/obj/structure/barbwire,/turf/floor/dirt/dust,/area/caribbean)
 "iU" = (/obj/structure/barbwire,/turf/floor/dirt/burned,/area/caribbean)
 "iV" = (/obj/item/mine/boobytrap,/mob/living/human/corpse/japanese_ww2,/turf/floor/beach/sand/dark,/area/caribbean)
-"iW" = (/obj/structure/sink/kitchen{icon_state = "sink_alt"; dir = 4},/turf/floor/dirt,/area/caribbean/japanese/land/inside)
+"iW" = (/obj/structure/sink/kitchen{icon_state = "sink"; dir = 4},/turf/floor/dirt,/area/caribbean/japanese/land/inside)
 "iX" = (/obj/structure/table/wood,/obj/item/weapon/reagent_containers/food/drinks/bottle/small/sake{icon_state = "sake_closed"},/obj/item/weapon/reagent_containers/food/drinks/bottle/small/sake{icon_state = "sake_closed"},/obj/item/weapon/reagent_containers/food/drinks/bottle/small/sake{icon_state = "sake_closed"},/turf/floor/dirt,/area/caribbean/japanese/land/inside)
 "iY" = (/obj/structure/lamp/lamp_small/alwayson{icon_state = "bulb"; dir = 1},/obj/structure/window/barrier/sandbag{icon_state = "sandbag"; dir = 8},/turf/floor/dirt,/area/caribbean/japanese/land/inside)
 "iZ" = (/obj/structure/filingcabinet/filingcabinet,/turf/floor/dirt,/area/caribbean/japanese/land/inside)

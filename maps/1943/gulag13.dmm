@@ -772,7 +772,7 @@
 "pg" = (/obj/structure/closet/crate/footlocker,/obj/roof/clay/black,/obj/item/weapon/storage/ww2/shaving_kit/german,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
 "ph" = (/obj/structure/closet/crate/footlocker,/obj/item/weapon/newspaper,/obj/roof/clay/black,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
 "pi" = (/obj/structure/closet/crate/footlocker,/obj/roof/clay/black,/obj/item/weapon/storage/ww2/german,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
-"pj" = (/obj/structure/sink/kitchen{icon_state = "sink_alt"; dir = 8},/obj/roof/clay/black,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
+"pj" = (/obj/structure/sink/kitchen{icon_state = "sink"; dir = 8},/obj/roof/clay/black,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
 "pk" = (/obj/structure/closet/anchored{custom_code = 4975; locked = 1},/obj/item/weapon/material/pickaxe,/obj/item/weapon/material/pickaxe,/obj/item/weapon/material/shovel,/obj/item/weapon/material/shovel,/obj/item/clothing/mask/shemagh/redkerchief,/obj/item/clothing/mask/shemagh/redkerchief,/obj/roof/clay/black,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)
 "pl" = (/obj/structure/wild/tallgrass2,/turf/floor/winter,/area/caribbean/prison)
 "pm" = (/obj/item/stack/material/rope{amount = 10},/obj/item/stack/material/rope{amount = 10},/obj/item/stack/material/rope{amount = 10},/obj/roof/clay/black,/turf/floor/plating/tiled,/area/caribbean/russian/land/outside/tundra)

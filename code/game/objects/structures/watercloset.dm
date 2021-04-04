@@ -883,7 +883,7 @@
 
 /obj/structure/sink/kitchen
 	name = "kitchen sink"
-	icon_state = "sink_alt"
+	icon_state = "sink"
 
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"

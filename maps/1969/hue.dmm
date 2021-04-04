@@ -104,7 +104,7 @@
 "bZ" = (/turf/floor/plating/steel,/area/caribbean/roofed)
 "ca" = (/obj/structure/drying_rack,/turf/floor/plating/steel,/area/caribbean/roofed)
 "cb" = (/obj/covers/marble_checkerboard,/turf/floor/wood,/area/caribbean/roofed)
-"cc" = (/obj/structure/sink/kitchen{dir = 8; icon_state = "sink_alt"; pixel_x = 12},/obj/covers/marble_checkerboard,/turf/floor/wood,/area/caribbean/roofed)
+"cc" = (/obj/structure/sink/kitchen{dir = 8; icon_state = "sink"; pixel_x = 12},/obj/covers/marble_checkerboard,/turf/floor/wood,/area/caribbean/roofed)
 "cd" = (/obj/structure/bed/chair/office/dark,/obj/effect/landmark{name = "JoinLateJPCap"},/turf/floor/carpet/redcarpet,/area/caribbean/japanese/land/inside/command)
 "ce" = (/obj/structure/closet/fridge{powerneeded = 0},/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/obj/item/weapon/reagent_containers/food/snacks/meat,/turf/floor/plating/steel,/area/caribbean/roofed)
 "cf" = (/obj/structure/closet/fridge{powerneeded = 0},/obj/item/weapon/pigleg/salted,/obj/item/weapon/pigleg/salted,/obj/item/weapon/pigleg/salted,/obj/item/weapon/pigleg/salted,/obj/item/weapon/pigleg/salted,/turf/floor/plating/steel,/area/caribbean/roofed)

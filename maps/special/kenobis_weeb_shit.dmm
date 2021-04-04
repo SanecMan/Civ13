@@ -335,7 +335,7 @@
 "gw" = (/obj/covers/thatch,/obj/structure/lamp/lamp_big/alwayson,/turf/floor/grass,/area/caribbean/russian/land/inside)
 "gx" = (/obj/covers/thatch,/obj/structure/closet/crate/ww2/mosin_ammo,/turf/floor/grass,/area/caribbean/russian/land/inside)
 "gy" = (/obj/covers/thatch,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/item/weapon/grenade/ww2/rgd33,/obj/structure/closet/crate/ww2/rgd33,/turf/floor/grass,/area/caribbean/russian/land/inside)
-"gz" = (/obj/covers/thatch,/obj/structure/sink/kitchen{dir = 8; dist_x = 0; icon_state = "sink_alt"; step_x = 12},/turf/floor/grass,/area/caribbean/russian/land/inside)
+"gz" = (/obj/covers/thatch,/obj/structure/sink/kitchen{dir = 8; dist_x = 0; icon_state = "sink"; step_x = 12},/turf/floor/grass,/area/caribbean/russian/land/inside)
 "gA" = (/obj/covers/thatch,/obj/structure/vending/sovietammo,/turf/floor/grass,/area/caribbean/russian/land/inside)
 "gB" = (/obj/covers/thatch,/obj/structure/lamp/lamp_big/alwayson{icon_state = "tube"; dir = 4},/turf/floor/grass,/area/caribbean/russian/land/inside)
 "gC" = (/obj/covers/thatch,/obj/structure/oven/woodstove{fuel = 1000},/turf/floor/grass,/area/caribbean/russian/land/inside)
