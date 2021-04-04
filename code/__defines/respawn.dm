@@ -1,1 +1,1 @@
-#define RESPAWN_MESSAGE "<span class = 'good'><font size = 4>You can respawn with the 'Respawn' verb in the IC tab.</font></span>"
+#define RESPAWN_MESSAGE "<span class = 'good'><font size = 2>Что бы вернуться в лобби нажмите на кнопку Respawn во вкладке IC.</font></span>"
