@@ -40,7 +40,7 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b>\n"
+	var/msg = "<b>Игроки:</b>\n"
 
 	var/list/Lines = list()
 
@@ -52,16 +52,16 @@
 			entry += " - Playing as [C.mob.real_name]"
 			switch(C.mob.stat)
 				if (UNCONSCIOUS)
-					entry += " - <font color='red'><b>Unconscious</b></font>"
+					entry += " - <font color='red'><b>[pick("В отключке","Без сознания")]</b></font>"
 				if (DEAD)
 					if (isghost(C.mob))
 						var/mob/observer/ghost/O = C.mob
 						if (O.started_as_observer)
-							entry += " - <font color='gray'>Observing</font>"
+							entry += " - <font color='gray'>Наблюдает</font>"
 						else
-							entry += " - <font color='red'><b>DEAD</b></font>"
+							entry += " - <font color='red'><b>Мёртв</b></font>"
 					else
-						entry += " - <font color='gray'>In Lobby</font>"
+						entry += " - <font color='gray'>Лобби</font>"
 
 			var/age
 			if (isnum(C.player_age))
