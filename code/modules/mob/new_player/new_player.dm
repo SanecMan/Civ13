@@ -113,7 +113,7 @@ var/global/redirect_all_players = null
 		output += "<p><a href='byond://?src=\ref[src];ready=0'>Загрузка</a></p>"
 	else
 		if (map.ID == MAP_TRIBES || map.ID == MAP_THREE_TRIBES || map.ID == MAP_FOUR_KINGDOMS)
-			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Стать трибуналом</a></p>"
+			output += "<p><a href='byond://?src=\ref[src];tribes=1'>Стать колонистом</a></p>"
 		else if (map.civilizations == TRUE && map.nomads == FALSE)
 			output += "<p><a href='byond://?src=\ref[src];civilizations=1'>Стать жителем</a></p>"
 		else if (map.nomads == TRUE)
