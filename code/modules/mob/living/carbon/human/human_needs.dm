@@ -7,24 +7,24 @@
 		var/msg_hygiene = ""
 		switch(mood)
 			if(-5000000 to 20)
-				msg = "Your mood is horrible!"
+				msg = "[pick("Настроение ужасное","Настроение...")]"
 			if(20 to 40)
-				msg = "Your mood is bad."
+				msg = "[pick("Настроение плохое","Настроение не из хороших")]"
 			if(40 to 60)
-				msg = "Your mood is neutral."
+				msg = "[pick("Настроение никакое","Настроение никакое")]"
 			if(60 to 80)
-				msg = "Your mood is good."
+				msg = "[pick("Настроение приподнятое","Настроение хорошее")]"
 			if(80 to 10000)
-				msg = "Your mood is excellent!"
+				msg = "[pick("Настроение счастливое","Настроение приятное")]"
 		switch(hygiene)
 			if(HYGIENE_LEVEL_CLEAN to INFINITY)
-				msg_hygiene = "You feel very clean!"
+				msg_hygiene = "Чистый"
 			if(HYGIENE_LEVEL_NORMAL to HYGIENE_LEVEL_CLEAN)
-				msg_hygiene = "You feel clean."
+				msg_hygiene = "Чистый"
 			if(HYGIENE_LEVEL_DIRTY to HYGIENE_LEVEL_NORMAL)
-				msg_hygiene = "You feel a bit dirty."
+				msg_hygiene = "Немного грязный"
 			if(0 to HYGIENE_LEVEL_DIRTY)
-				msg_hygiene = "You feel very dirty!"
+				msg_hygiene = "Грязный"
 		H << "<span class='info'>*---------*</span>"
 		H << "<span class='info'>[msg]</span>"
 		H << "<span class='info'>[msg_hygiene]</span>"
