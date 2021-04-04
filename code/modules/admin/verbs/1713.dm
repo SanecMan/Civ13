@@ -669,7 +669,7 @@ var/filipino_forceEnabled = FALSE
 
 	if (public == "Yes")
 		if (!shower || (input(shower, "Are you sure you want to show the battle report? Unless the Battle Controller Process died, it will happen automatically!", "Battle Report") in list ("Yes", "No")) == "Yes")
-			world << "<font size=4>Status Report:</font>"
+			world << "<font size=4>Статус:</font>"
 
 			if (msg1)
 				world << "<font size=3>[msg1]</font>"
