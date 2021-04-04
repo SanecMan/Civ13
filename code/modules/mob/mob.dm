@@ -435,12 +435,12 @@
 
 	src << browse(null, "window=memory")
 
-	src << "You can respawn now, enjoy your new life!"
+	src << "Вам доступен ещё один шанс"
 	stop_ambience(usr)
 
 	log_game("[name]/[key] used abandon mob.")
 
-	usr << "<span class='notice'><b>Make sure to play a different character, and please roleplay correctly!</b></span>"
+	usr << "<span class='notice'><b>И были вы возращены откуда начинали путь...</b></span>"
 
 	if (!client)
 		log_game("[key] AM failed due to disconnect.")
@@ -471,7 +471,7 @@
 	if (client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = TRUE
 	else if (stat != DEAD || istype(src, /mob/new_player))
-		usr << "<span class = 'notice'>You must be observing to use this!</span>"
+		usr << "<span class = 'notice'>Я ещё живой</span>"
 		return
 
 	if (is_admin && stat == DEAD)
@@ -571,15 +571,15 @@
 	if (ismob(AM))
 
 		if (!can_pull_mobs || !can_pull_size)
-			src << "<span class='warning'>It won't budge!</span>"
+			src << "<span class='warning'>Никак не могу подвинуть</span>"
 			return
 
 		if ((mob_size < M.mob_size) && (can_pull_mobs != MOB_PULL_LARGER))
-			src << "<span class='warning'>It won't budge!</span>"
+			src << "<span class='warning'Никак не могу подвинуть</span>"
 			return
 
 		if ((mob_size == M.mob_size) && (can_pull_mobs == MOB_PULL_SMALLER))
-			src << "<span class='warning'>It won't budge!</span>"
+			src << "<span class='warning'>Никак не могу подвинуть</span>"
 			return
 
 		// If your size is larger than theirs and you have some
