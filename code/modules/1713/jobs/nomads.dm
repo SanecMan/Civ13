@@ -937,7 +937,7 @@
 	H.make_nomad()
 //	H.give_languages()
 
-	H.add_note("Role", "You are a <b>Nomad</b>. Form a tribe and survive!")
+	H.add_note("Role", "Теперь ты <b>Колонист</b>. Найдите или создайте фракцию и выживайте.")
 
 	H.setStat("strength", pick(STAT_NORMAL, STAT_MEDIUM_LOW, STAT_MEDIUM_HIGH))
 	H.setStat("crafting", pick(STAT_NORMAL, STAT_MEDIUM_LOW, STAT_MEDIUM_HIGH))
