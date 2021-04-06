@@ -9,6 +9,48 @@
 	else
 		H.give_random_civ_name()
 
+
+/datum/job/civilian/debug
+	title = "Debug"
+	en_meaning = "Debug Outfilt"
+	rank_abbreviation = "Debug"
+	spawn_location = "Debug"
+	is_officer = TRUE
+	is_commander = TRUE
+	whitelisted = TRUE
+	is_governor = TRUE
+
+	min_positions = 0
+	max_positions = 0
+
+/datum/job/civilian/debug/equip(var/mob/living/human/H)
+	if (!H)	return FALSE
+//shoes
+	H.equip_to_slot_or_del(new /obj/item/clothing/shoes/leatherboots1(H), slot_shoes)
+//clothes
+	H.equip_to_slot_or_del(new /obj/item/clothing/under/civ4(H), slot_w_uniform)
+//jacket
+	H.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/piratejacket5(H), slot_wear_suit)
+//head
+	H.equip_to_slot_or_del(new /obj/item/clothing/head/powdered_wig(H), slot_head)
+
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/gov(H), slot_r_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/key/civ/hall(H), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/weapon/material/sword/spadroon(H), slot_belt)
+//	H.equip_to_slot_or_del(new/obj/item/stack/money/real(H), slot_l_store)
+	H.add_note("DEBUG")
+	H.setStat("strength", STAT_MAX)
+	H.setStat("crafting", STAT_MAX)
+	H.setStat("rifle", STAT_MAX)
+	H.setStat("dexterity", STAT_MAX)
+	H.setStat("swords", STAT_MAX)
+	H.setStat("pistol", STAT_MAX)
+	H.setStat("bows", STAT_MAX)
+	H.setStat("medical", STAT_MAX)
+
+
+	return TRUE
+
 /datum/job/civilian/governor
 	title = "Governor"
 	en_meaning = "Colony Leader"
@@ -2306,8 +2348,8 @@
 	en_meaning = ""
 	rank_abbreviation = "Paramedic"
 	whitelisted = FALSE
-	spawn_location = "JoinLateCivE"
-	selection_color = "#777777"
+	spawn_location = "TAODmed"
+	selection_color = "#00aa25"
 	is_deal = TRUE
 	can_be_female = TRUE
 	min_positions = 3
