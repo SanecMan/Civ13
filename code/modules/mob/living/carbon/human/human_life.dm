@@ -1220,15 +1220,15 @@
 
 	if (water < 200 && water >= 150)
 		if (prob(3))
-			src << "<span class = 'warning'>You're getting a bit thirsty.</span>"
+			src << "<span class = 'warning'>[pick("Пить немного хочу","Попил бы немного","Хочется пить")]</span>"
 
 	else if (water < 150 && water >= 100)
 		if (prob(4))
-			src << "<span class = 'warning'>You're pretty thirsty.</span>"
+			src << "<span class = 'warning'>[pick("Хочу пить","Попил бы","Воды хочется")]</span>"
 
 	else if (water < 100 && water >= 20)
 		if (prob(5))
-			src << "<span class = 'danger'>You're really thirsty!</span>"
+			src << "<span class = 'danger'>[pick("Выпил бы океан","Очень хочу пить")]</span>"
 
 	else if (water < 20) //Nutrition is below 20 = dehydration
 

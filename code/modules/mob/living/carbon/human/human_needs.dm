@@ -18,13 +18,13 @@
 				msg = "[pick("Настроение счастливое","Настроение приятное")]"
 		switch(hygiene)
 			if(HYGIENE_LEVEL_CLEAN to INFINITY)
-				msg_hygiene = "Чистый"
+				msg_hygiene = "Я чистый"
 			if(HYGIENE_LEVEL_NORMAL to HYGIENE_LEVEL_CLEAN)
-				msg_hygiene = "Чистый"
+				msg_hygiene = "Я чистый"
 			if(HYGIENE_LEVEL_DIRTY to HYGIENE_LEVEL_NORMAL)
-				msg_hygiene = "Немного грязный"
+				msg_hygiene = "Я немного грязный"
 			if(0 to HYGIENE_LEVEL_DIRTY)
-				msg_hygiene = "Грязный"
+				msg_hygiene = "Я грязный"
 		H << "<span class='info'>*---------*</span>"
 		H << "<span class='info'>[msg]</span>"
 		H << "<span class='info'>[msg_hygiene]</span>"
