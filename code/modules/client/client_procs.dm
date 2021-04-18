@@ -132,8 +132,9 @@
 		return null
 
 	if (key != world.host)
-		if (!config.guests_allowed && IsGuestKey(key))
-			WWalert(src, "This server doesn't allow guest accounts to play. Please go to http://www.byond.com/ and register for a key.", "Guest Account Detected")
+		if (IsGuestKey(key))
+			log_access("Игрок без сикея: сикей: ''[key]'', IP адрес и через чёрточку ID компьютера: ''[address]-[computer_id]''")
+			WWalert(src, "\nReason: Guests not allowed. Please sign in with a byond account.", "guest")
 			del(src)
 			return
 
