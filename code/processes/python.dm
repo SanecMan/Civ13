@@ -24,6 +24,8 @@
 				return shell("sudo python3 [getScriptDir()]/[command]")
 		else
 			log_debug("python script \"[command]\" already running!")
+			world << "<span class = 'danger'>Рестарт через 30 секунд.</span> <span class='notice'>После отключения соединения вы будете автоматически подключены обратно.</b></span>"
+
 			return FALSE
 	return FALSE
 
