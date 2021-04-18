@@ -437,9 +437,6 @@
 			newgunbp.override_icon = current_gun.override_icon
 			newgunbp.cost_wood = using_wood
 			newgunbp.cost_steel = using_steel
-		else
-			user << "<span class='warning'>You do not have enough money to finish the blueprint!</span>"
-			qdel(current_gun)
 			return
 		if (current_gun)
 			current_gun.finish()
