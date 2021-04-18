@@ -646,12 +646,12 @@ This saves us from having to call add_fingerprint() any time something is put in
 	if (ishuman(mob))
 		if (mob.defense_intent == I_DODGE)
 			mob.defense_intent = I_PARRY
-			mob << "<span class='warning'>You will now parry.</span>"
+			mob << "<span class='warning'>Вы готовитесь паррировать атаки.</span>"
 			var/obj/screen/intent/I = mob.HUDneed["mode"]
 			I.update_icon()
 		else
 			mob.defense_intent = I_DODGE
-			mob << "<span class='warning'>You will now dodge.</span>"
+			mob << "<span class='warning'>Вы готовитесь уклоняться от атак.</span>"
 			var/obj/screen/intent/I = mob.HUDneed["mode"]
 			I.update_icon()
 

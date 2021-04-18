@@ -91,17 +91,17 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 				gun_view += S.zoom_amt
 
 	if (!(aiming_with in owner) || (istype(owner, /mob/living/human) && (owner.l_hand != aiming_with && owner.r_hand != aiming_with)))
-		owner << "<span class='warning'>You must keep hold of your weapon!</span>"
+		owner << "<span class='warning'>Оружие не в руках!</span>"
 	else if (owner.eye_blind)
-		owner << "<span class='warning'>You are blind and cannot see your target!</span>"
+		owner << "<span class='warning'>Я слепой!</span>"
 	else if (!aiming_at || !istype(aiming_at.loc, /turf))
-		owner << "<span class='warning'>You have lost sight of your target!</span>"
+		owner << "<span class='warning'>Цель потеряна!</span>"
 	else if (owner.incapacitated() || owner.lying || owner.restrained())
-		owner << "<span class='warning'>You must be conscious and standing to keep track of your target!</span>"
+		owner << "<span class='warning'>Не могу лежа на полу целиться!</span>"
 	else if (aiming_at.alpha == FALSE || (aiming_at.invisibility > owner.see_invisible))
-		owner << "<span class='warning'>Your target has become invisible!</span>"
+		owner << "<span class='warning'>Где цель!?</span>"
 	else if (!(aiming_at in view(gun_view, owner)))
-		owner << "<span class='warning'>Your target is too far away to track!</span>"
+		owner << "<span class='warning'>Цель далеко!</span>"
 	else
 		cancel_aim = FALSE
 
@@ -121,13 +121,13 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 		return
 
 	if (owner.incapacitated())
-		owner << "<span class='warning'>You cannot aim a gun in your current state.</span>"
+		owner << "<span class='warning'>Не могу прицелиться в таком состоянии.</span>"
 		return
 	if (owner.lying && !owner.prone)
-		owner << "<span class='warning'>You cannot aim a gun while laying on the floor.</span>"
+		owner << "<span class='warning'>Не могу прицелиться лежа на полу.</span>"
 		return
 	if (owner.restrained())
-		owner << "<span class='warning'>You cannot aim a gun while handcuffed.</span>"
+		owner << "<span class='warning'>Я закован.</span>"
 		return
 
 	var/success = FALSE
@@ -149,7 +149,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if (success)
 		if (owner.client)
 			owner.client.add_gun_icons()
-		target << "<span class='danger'>You now have a gun pointed at you. No sudden moves!</span>"
+		target << "<span class='danger'>На вас навели оружие. Не думаю что стоит провоцировать на выстрел.</span>"
 		aiming_with = thing
 		aiming_at = target
 		if (istype(aiming_with, /obj/item/weapon/gun))
@@ -186,10 +186,10 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 
 	if (owner.client)
 		if (active)
-			owner << "<span class='notice'>You will now aim rather than fire.</span>"
+			owner << "<span class='notice'>Я начиинаю целиться.</span>"
 			owner.client.add_gun_icons()
 		else
-			owner << "<span class='notice'>You will no longer aim rather than fire.</span>"
+			owner << "<span class='notice'>Я перестаю целиться.</span>"
 			owner.client.remove_gun_icons()
 
 /obj/aiming_overlay/proc/cancel_aiming(var/no_message = FALSE)

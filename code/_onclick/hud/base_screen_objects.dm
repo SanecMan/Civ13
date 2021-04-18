@@ -966,11 +966,11 @@ obj/screen/tactic
 /obj/screen/mode/Click()
 	if (parentmob.defense_intent == I_DODGE)
 		parentmob.defense_intent = I_PARRY
-		parentmob << "<span class='warning'>You will now parry.</span>"
+		parentmob << "<span class='warning'>Вы готовитесь паррировать атаки.</span>"
 		update_icon()
 	else
 		parentmob.defense_intent = I_DODGE
-		parentmob << "<span class='warning'>You will now dodge.</span>"
+		parentmob << "<span class='warning'>Вы готовитесь уклоняться от атак.</span>"
 		update_icon()
 /obj/screen/mode/update_icon()
 	switch (parentmob.defense_intent)

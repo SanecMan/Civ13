@@ -1099,15 +1099,15 @@
 
 	if (nutrition < 220 && nutrition >= 150)
 		if (prob(3))
-			src << "<span class = 'warning'>You're getting a bit hungry.</span>"
+			src << "<span class = 'warning'>Я немного голоден.</span>"
 
 	else if (nutrition < 150 && nutrition >= 100)
 		if (prob(4))
-			src << "<span class = 'warning'>You're pretty hungry.</span>"
+			src << "<span class = 'warning'>Я сильно голоден.</span>"
 
 	else if (nutrition < 100 && nutrition >= 20)
 		if (prob(5))
-			src << "<span class = 'danger'>You're getting really hungry!</span>"
+			src << "<span class = 'danger'>[pick("Поел бы","Сейчас бы еды")]</span>"
 
 	else if (nutrition < 20) //Nutrition is below 20 = starvation
 
