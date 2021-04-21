@@ -18,6 +18,16 @@
 	var/is   = "are"
 	var/does = "do"
 
+	var/Rukey  = "они"
+	var/RuHe   = "Они"
+	var/Ruhe   = "они"
+	var/RuHis  = "Их"
+	var/Ruhis  = "их"
+	var/Ruhim  = "им"
+	var/Ruhas  = "держать" //А так же иметь обладать и прочее
+	var/Ruis   = "моё"
+	var/Rudoes = "делает"
+
 /datum/gender/male
 	key  = "male"
 
@@ -29,6 +39,15 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
+
+	RuHe   = "Он"
+	Ruhe   = "он"
+	RuHis  = "Его"
+	Ruhis  = "его"
+	Ruhim  = "ему"
+	Ruhas  = "у него"
+	Ruis   = "мой" //ну это пиздец конечно и ебля с правилами ага да пусть на первое время так
+	Rudoes = "делает" //тут надо бы добавить падежи
 
 /datum/gender/female
 	key  = "female"
@@ -42,6 +61,15 @@
 	is   = "is"
 	does = "does"
 
+	RuHe   = "Она"
+	Ruhe   = "она"
+	RuHis  = "Её" //Если буква "ё" решит сломать билд - удалить
+	Ruhis  = "её"
+	Ruhim  = "ей"
+	Ruhas  = "у неё"
+	Ruis   = "моя"
+	Rudoes = "делает"
+
 /datum/gender/neuter
 	key = "neuter"
 
@@ -53,3 +81,12 @@
 	has  = "has"
 	is   = "is"
 	does = "does"
+
+	RuHe   = "Это"
+	Ruhe   = "это"
+	RuHis  = "Это" //its множественное а it не множественное, тут проще вписать это
+	Ruhis  = "это"
+	Ruhim  = "это"
+	Ruhas  = "это"
+	Ruis   = "моё"
+	Rudoes = "делает"
