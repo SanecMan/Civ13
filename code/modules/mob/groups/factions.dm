@@ -469,10 +469,10 @@
 				if (relf == H.civilization && H.stat != DEAD)
 					map.facl[relf] += 1
 
-		var/body = "<html><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
+		var/body = "<meta charset='UTF-8'><html><head><title>Faction List</title></head><b>FACTION LIST</b><br><br>"
 		for (var/relf in map.facl)
 			if (map.facl[relf] > 0)
-				body += "<b>[relf]</b>: [map.facl[relf]] members.</br>"
+				body += "<meta charset='UTF-8'><b>[relf]</b>: [map.facl[relf]] members.</br>"
 		body += {"<br>
 			</body></html>
 		"}

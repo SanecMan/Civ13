@@ -262,21 +262,21 @@ var/world_topic_spam_protect_time = world.timeofday
 	var/s = ""
 
 	if (config.open_hub_discord_in_new_window)
-		s += "<center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='UTF-8'><center><a href=\"[config.discordurl]\" target=\"_blank\"><b>[customserver_name()]</b></a></center><br>"
 	else
-		s += "<center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
+		s += "<meta charset='UTF-8'><center><a href=\"[config.discordurl]\"><b>[customserver_name()]</b></a></center><br>"
 
 //	if (config.hub_banner_url)
 //		s += "<img src=\"https://i.imgur.com/fukQQKr.png\"><br>"
-	if (config && config.hostedby)
-		s += "hosted by <b>[config.hostedby]</b>"
+//	if (config && config.hostedby)
+//		s += "hosted by <b>[config.hostedby]</b>"
 	if (map)
-		s += "<b>Карта:</b> [map.title] ([roundduration2text()])<br>"
+		s += "<meta charset='UTF-8'><b>Карта:</b> [map.title] ([roundduration2text()])<br>"
 
 	// we can't execute code in config settings, so this is a workaround.
 	config.hub_body = replacetext(config.hub_body, "ROUNDTIME", capitalize(lowertext(roundduration2text())))
 	if (map)
-		s += "<b>Режим:</b> [map.gamemode]"
+		s += "<meta charset='UTF-8'><b>Режим:</b> [map.gamemode]"
 	if (config.hub_body)
 		s += config.hub_body
 
